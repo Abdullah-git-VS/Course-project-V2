@@ -12,10 +12,11 @@
 </head>
 <body>
     <?php
-    include('config.php');
+    include('user/config.php');
     $ID=$_GET['id'];
     $UP=mysqli_query($con,"SELECT * FROM products WHERE id=$ID");
     $data = mysqli_fetch_array($UP);
+    mysqli_close($con);
     ?>
     <center>
         <div class="main">

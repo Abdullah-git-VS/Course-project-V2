@@ -1,6 +1,6 @@
 <?php
 
-include('config.php');
+include('admin\user\config.php');
 session_start();
 $user_id = $_SESSION['user_id'];
 
@@ -37,10 +37,11 @@ if (isset($_GET['logout'])) {
   }
   ?>
   <?php
-  $select_user = mysqli_query($conn, "SELECT * FROM `user_info` WHERE id = '$user_id'") or die('query failed');
+  $select_user = mysqli_query($con, "SELECT * FROM `user_info` WHERE id = '$user_id'") or die('query failed');
   if (mysqli_num_rows($select_user) > 0) {
     $fetch_user = mysqli_fetch_assoc($select_user);
   };
+  mysqli_close($con);
   ?>
   <nav class="navbar">
     <div class="logo">

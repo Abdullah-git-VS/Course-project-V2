@@ -1,5 +1,3 @@
 <?php
-
-$conn = mysqli_connect('localhost','root','12345678','online') or die('connection failed');
-
+$con = mysqli_connect('localhost','root','12345678','online') or die('connection failed');
 ?>

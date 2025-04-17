@@ -1,5 +1,5 @@
 <?php
-include('config.php');
+include('user/config.php');
 
 if (isset($_POST['update'])) {
     $ID_o = $_POST['o'];

@@ -16,7 +16,7 @@
 <body>
     <center>
         <div class="main">
-            <form action="insert.php" method="post" enctype="multipart/form-data">
+            <form action="Function\insert.php" method="post" enctype="multipart/form-data">
                 <h2>إضافة المنتجات</h2>
                 <img src="images\transportation.jpg" alt="logo" width="450px">
                 <div class="second">
