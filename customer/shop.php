@@ -25,7 +25,7 @@ $data = mysqli_fetch_array($up);
 
         .card {
             float: right;
-            margin-top: 200px;
+            margin-top: 20px;
             margin-left: 10px;
             margin-right: 10px;
         }
