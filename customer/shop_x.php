@@ -48,7 +48,7 @@ if (isset($_GET['delete_all'])) {
    mysqli_query($con, "DELETE FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
    header('location:shop_x.php');
 }
-
+mysqli_close($con);
 ?>
 
 <!DOCTYPE html>
@@ -82,6 +82,7 @@ if (isset($_GET['delete_all'])) {
          if (mysqli_num_rows($select_user) > 0) {
             $fetch_user = mysqli_fetch_assoc($select_user);
          };
+         mysqli_close($con);
          ?>
 
          <p>المستخدم الحالي : <span><?php echo $fetch_user['name']; ?></span> </p>

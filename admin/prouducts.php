@@ -62,7 +62,7 @@
         <center>
         <main>
             <div class='card' style='width: 15rem; border: 1px black solid;'>
-             <img src='/$row[image]' class='card-img-top'>
+             <img src='/customer/$row[image]' class='card-img-top'>
              <div class='card-body' style='border: 1px black solid;'>
                     <h5 class='card-title'>$row[name]</h5>
                     <p class='card-text'>$row[price]</p>

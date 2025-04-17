@@ -22,7 +22,7 @@
         <div class="main">
             <form action="Function/up.php" method="post" enctype="multipart/form-data">
                 <h2>تعديل المنتجات</h2>
-                <img src="/<?php echo $data['image'];?>" alt="logo" width="450px">
+                <img src="/customer/<?php echo $data['image'];?>" alt="logo" width="450px">
 
                 <input style="display: none;" type="text" name='o' value='<?php echo $data['id'];?>'>
                 <br>

@@ -14,6 +14,7 @@ if(isset($_POST['submit'])){
    }else{
       mysqli_query($con, "INSERT INTO user_info(name, email, password) VALUES('$name', '$email', '$pass')") or die('query failed');
       $message[] = 'registered successfully!';
+      mysqli_close($con);
       header('location:../home_Page.php');
    }
 
