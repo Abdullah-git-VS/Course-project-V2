@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <?php
-include('admin\user\config.php');
+include('admin\Function\config.php');
 session_start();
 
 if (isset($_POST['submit'])) {
@@ -14,7 +14,7 @@ if (isset($_POST['submit'])) {
   if (mysqli_num_rows($select) > 0) {
     $row = mysqli_fetch_assoc($select);
     $_SESSION['user_id'] = $row['id'];
-    header('location: userPage.php');
+    header('location: user_Page.php');
   } else {
     $message[] = 'incorrect password or email!';
   }
@@ -26,8 +26,8 @@ mysqli_close($con);
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>transport</title>
-  <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+  <link rel="stylesheet" href="hide_style.css">
   <link rel="stylesheet" href="index2.css">
   <style>
     .reg-container {
@@ -149,6 +149,7 @@ mysqli_close($con);
       <div class="popup-content">
         <span class="close" id="closePopup">&times;</span>
         <h2>تسجيل الدخول</h2>
+
         <form action="" method="post">
 
           <input type="email" class="box" name="email" id="username " required placeholder="Username">
@@ -157,7 +158,7 @@ mysqli_close($con);
 
           <button type="submit" name="submit" class="btn"> <strong> Sign-in </strong> </button> <br>
 
-          <p>هل تملك حساب بالفعل؟ <a href="admin\user\register.php" style="color: red;"> حساب جديد</a></p>
+          <p>هل تملك حساب بالفعل؟ <a href="customer\register.php" style="color: red;"> حساب جديد</a></p>
         </form>
       </div>
     </div>

@@ -1,6 +1,5 @@
 <?php
-include('user/config.php');
-
+include('config.php');
 if (isset($_POST['upload'])) {
     $NAME = $_POST['name'];
     $PRICE = $_POST['price'];
@@ -12,4 +11,5 @@ if (isset($_POST['upload'])) {
     mysqli_query($con, $insert);
     mysqli_close($con);
 }
-header('location: test.php');
+header('location: ..\add.php');
+?>

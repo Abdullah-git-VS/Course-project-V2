@@ -1,7 +1,5 @@
 <?php
-
-include ('config.php');
-
+include ('..\admin\Function\config.php');
 if(isset($_POST['submit'])){
 
    $name = mysqli_real_escape_string($con, $_POST['name']);
@@ -16,7 +14,7 @@ if(isset($_POST['submit'])){
    }else{
       mysqli_query($con, "INSERT INTO user_info(name, email, password) VALUES('$name', '$email', '$pass')") or die('query failed');
       $message[] = 'registered successfully!';
-      header('location:../../homePage.php');
+      header('location:../home_Page.php');
    }
 
 }
@@ -58,7 +56,7 @@ if(isset($message)){
       <input type="password" name="password" required placeholder="كلمة المرور" class="box">
       <input type="password" name="cpassword" required placeholder="تأكيد كلمة المرور" class="box">
       <input type="submit" name="submit" class="btn" value="تسجيل حساب">
-      <p>هل لديك حساب؟ <a href="../../homePage.php"> تسجيل دخول</a></p>
+      <p>هل لديك حساب؟ <a href="../../home_Page.php"> تسجيل دخول</a></p>
    </form>
 
 </div>

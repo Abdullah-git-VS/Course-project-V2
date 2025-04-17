@@ -1,3 +1,9 @@
+<?php
+include('..\admin\Function\config.php');
+$ID = $_GET['id'];
+$up = mysqli_query($con, "SELECT * FROM products WHERE id=$ID");
+$data = mysqli_fetch_array($up);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -19,10 +25,9 @@
 
         .card {
             float: right;
-            margin-top: 20px;
+            margin-top: 200px;
             margin-left: 10px;
             margin-right: 10px;
-
         }
 
         .card img {
@@ -32,7 +37,7 @@
         }
 
         main {
-            width: 100%;
+            padding-right: 20px;
         }
 
         #aa {
@@ -49,34 +54,28 @@
 
 <body>
     <nav calss="navbar">
-        <a id="aa" class="navbar-brand" href="add.php">Add Product | إضافة منتج</a>
+        <a id="aa" class="navbar-brand" href="card.php">Mycard | عربتي</a>
     </nav>
     <center>
-        <h3>جميع المنتجات المتوفرة</h3>
-    </center>
-    <?php
-    include('Function\config.php');
-    $result = mysqli_query($con, "SELECT * FROM products");
-    while ($row = mysqli_fetch_array($result)) {
-        echo "
-        <center>
+        <h3>المنتجات المتوفرة</h3>
         <main>
+            <?php
+            include('..\Function\config.php');
+            $result = mysqli_query($con, "SELECT * FROM products");
+            while ($row = mysqli_fetch_array($result)) {
+                echo "
             <div class='card' style='width: 15rem; border: 1px black solid;'>
-             <img src='/$row[image]' class='card-img-top'>
+             <img src='$row[image]' class='card-img-top'>
              <div class='card-body' style='border: 1px black solid;'>
                     <h5 class='card-title'>$row[name]</h5>
                     <p class='card-text'>$row[price]</p>
-                    <a href='Function\delete.php? id=$row[id]' class='btn btn-danger'>حذف</a>
-                    <a href='update.php? id=$row[id]' class='btn btn-primary'>تعديل</a>
+                    <a href='? id=$row[id]' class='btn btn-success'>إضافة المنتج للعربة</a>
                 </div>
             </div>
-        </main>
-            <center>
             ";
-    }
-    mysqli_close($con);
-    ?>
-    </center>
+            }
+            mysqli_close($con);
+            ?>
+        </main>
 </body>
-
 </html>

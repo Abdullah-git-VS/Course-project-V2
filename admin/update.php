@@ -12,18 +12,17 @@
 </head>
 <body>
     <?php
-    include('user/config.php');
+    include('Function\config.php');
     $ID=$_GET['id'];
     $UP=mysqli_query($con,"SELECT * FROM products WHERE id=$ID");
     $data = mysqli_fetch_array($UP);
     mysqli_close($con);
     ?>
     <center>
-    <?php echo $data['image'];?>
         <div class="main">
             <form action="Function/up.php" method="post" enctype="multipart/form-data">
                 <h2>تعديل المنتجات</h2>
-                <img src="<?php echo $data['image'];?>" alt="logo" width="450px">
+                <img src="/<?php echo $data['image'];?>" alt="logo" width="450px">
 
                 <input style="display: none;" type="text" name='o' value='<?php echo $data['id'];?>'>
                 <br>

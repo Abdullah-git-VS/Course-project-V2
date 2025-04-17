@@ -1,17 +1,17 @@
 <?php
 
-include('config.php');
+include('..\admin\Function\config.php');
 session_start();
 $user_id = $_SESSION['user_id'];
 
 if (!isset($user_id)) {
-   header('location:admin\homePage.php');
+   header('location:../home_Page.php');
 };
 
 if (isset($_GET['logout'])) {
    unset($user_id);
    session_destroy();
-   header('location:admin\homePage.php');
+   header('location:../home_Page.php');
 };
 
 if (isset($_POST['add_to_cart'])) {
@@ -41,12 +41,12 @@ if (isset($_POST['update_cart'])) {
 if (isset($_GET['remove'])) {
    $remove_id = $_GET['remove'];
    mysqli_query($con, "DELETE FROM `cart` WHERE id = '$remove_id'") or die('query failed');
-   header('location:index.php');
+   header('location:shop_x.php');
 }
 
 if (isset($_GET['delete_all'])) {
    mysqli_query($con, "DELETE FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
-   header('location:index.php');
+   header('location:shop_x.php');
 }
 
 ?>
@@ -98,12 +98,12 @@ if (isset($_GET['delete_all'])) {
          <div class="box-container">
 
             <?php
-            include('config.php');
+            include('admin\Function\config.php.php');
             $result = mysqli_query($con, "SELECT * FROM products");
             while ($row = mysqli_fetch_array($result)) {
             ?>
                <form method="post" class="box" action="">
-                  <img src="admin/<?php echo $row['image']; ?>" width="200">
+                  <img src="<?php echo $row['image']; ?>" width="200">
                   <div class="name"><?php echo $row['name']; ?></div>
                   <div class="price"><?php echo $row['price']; ?></div>
                   <input type="number" min="1" name="product_quantity" value="1">
@@ -152,7 +152,7 @@ if (isset($_GET['delete_all'])) {
                            </form>
                         </td>
                         <td><?php echo $sub_total = ($fetch_cart['price'] * $fetch_cart['quantity']); ?>$</td>
-                        <td><a href="index.php?remove=<?php echo $fetch_cart['id']; ?>" class="delete-btn" onclick="return confirm('إزالة العنصر من سلة التسوق؟');">حذف</a></td>
+                        <td><a href="shop_x.php?remove=<?php echo $fetch_cart['id']; ?>" class="delete-btn" onclick="return confirm('إزالة العنصر من سلة التسوق؟');">حذف</a></td>
                      </tr>
                <?php
                      $grand_total += $sub_total;
@@ -164,7 +164,7 @@ if (isset($_GET['delete_all'])) {
                <tr class="table-bottom">
                   <td colspan="4">المبلغ الإجمالي :</td>
                   <td><?php echo $grand_total; ?>$</td>
-                  <td><a href="index.php?delete_all" onclick="return confirm('حذف كل المنتجات من العربة?');" class="delete-btn <?php echo ($grand_total > 1) ? '' : 'disabled'; ?>">حذف الكل</a></td>
+                  <td><a href="shop_x.php?delete_all" onclick="return confirm('حذف كل المنتجات من العربة?');" class="delete-btn <?php echo ($grand_total > 1) ? '' : 'disabled'; ?>">حذف الكل</a></td>
                </tr>
             </tbody>
          </table>
