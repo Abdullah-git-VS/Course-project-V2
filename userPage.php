@@ -19,7 +19,7 @@
     <ul>
       <li class="profile">
         <div class="img-box">
-          <img src="images/map-operation.svg" alt="user">
+          <img src="photo\map-operation.svg" alt="user">
         </div>
         <h2> meshal </h2>
       </li>
