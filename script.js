@@ -15,3 +15,19 @@ window.onclick = (event) => {
     loginPopup.style.display = 'none';
   }
 };
+function validate() {
+
+  var a = document.getElementById("password").value;
+  var b = document.getElementById("confirm_password").value;
+  if (a != b) {
+      alert("Passwords do no match");
+      return false;
+  }
+};
+function dd(){
+const loadImage = e => {
+  const img = document.getElementById('preview');
+  img.src = URL.createObjectURL(e.target.files[0]);
+  img.style.display = 'block';
+};
+}

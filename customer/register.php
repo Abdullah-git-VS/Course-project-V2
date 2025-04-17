@@ -24,23 +24,24 @@ if(isset($_POST['submit'])){
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>register</title>
-
-   <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
-   <style>
-      input{
-         text-align: center;
-      }
-   </style>
+   <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>register</title>
+      
+      <!-- custom css file link  -->
+      <link rel="stylesheet" href="css/style.css">
+      <style>
+         input{
+            text-align: center;
+         }
+         </style>
+         <script src="../script.js"></script>
 </head>
 <body>
-
-<?php
+   
+   <?php
 if(isset($message)){
    foreach($message as $message){
       echo '<div class="message" onclick="this.remove();">'.$message.'</div>';
@@ -48,19 +49,19 @@ if(isset($message)){
 }
 ?>
    
-<div class="form-container">
-
-   <form action="" method="post">
-      <h3>انشاء حساب جديد</h3>
-      <input type="text" name="name" required placeholder="اسم السمتخدم" class="box">
-      <input type="email" name="email" required placeholder="البريد الالكتروني" class="box">
-      <input type="password" name="password" required placeholder="كلمة المرور" class="box">
-      <input type="password" name="cpassword" required placeholder="تأكيد كلمة المرور" class="box">
-      <input type="submit" name="submit" class="btn" value="تسجيل حساب">
-      <p>هل لديك حساب؟ <a href="../../home_Page.php"> تسجيل دخول</a></p>
-   </form>
-
-</div>
-
+   <div class="form-container">
+      
+      <form onSubmit="return validate();" method="post" >
+         <h3>انشاء حساب جديد</h3>
+         <input type="text" name="name" required placeholder="اسم السمتخدم" class="box">
+         <input type="email" name="email" required placeholder="البريد الالكتروني" class="box">
+         <input type="password" name="password" required placeholder="كلمة المرور" class="box" name="password" id="password">
+         <input type="password" name="cpassword" required placeholder="تأكيد كلمة المرور" class="box" id="confirm_password">
+         <input type="submit" name="submit" class="btn" value="تسجيل حساب">
+         <p>هل لديك حساب؟ <a href="../../home_Page.php"> تسجيل دخول</a></p>
+      </form>
+      
+   </div>
+   
 </body>
 </html>
