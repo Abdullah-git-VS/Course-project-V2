@@ -12,11 +12,7 @@
       <div class="logo">
         <h1>Transport</h1>
       </div>
-
-      <div class="nav-link">
-      <a href="#">about</a>
-      <a href="homePage.php">Home</a>
-    </div>
+      
     </nav>
 </body>
 </html>

@@ -5,13 +5,13 @@ session_start();
 $user_id = $_SESSION['user_id'];
 
 if (!isset($user_id)) {
-   header('location:sign.php');
+   header('location:admin\homePage.php');
 };
 
 if (isset($_GET['logout'])) {
    unset($user_id);
    session_destroy();
-   header('location:sign.php');
+   header('location:admin\homePage.php');
 };
 
 if (isset($_POST['add_to_cart'])) {
@@ -86,7 +86,7 @@ if (isset($_GET['delete_all'])) {
 
          <p>المستخدم الحالي : <span><?php echo $fetch_user['name']; ?></span> </p>
          <div class="flex">
-            <a href="index.php?logout=<?php echo $user_id; ?>" onclick="return confirm('هل أنت متأكد أنك تريد تسجيل الخروج؟');" class="delete-btn">تسجيل الخروج</a>
+            <a href="?logout=<?php echo $user_id; ?>" onclick="return confirm('هل أنت متأكد أنك تريد تسجيل الخروج؟');" class="delete-btn">تسجيل الخروج</a>
          </div>
 
       </div>
