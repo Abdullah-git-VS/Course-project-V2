@@ -1,5 +1,5 @@
 <?php
-include('user/config.php');
+include('../user/config.php');
 
 if (isset($_POST['update'])) {
     $ID_o = $_POST['o'];
@@ -14,6 +14,6 @@ if (isset($_POST['update'])) {
     $update = "UPDATE products SET name='$NAME' , price='$PRICE', image='$image_up', id='$ID_n' WHERE id=$ID_o";
     mysqli_query($con, $update);
     mysqli_close($con);
-    header('location: test.php');
+    header('location: ../test.php');
 }
 ?>
