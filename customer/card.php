@@ -29,11 +29,14 @@
             margin-top: 30px;
         }
 
+        .table {
+            --bs-table-bg: none;
+            --bs-table-color: none;
+        }
+
         table {
             box-shadow: 1px 1px 10px silver;
             border-radius: var(--bs-border-radius);
-            --bs-table-bg: none;
-            --bs-table-color: none;
         }
 
         thead {
@@ -91,4 +94,5 @@
         <a href="shop.php">صفحة المنتجات</a>
     </center>
 </body>
+
 </html>
