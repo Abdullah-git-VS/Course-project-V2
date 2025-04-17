@@ -25,10 +25,6 @@ if (isset($_GET['logout'])) {
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-</head>
-
-<body>
-
   <?php
   if (isset($message)) {
     foreach ($message as $message) {
@@ -42,6 +38,15 @@ if (isset($_GET['logout'])) {
     $fetch_user = mysqli_fetch_assoc($select_user);
   };
   mysqli_close($con);
+  ?>
+</head>
+
+<body>
+
+<?php
+  if (isset($prod)) {
+  }
+  include('admin\prouducts.php');
   ?>
   <nav class="navbar">
     <div class="logo">
@@ -73,7 +78,7 @@ if (isset($_GET['logout'])) {
       </li>
 
       <li>
-        <a href="#">
+        <a href="?prod=<?php echo $user_id; ?>">
           <i class="fas fa-table"></i>
           <p> product </p>
         </a>
