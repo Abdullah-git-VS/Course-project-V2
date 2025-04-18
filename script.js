@@ -15,8 +15,8 @@ window.onclick = (event) => {
     loginPopup.style.display = 'none';
   }
 };
-function validate() {
 
+function validate() {
   var a = document.getElementById("password").value;
   var b = document.getElementById("confirm_password").value;
   if (a != b) {
@@ -31,3 +31,5 @@ const loadImage = e => {
   img.style.display = 'block';
 };
 }
+
+

@@ -65,8 +65,9 @@ mysqli_close($con);
 </head>
 
 <body>
-<div id="shadow-host"></div>
-
+   <?php
+   include('..\user_Page.php');
+   ?>
    <?php
    if (isset($message)) {
       foreach ($message as $message) {
@@ -77,23 +78,7 @@ mysqli_close($con);
 
    <div class="container">
 
-      <div class="user-profile">
 
-         <?php
-         include("..\admin\Function\config.php");
-         $select_user = mysqli_query($con, "SELECT * FROM `user_info` WHERE id = '$user_id'") or die('query failed');
-         if (mysqli_num_rows($select_user) > 0) {
-            $fetch_user = mysqli_fetch_assoc($select_user);
-            mysqli_close($con);
-         };
-         ?>
-
-         <p>المستخدم الحالي : <span><?php echo $fetch_user['name']; ?></span> </p>
-         <div class="flex">
-            <a href="?logout=<?php echo $user_id; ?>" onclick="return confirm('هل أنت متأكد أنك تريد تسجيل الخروج؟');" class="delete-btn">تسجيل الخروج</a>
-         </div>
-
-      </div>
 
       <div class="products">
 
@@ -123,7 +108,7 @@ mysqli_close($con);
          </div>
 
       </div>
-
+      
       <div class="shopping-cart">
 
          <h1 class="heading"> عربة التسوق</h1>
@@ -179,9 +164,6 @@ mysqli_close($con);
       </div>
 
    </div> 
-   <?php
-   include('..\user_Page.php');
-   ?>
 </body>
 
 </html>

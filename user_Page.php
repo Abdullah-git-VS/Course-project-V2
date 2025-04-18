@@ -10,17 +10,24 @@ if (!isset($user_id)) {
 if (isset($_GET['logout'])) {
   unset($user_id);
   session_destroy();
-  header('location:home_Page.php');
+
+  if (file_exists('home_Page.php')) {
+    header('Location: home_Page.php');
+    exit;
+  } else {
+    header('Location: \home_Page.php');
+    exit;
+  }
 };
 ?>
 
-  <?php
-  $select_user = mysqli_query($con, "SELECT * FROM `user_info` WHERE id = '$user_id'") or die('query failed');
-  if (mysqli_num_rows($select_user) > 0) {
-    $fetch_user = mysqli_fetch_assoc($select_user);
-  };
-  mysqli_close($con);
-  ?>
+<?php
+$select_user = mysqli_query($con, "SELECT * FROM `user_info` WHERE id = '$user_id'") or die('query failed');
+if (mysqli_num_rows($select_user) > 0) {
+  $fetch_user = mysqli_fetch_assoc($select_user);
+};
+mysqli_close($con);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,8 +53,7 @@ if (isset($_GET['logout'])) {
     <ul>
       <li class="profile">
         <div class="img-box">
-          <img src="admin\photo\map-operation.svg" onerror="this.onerror=null; this.src='/admin/photo/map-operation.svg';" 
-          alt="user">
+          <img src="admin\photo\map-operation.svg" onerror="this.onerror=null; this.src='/admin/photo/map-operation.svg';" alt="user">
         </div>
         <h2> <?php echo $fetch_user['name']; ?> </h2>
       </li>

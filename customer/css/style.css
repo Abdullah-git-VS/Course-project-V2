@@ -37,6 +37,7 @@ body{
 }
 .menu{
    box-sizing: content-box;
+   
 }
 .message{
    position: sticky;
@@ -44,7 +45,7 @@ body{
    padding:15px 10px;
    background-color: var(--white);
    text-align: center;
-   z-index: 1000;
+   z-index: 1;
    box-shadow: var(--box-shadow);
    color:var(--black);
    font-size: 15px;
@@ -191,7 +192,10 @@ body{
    padding:20px;
    background-color: var(--white);
    width: 300px;
+   z-index: 0;
+
 }
+
 
 .container .products .box-container .box img{
    height: 200px;
@@ -206,7 +210,6 @@ body{
 .container .products .box-container .box .price{
    position: absolute;
    top:20px; left:0px;
-   transform: rotateZ(-40deg);
    padding:1px 14px;
    border-radius: 5px;
    background-color: var(--orange);
