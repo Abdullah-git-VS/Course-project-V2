@@ -35,7 +35,9 @@
 body{
    background-color: var(--light-bg);
 }
-
+.menu{
+   box-sizing: content-box;
+}
 .message{
    position: sticky;
    top:0; left:0; right:0;

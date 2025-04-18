@@ -60,10 +60,12 @@ mysqli_close($con);
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>عربة التسوق</title>
    <link rel="stylesheet" href="css/style.css">
-
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+   
 </head>
 
 <body>
+<div id="shadow-host"></div>
 
    <?php
    if (isset($message)) {
@@ -176,8 +178,10 @@ mysqli_close($con);
 
       </div>
 
-   </div>
-
+   </div> 
+   <?php
+   include('..\user_Page.php');
+   ?>
 </body>
 
 </html>

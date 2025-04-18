@@ -14,23 +14,6 @@ if (isset($_GET['logout'])) {
 };
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Full Navbar</title>
-  <link rel="stylesheet" href="hide_style.css">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-  <?php
-  if (isset($message)) {
-    foreach ($message as $message) {
-      echo '<div class="message" onclick="this.remove();">' . $message . '</div>';
-    }
-  }
-  ?>
-
   <?php
   $select_user = mysqli_query($con, "SELECT * FROM `user_info` WHERE id = '$user_id'") or die('query failed');
   if (mysqli_num_rows($select_user) > 0) {
@@ -38,6 +21,17 @@ if (isset($_GET['logout'])) {
   };
   mysqli_close($con);
   ?>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Full Navbar</title>
+  <link rel="stylesheet" href="\hide_style.css">
+  <link rel="stylesheet" href="hide_style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
 </head>
 
 <body>
@@ -52,7 +46,8 @@ if (isset($_GET['logout'])) {
     <ul>
       <li class="profile">
         <div class="img-box">
-          <img src="admin\photo\map-operation.svg" alt="user">
+          <img src="admin\photo\map-operation.svg" onerror="this.onerror=null; this.src='/admin/photo/map-operation.svg';" 
+          alt="user">
         </div>
         <h2> <?php echo $fetch_user['name']; ?> </h2>
       </li>
