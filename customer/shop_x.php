@@ -78,11 +78,12 @@ mysqli_close($con);
       <div class="user-profile">
 
          <?php
+         include("..\admin\Function\config.php");
          $select_user = mysqli_query($con, "SELECT * FROM `user_info` WHERE id = '$user_id'") or die('query failed');
          if (mysqli_num_rows($select_user) > 0) {
             $fetch_user = mysqli_fetch_assoc($select_user);
+            mysqli_close($con);
          };
-         mysqli_close($con);
          ?>
 
          <p>المستخدم الحالي : <span><?php echo $fetch_user['name']; ?></span> </p>
@@ -99,7 +100,7 @@ mysqli_close($con);
          <div class="box-container">
 
             <?php
-            include('admin\Function\config.php.php');
+            include('..\admin\Function\config.php');
             $result = mysqli_query($con, "SELECT * FROM products");
             while ($row = mysqli_fetch_array($result)) {
             ?>
@@ -161,6 +162,7 @@ mysqli_close($con);
                } else {
                   echo '<tr><td style="padding:20px; text-transform:capitalize;" colspan="6">العربة فارغة</td></tr>';
                }
+               mysqli_close($con);
                ?>
                <tr class="table-bottom">
                   <td colspan="4">المبلغ الإجمالي :</td>
