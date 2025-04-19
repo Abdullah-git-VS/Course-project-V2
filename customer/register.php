@@ -2,6 +2,11 @@
 include ('..\admin\Function\config.php');
 if(isset($_POST['submit'])){
 
+   
+   
+   if (strlen($_POST['password']) < 8) {
+      $message[] = "Password must be at least 8 characters!";
+   } else { 
    $name = mysqli_real_escape_string($con, $_POST['name']);
    $email = mysqli_real_escape_string($con, $_POST['email']);
    $pass = mysqli_real_escape_string($con, md5($_POST['password']));
@@ -17,6 +22,7 @@ if(isset($_POST['submit'])){
       mysqli_close($con);
       header('location:../home_Page.php');
    }
+}
 
 }
 
@@ -53,7 +59,7 @@ if(isset($message)){
       
       <form onSubmit="return validate();" method="post" >
          <h3>انشاء حساب جديد</h3>
-         <input type="text" name="name" required placeholder="اسم السمتخدم" class="box">
+         <input type="text" name="name" required placeholder="اسم المستخدم" class="box">
          <input type="email" name="email" required placeholder="البريد الالكتروني" class="box">
          <input type="password" name="password" required placeholder="كلمة المرور" class="box" name="password" id="password">
          <input type="password" name="cpassword" required placeholder="تأكيد كلمة المرور" class="box" id="confirm_password">
