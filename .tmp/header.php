@@ -8,11 +8,16 @@
 </head>
 
 <body>
+
+
+  <header>
     <nav class="navbar">
       <div class="logo">
         <h1>Transport</h1>
       </div>
-      
+    
     </nav>
+ </header>
+ 
 </body>
 </html>

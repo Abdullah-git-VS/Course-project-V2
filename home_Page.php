@@ -33,6 +33,9 @@ mysqli_close($con);
   <link rel="stylesheet" href="hide_style.css">
   <link rel="stylesheet" href="index2.css">
   <style>
+
+
+
     .reg-container {
       background-color: #272757;
       width: 450px;
