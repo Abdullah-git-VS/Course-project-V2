@@ -17,6 +17,17 @@ $row =  mysqli_fetch_assoc($select);
     <link rel="stylesheet" href="../hide_style.css">
     
     <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+
+
+/*
+
+
         .w {
             text-align: left;
             font-size: 90px;
@@ -64,6 +75,82 @@ text-align: left;
     font-size: 20px;
  }
 
+*/
+
+
+
+        
+         .profile-container {
+              max-width: 600px;
+              margin: 50px auto;
+              background-color:#272757;
+              padding:30px;
+              border-radius: 10px;
+              box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            }
+
+            .profile-container .profile-content {
+                border: 1px solid #ccc;
+            }
+
+            .profile-container .profile-content .header {
+                display: flex;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .profile-container .profile-content .header img {
+                margin:10px;
+
+                width:120px;
+                height :120px;
+                border-radius: 50%;
+                object-fit: cover;
+                border:3px solid white;
+            }
+
+            .profile-container .profile-content .header h2 {
+                margin:0;
+                font-size:24px;
+                color: white;
+            }
+
+            .profile-container .profile-content .details {
+                margin-top: 20px;
+            }
+
+            .profile-container .profile-content .details h3 {
+                margin-right: 400px;
+                color:white;
+            }
+
+            .profile-container .profile-content .details ul {
+                list-style: none;
+                padding: 0;
+                color:white;
+
+                margin-right:400px;
+                margin-top:40px;
+            }
+
+            .profile-container .profile-content .details ul li {
+                color: white;
+                padding: 10px;
+                margin-bottom: 10px;
+                box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+                text-align: left;
+            }
+
+            .profile-container .profile-content button {
+                margin-left: 360px;
+                padding: 10px 20px;
+                width:200px;
+                background-color: #272757;
+            }
+
+
+
+
     </style>
 </head>
 <body>
@@ -72,25 +159,59 @@ text-align: left;
       <h1>Profile</h1>
     </div> 
 </nav>
+
+
+<div class="profile-container">
+
+    <div class="profile-content">
+
+    <div class="header">
+            <img src="" alt="" />
+            <h2> user name </h2>
+       </div>
+
+
+        <div class="details">
+            <h3> profile information </h3>
+            <ul>
+                <li> Email </li>
+                <li> Phone </li>
+                <li> Address <li>
+           </ul>
+        </div>
+        <button type="submit" name="button"> Edit profile </button>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
 <form action="" method='post'>
-
-    
-
 
     <div class="w">
     <?php
-        $img = $row['profile_pic'];
-        echo "<img src= $img width=100px> <br>" 
+       // $img = $row['profile_pic'];
+      //  echo "<img src= $img width=100px> <br>" 
         ?>
-    <?php echo"Welcome " . $row['name'] . "<br>";?>
+    <?php // echo"Welcome " . $row['name'] . "<br>";?>
     </div>
     <div class = 'frame-container'>
     <div class='info'>
-        <?php echo"Email: " . $row['email'] . "<br>";?>  <input type='submit'  name='changeEmail' value='Change'>
+        <?php  // echo"Email: " . $row['email'] . "<br>";?>  <input type='submit'  name='changeEmail' value='Change'>
 
     </div>
     <div class='info'>
-    <?php echo"Name: " . $row['name']. "<br>";?>  <input type='submit' name='changeName' value='Change'>
+    <?php  // echo"Name: " . $row['name']. "<br>";?>  <input type='submit' name='changeName' value='Change'>
    
     </div>
     <div class='info'>
@@ -102,7 +223,7 @@ text-align: left;
 
 
 </form>
-
+-->
 
     
     
