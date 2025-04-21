@@ -166,15 +166,15 @@ text-align: left;
     <div class="profile-content">
 
     <div class="header">
-            <img src="" alt="" />
-            <h2> user name </h2>
+            <img src="../pics/<?php  echo $row['profile_pic']  ?>" alt="" />
+            <h2> Username: <?php  echo $row['name']   ?></h2>
        </div>
 
 
         <div class="details">
-            <h3> profile information </h3>
+            <h3> Profile Information </h3>
             <ul>
-                <li> Email </li>
+                <li> Email: <?php  echo $row['email']   ?></li>
                 <li> Phone </li>
                 <li> Address <li>
            </ul>
