@@ -17,7 +17,7 @@ include('admin\Function\config.php');
 width: 300px;        
 height: 200px;
 padding: 60px;
-margin-top: 500px;
+margin-top: 100px;
 background-color:#272757;
 border-radius: 20px;
 color: white;
@@ -44,7 +44,11 @@ text-align: right;
 <nav class="navbar">
     <div class="logo">
       <h1>Content</h1>
-    </div>      
+    </div>    
+    <div class="nav-link">
+      <a href="home_page.php">back</a>
+    </div>  
+</nav>
 
  
 
