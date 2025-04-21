@@ -66,7 +66,7 @@ mysqli_close($con);
       </li>
 
       <li>
-        <a href="#">
+        <a href="customer\userProfile.php">
           <i class="fas fa-users"></i>
           <p> profile </p>
         </a>
