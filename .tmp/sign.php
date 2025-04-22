@@ -6,7 +6,7 @@ session_start();
 if (isset($_POST['submit'])) {
 
     $email = mysqli_real_escape_string($con, $_POST['email']);
-    $pass = mysqli_real_escape_string($con, md5($_POST['password']));
+    $pass = mysqli_real_escape_string($con, $hashed_password);
 
     $select = mysqli_query($con, "SELECT * FROM `user_info` WHERE email = '$email' AND password = '$pass'") or die('query failed');
 
@@ -15,7 +15,7 @@ if (isset($_POST['submit'])) {
         $_SESSION['user_id'] = $row['id'];
         header('location: shop_x.php');
     } else {
-        $message[] = 'incorrect password or email!';
+        $message[] = 'incorrect password or email!!';
     }
 }
 ?>

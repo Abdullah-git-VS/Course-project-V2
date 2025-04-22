@@ -9,15 +9,23 @@ if(isset($_POST['submit'])){
    } else { 
    $name = mysqli_real_escape_string($con, $_POST['name']);
    $email = mysqli_real_escape_string($con, $_POST['email']);
-   $pass = mysqli_real_escape_string($con, md5($_POST['password']));
-   $cpass = mysqli_real_escape_string($con, md5($_POST['cpassword']));
-
+   $pass = mysqli_real_escape_string($con, $_POST['password']);
+   $cpass = mysqli_real_escape_string($con,$_POST['cpassword']);
+   $address= mysqli_real_escape_string($con, $_POST['address']);
+   $phone= mysqli_real_escape_string($con, $_POST['phone']);
+   $hashed_password= password_hash($pass, PASSWORD_DEFAULT);
+   $images= 'pics/Sample_User_Icon.png';
+   $image = $_FILES['profile_pic'];
+   $image_location = $_FILES['profile_pic']['tmp_name'];
+   $image_name = $_FILES['profile_pic']['name'];
+   $profile_pic = "pics/".$image_name;
+   move_uploaded_file($image_location, $profile_pic);
    $select = mysqli_query($con, "SELECT * FROM user_info WHERE email = '$email' AND password = '$pass'") or die('query failed');
 
    if(mysqli_num_rows($select) > 0){
       $message[] = 'user already exist!';
    }else{
-      mysqli_query($con, "INSERT INTO user_info(name, email, password) VALUES('$name', '$email', '$pass')") or die('query failed');
+      mysqli_query($con, "INSERT INTO user_info(name, email, password, profile_pic, address, phone) VALUES('$name', '$email', '$hashed_password','$images','$address','$phone')") or die('query failed');
       $message[] = 'registered successfully!';
       mysqli_close($con);
       header('location:../home_Page.php');
@@ -211,12 +219,14 @@ if(isset($message)){
 
    <div class="form-container">
 
-      <form onSubmit="return validate();" method="post" >
+      <form onSubmit="return validate();" method="post" enctype = "multipart/form-data" >
          <h3 class="heading">انشاء حساب جديد</h3>
          <input class="inputs" type="text" name="name" required placeholder="اسم المستخدم" class="box">
          <input class="inputs" type="email" name="email" required placeholder="البريد الالكتروني" class="box">
          <input class="inputs" type="password" name="password" required placeholder="كلمة المرور" class="box" name="password" id="password">
          <input class="inputs" type="password" name="cpassword" required placeholder="تأكيد كلمة المرور" class="box" id="confirm_password">
+         <input class="inputs" type="text" name="address" required placeholder="العنوان" class="box">
+         <input class="inputs" type="text" name="phone" required placeholder="رقم الهاتف" class="box">
          <input class="submitting" type="submit" name="submit" class="btn" value="تسجيل حساب">
          <p>هل لديك حساب؟ <a href="../../home_Page.php"> تسجيل دخول</a></p>
       </form>      

@@ -101,12 +101,12 @@ text-align: left;
 
             .profile-container .profile-content .header img {
                 margin:10px;
-
                 width:120px;
                 height :120px;
                 border-radius: 50%;
                 object-fit: cover;
                 border:3px solid white;
+                background-color: #fff;
             }
 
             .profile-container .profile-content .header h2 {
@@ -166,7 +166,8 @@ text-align: left;
     <div class="profile-content">
 
     <div class="header">
-            <img src="../pics/<?php  echo $row['profile_pic']  ?>" alt="" />
+        <?php $image = $row["profile_pic"]; ?>
+        <img src="pics/<?php echo $image ?>" alt="pics/Sample_User_Icon.png">
             <h2> Username: <?php  echo $row['name']   ?></h2>
        </div>
 
@@ -175,12 +176,13 @@ text-align: left;
             <h3> Profile Information </h3>
             <ul>
                 <li> Email: <?php  echo $row['email']   ?></li>
-                <li> Phone </li>
-                <li> Address <li>
+                <li> Phone: <?php echo $row['phone'] ?></li>
+                <li> Address: <?php echo $row['address'] ?>  <li>
            </ul>
         </div>
         <a href="updateUserProfile.php">
         <button type="submit" name="button"> Edit profile </button>
+        </a>
     </div>
 </div>
 
@@ -226,7 +228,5 @@ text-align: left;
 </form>
 -->
 
-    
-    
 </body>
 </html>
