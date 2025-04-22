@@ -11,13 +11,16 @@ if (isset($_POST['submit'])) {
 
   $select = mysqli_query($con, "SELECT * FROM `user_info` WHERE email = '$email' AND password = '$pass'") or die('query failed');
   $row = mysqli_fetch_assoc($select);
-if($row['canAccess'] == 0) { 
-  $message[] = "You are banned from accessing the website!";
-  session_destroy();
-       }elseif (mysqli_num_rows($select) > 0) {
-    // $row = mysqli_fetch_assoc($select);
-    $_SESSION['user_id'] = $row['id'];
+if (mysqli_num_rows($select) > 0) {
+  if($row['canAccess'] == 0) { 
+    $message[] = "You are banned from accessing the website!";
+    session_destroy();
+         } else {
+          $_SESSION['user_id'] = $row['id'];
     header('location: user_Page.php');
+         }
+    
+
   } else {
     $message[] = 'incorrect password or email!';
   }
