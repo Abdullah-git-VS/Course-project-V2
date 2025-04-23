@@ -118,7 +118,11 @@ text-align: left;
 
         .profile-container .profile-content .details h3 {
             margin-right: 400px;
+            margin-top: 20px;
             color: white;
+            text-transform: uppercase;
+            font-size: 20px;
+            
         }
 
         .profile-container .profile-content .details ul {
@@ -134,16 +138,35 @@ text-align: left;
             color: white;
             padding: 10px;
             margin-bottom: 10px;
+            margin-left: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             text-align: left;
+            border: 1px solid white;
         }
 
         .profile-container .profile-content button {
-            margin-left: 360px;
+            margin-left: 395px;
+            margin-top: 20px;
             padding: 10px 20px;
             width: 200px;
-            background-color: #272757;
+            background-color:rgba(58, 29, 160, 0.75);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            border: 2px solid white;
         }
+
+        .profile-container .profile-content button:hover{
+           background-color:transparent;
+            transform: scale(1.05);
+            color:rgba(252, 252, 252, 0.59);
+        }
+
+        
+
     </style>
 </head>
 <body>
@@ -173,7 +196,7 @@ text-align: left;
                     <li>
                 </ul>
             </div>
-            <button type="submit" name="button"> Edit profile </button>
+            <button type="submit" name="button"> Edit Profile </button>
         </div>
     </div>
 
