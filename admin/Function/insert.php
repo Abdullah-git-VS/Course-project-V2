@@ -13,3 +13,4 @@ if (isset($_POST['upload'])) {
 }
 header('location: ..\add.php');
 ?>
+!
