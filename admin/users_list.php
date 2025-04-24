@@ -66,7 +66,7 @@
              <div class='card-body' style='border: 1px black solid;'>
                     <h5 class='card-title'>$row[name]</h5>
                     <p class='card-text'>$row[price]</p>
-                    <a href='Function\delete.php? id=$row[id]' class='btn btn-danger'>حذف</a>
+                    <a href='Function\delete_user.php? id=$row[id]' class='btn btn-danger'>حذف</a>
                     <a href='update.php? id=$row[id]' class='btn btn-primary'>تعديل</a>
                 </div>
             </div>

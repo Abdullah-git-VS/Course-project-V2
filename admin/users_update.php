@@ -20,7 +20,7 @@
     ?>
     <center>
         <div class="main">
-            <form action="Function/up.php" method="post" enctype="multipart/form-data">
+            <form action="Function/up_user.php" method="post" enctype="multipart/form-data">
                 <h2>تعديل المستخدم</h2>
                 <img src="../<?php echo $data['profile_pic'];?>" alt="logo" width="450px">
 
