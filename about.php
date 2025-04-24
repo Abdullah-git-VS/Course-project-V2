@@ -11,49 +11,80 @@ include('admin\Function\config.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tariq is here</title>
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-  <link rel="stylesheet" href="../Course-project-V2/hide_style.css">
+  <link rel="stylesheet" href="hide_style.css">
   <style>
-      .content-frame {
-width: 300px;        
-height: 200px;
-padding: 60px;
-margin-top: 100px;
-background-color:#272757;
-border-radius: 20px;
-color: white;
-font-size: 25px;
-font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-text-align: right;
+    
+     
 
-}
-.frame-container {
-  display: flex;
-  gap: 40px;
-  justify-content: center;
-  
-}
-.num {
-    text-align: center;
-    font-size: 60px;
-}
+    .frame-container {
+      border: 2px solid rgb(0, 0, 0);
+    }
+
+    .content-frame {
+         width: 300px;        
+         height: 200px;
+         padding: 60px;
+         margin-top: 100px;
+        background-color:#272757;
+        border-radius: 20px;
+          color: white;
+          font-size: 25px;
+         font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+         text-align: right;    
+         margin-left: 50px;
+         border: 2px solid rgb(123, 47, 255);
+    }
+
+    .num {
+        text-align: center;
+        font-size: 60px;
+    }
+
+    .back{
+      background-color: #272757;
+      height:40px;
+      display:flex;
+      justify-content:flex-end;
+      align-items:center;
+      
+    }
+
+    .back a {
+      text-decoration: none;
+      color: white;
+      font-size: 30px;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-right: 25px;
+      margin-bottom: 25px;
+    }
+
+    .back a:hover {
+       background-color: #ffffff55;
+       transition:.5s;
+    }
+
+    .back i {
+      font-size: 30px;
+      margin-left: 5px;
+      
+    }
+
+    
 
   </style>
 </head>
 <body>
 
-<nav class="navbar">
-    <div class="logo">
-      <h1>Content</h1>
-    </div>    
-    <div class="nav-link">
-      <a href="home_page.php">back</a>
-    </div>  
-</nav>
+    
+    <?php  $title = "About us";
+          include 'header.php'; ?>
 
- 
 
-</body>
-</html>
+    <div class="back">
+      <a href="home_Page.php" class="back-btn"><i class="fas fa-home"></i> العودة</a>
+    </div>
+
 <?php
 $sql = mysqli_query($con, "SELECT * FROM `user_info`;") or die('query failed');
 $sql2 = mysqli_query($con, "SELECT * FROM `products`;") or die('query failed');
@@ -71,3 +102,9 @@ echo'<div class="frame-container">
 </div>';
 mysqli_close($con);
 ?>
+
+
+ 
+
+</body>
+</html>

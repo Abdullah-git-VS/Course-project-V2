@@ -6,11 +6,19 @@ session_start();
 
 if (isset($_POST['submit'])) {
 
-  $email = mysqli_real_escape_string($con, $_POST['email']);
-  $pass = mysqli_real_escape_string($con, md5($_POST['password']));
-
-  $select = mysqli_query($con, "SELECT * FROM `user_info` WHERE email = '$email' AND password = '$pass'") or die('query failed');
+  $emaill = mysqli_real_escape_string($con, $_POST['email']);
+  $passw = mysqli_real_escape_string($con, $_POST['password']);  
+  $select = mysqli_query($con, "SELECT * FROM `user_info` WHERE email = '$emaill'") or die('query failed');
   $row = mysqli_fetch_assoc($select);
+
+  if ($row && password_verify($passw, $row['password'])) {
+    if ($row['canAccess'] == 0) { 
+      $message[] = "You are banned from accessing the website!";
+      session_destroy();
+    } else {
+      $_SESSION['user_id'] = $row['id'];
+      header('location: user_Page.php');
+    }
 if (mysqli_num_rows($select) > 0) {
   if($row['canAccess'] == 0) { 
     $message[] = "You are banned from accessing the website!";
@@ -22,9 +30,11 @@ if (mysqli_num_rows($select) > 0) {
     
 
   } else {
-    $message[] = 'incorrect password or email!';
+    $message[] = 'Incorrect password or email!';
   }
 }
+}
+
 mysqli_close($con);
 ?>
 
@@ -135,6 +145,7 @@ mysqli_close($con);
 </head>
 
 <body>
+  
   <nav class="navbar">
     <div class="logo">
       <h1>Transport</h1>
@@ -145,6 +156,7 @@ mysqli_close($con);
       <a id="openLogin">Sign-in</a>
     </div>
   </nav>
+
   <?php
   if (isset($message)) {
     foreach ($message as $message) {

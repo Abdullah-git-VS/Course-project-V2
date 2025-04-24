@@ -34,6 +34,7 @@
   .nav-link a:hover {
       background-color: #ffffff55;
       transition:.5s;
+      cursor: pointer;
   }
   
   
@@ -119,6 +120,7 @@
   
   ul li a:hover  {
       background-color: #ffffff55;
+      
   }
   
   .logout {
