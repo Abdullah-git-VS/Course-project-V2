@@ -2,18 +2,16 @@
 include('Function\config.php');
 session_start();
 $id   = $_SESSION['id'];
-$name = $_SESSION['name'];
-$email = $_SESSION['email'];
 
-echo"<h2>$name</h2><h2>$email</h2>";
+
 if (isset($_POST['submit'])) {
     $q = mysqli_query($con, "UPDATE user_info SET canAccess = '0' WHERE id = '$id'")
     or die('query failed');
-    header("Location: banUser.php");
+    header("Location: BU.php");
 } elseif (isset($_POST['submit2'])) {
     $q = mysqli_query($con, "UPDATE user_info SET canAccess = '1' WHERE id = '$id'")
     or die('query failed');
-    header("Location: banUser.php");
+    header("Location: BU.php");
 }
 mysqli_close($con);
 ?>
@@ -27,6 +25,7 @@ mysqli_close($con);
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="../customer/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <form action='' method='post'>
