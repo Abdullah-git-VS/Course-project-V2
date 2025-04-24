@@ -19,9 +19,20 @@ if (isset($_POST['submit'])) {
       $_SESSION['user_id'] = $row['id'];
       header('location: user_Page.php');
     }
+if (mysqli_num_rows($select) > 0) {
+  if($row['canAccess'] == 0) { 
+    $message[] = "You are banned from accessing the website!";
+    session_destroy();
+         } else {
+          $_SESSION['user_id'] = $row['id'];
+    header('location: user_Page.php');
+         }
+    
+
   } else {
     $message[] = 'Incorrect password or email!';
   }
+}
 }
 
 mysqli_close($con);
@@ -134,6 +145,7 @@ mysqli_close($con);
 </head>
 
 <body>
+  
   <nav class="navbar">
     <div class="logo">
       <h1>Transport</h1>
@@ -141,9 +153,10 @@ mysqli_close($con);
 
     <div class="nav-link">
       <a href="about.php">about</a>
-      <a id="openLogin">Sign-in</a>
+      <a href="#" id="openLogin">Sign-in</a>
     </div>
   </nav>
+
   <?php
   if (isset($message)) {
     foreach ($message as $message) {
