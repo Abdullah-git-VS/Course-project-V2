@@ -187,7 +187,7 @@ text-align: left;
 
             <div class="header">
                 <img src="../<?php echo $row["profile_pic"]; ?>">
-                <h2> user name: <?php echo $row["email"]; ?> </h2>
+                <h2> user name: <?php echo $row["name"]; ?> </h2>
             </div>
 
 
