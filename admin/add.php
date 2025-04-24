@@ -29,7 +29,7 @@
                     <button name='upload'>✅رفع المنتج</button>
                     <br><br>
                 </div>
-                <a href="users.php">عرض المنتجات</a>
+                <a href="prouducts.php">عرض المنتجات</a>
             </form>
         </div>
         <p>Developer by love❤️</p>
