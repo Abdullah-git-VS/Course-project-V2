@@ -14,15 +14,15 @@
     <?php
     include('Function\config.php');
     $ID=$_GET['id'];
-    $UP=mysqli_query($con,"SELECT * FROM products WHERE id=$ID");
+    $UP=mysqli_query($con,"SELECT * FROM user_info WHERE id=$ID");
     $data = mysqli_fetch_array($UP);
     mysqli_close($con);
     ?>
     <center>
         <div class="main">
             <form action="Function/up.php" method="post" enctype="multipart/form-data">
-                <h2>تعديل المنتجات</h2>
-                <img src="/customer/<?php echo $data['image'];?>" alt="logo" width="450px">
+                <h2>تعديل المستخدم</h2>
+                <img src="../<?php echo $data['profile_pic'];?>" alt="logo" width="450px">
 
                 <input style="display: none;" type="text" name='o' value='<?php echo $data['id'];?>'>
                 <br>
@@ -30,13 +30,13 @@
                 <br>
                 <input type="text" name='name' value='<?php echo $data['name'];?>'>
                 <br>
-                <input type="text" name='price' value="<?php echo $data['price'];?>">
+                <input type="text" name='email' value="<?php echo $data['email'];?>">
                 <br>
-                <input type="file" name='image' id="file" value="<?php echo $data['image'];?>" style='display: none;'>
-                <label for="file">تحديث صورة للمنتج</label>
-                <button type="submit" name='update'>✅تعديل المنتج</button>
+                <input type="file" name='profile_pic' id="file" value="<?php echo $data['image'];?>" style='display: none;'>
+                <label for="file">تحديث الصورة </label>
+                <button type="submit" name='update'>✅تعديل المستخدم</button>
                 <br><br>
-                <a href="prouducts.php">عرض المنتجات</a>
+                <a href="users.php">عرض المنتجات</a>
             </form>
         </div>
         <p>Developer by love❤️</p>

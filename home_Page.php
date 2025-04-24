@@ -143,7 +143,7 @@ mysqli_close($con);
 
     <div class="nav-link">
       <a href="about.php">about</a>
-      <a id="openLogin">Sign-in</a>
+      <a href="#" id="openLogin">Sign-in</a>
     </div>
   </nav>
 
