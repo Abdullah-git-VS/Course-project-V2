@@ -170,12 +170,16 @@ text-align: left;
     </style>
 </head>
 <body>
-    <nav class="navbar">
+   <!-- <nav class="navbar">
         <div class="logo">
             <h1>Profile</h1>
         </div>
     </nav>
-
+    -->
+    
+    <?php include '../list.php'; ?>
+    <?php  $title = "User Profile";
+          include '../header.php'; ?>
 
     <div class="profile-container">
 

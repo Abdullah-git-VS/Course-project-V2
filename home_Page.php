@@ -135,6 +135,7 @@ mysqli_close($con);
 </head>
 
 <body>
+  
   <nav class="navbar">
     <div class="logo">
       <h1>Transport</h1>
@@ -145,6 +146,7 @@ mysqli_close($con);
       <a id="openLogin">Sign-in</a>
     </div>
   </nav>
+
   <?php
   if (isset($message)) {
     foreach ($message as $message) {
