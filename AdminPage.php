@@ -56,7 +56,7 @@
 
       <li>
         <a href="#">
-          <i class="fas fa-star"></i>
+          <i class="fas fa-lightbulb"></i>
           <p> view product </p>
         </a>
       </li>
