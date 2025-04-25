@@ -1,5 +1,12 @@
+<?php
+session_start();
 
-
+if (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) {
+    // Not an admin, send to user page or login
+    header("Location: userPage.php");
+    exit;
+}
+?>
 
 <html lang="en">
 
