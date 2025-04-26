@@ -10,7 +10,7 @@ if(!$con) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_SESSION['isOwner']) == 1 ) {
     $emailAdmin = mysqli_real_escape_string($con, $_POST['email']);
 
     // Debug: Check the query

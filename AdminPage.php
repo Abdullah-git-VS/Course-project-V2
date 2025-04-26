@@ -6,7 +6,14 @@ if (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) {
     header("Location: userPage.php");
     exit;
 }
+ if(isset($_GET['logout'])){
+    unset($_SESSION['isAdmin']);
+    session_destroy();
+    header('location: home_Page.php');
+    exit;
+ }
 ?>
+
 
 <html lang="en">
 
@@ -79,7 +86,7 @@ if (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) {
       </li>
 
       <li class="logout">
-        <a href="?logout=<?php echo $user_id; ?>" onclick="return confirm('هل أنت متأكد أنك تريد تسجيل الخروج؟');">
+        <a href="?logout=true" onclick="return confirm('هل أنت متأكد أنك تريد تسجيل الخروج؟');">
           <i class="fas fa-sign-out-alt"></i>
           <p> log out </p>
         </a>
