@@ -1,5 +1,6 @@
 <?php
-include('Function\config.php');
+include($_SERVER["DOCUMENT_ROOT"]."\admin\Function\config.php");
+
 session_start();
 $id   = $_SESSION['id'];
 

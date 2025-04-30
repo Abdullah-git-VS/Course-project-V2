@@ -1,6 +1,7 @@
 <?php
 session_start();
-include('..\admin\Function\config.php');
+include($_SERVER["DOCUMENT_ROOT"]."\admin\Function\config.php");
+
 $userID = $_SESSION['user_id'];
 $select = mysqli_query($con, "SELECT * FROM `user_info` WHERE `id`= $userID ");
 $row =  mysqli_fetch_array($select);

@@ -1,5 +1,6 @@
 <?php
-include('admin\Function\config.php');
+include($_SERVER["DOCUMENT_ROOT"]."\admin\Function\config.php");
+
 session_start();
 
 if (isset($_POST['submit'])) {

@@ -1,5 +1,6 @@
 <?php
-include('config.php');
+include($_SERVER["DOCUMENT_ROOT"]."\admin\Function\config.php");
+
 if (isset($_POST['add'])) {
     $NAME = $_POST['name'];
     $PRICE = $_POST['price'];

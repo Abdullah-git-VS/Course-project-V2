@@ -75,7 +75,8 @@
                     </tr>
                 </thead>
                 <?php
-                include('..\admin\Function\config.php');
+                include($_SERVER["DOCUMENT_ROOT"]."\admin\Function\config.php");
+
                 $result = mysqli_query($con, "SELECT * FROM addcard");
                 while ($row = mysqli_fetch_array($result)) {
                     echo ("
