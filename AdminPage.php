@@ -3,16 +3,16 @@ session_start();
 $user_id = $_SESSION['user_id'];
 
 if (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) {
-    // Not an admin, send to user page or login
-    header("Location: http://".$_SERVER['HTTP_HOST']."/user_Page.php");
-    exit;
+  // Not an admin, send to user page or login
+  header("Location: http://" . $_SERVER['HTTP_HOST'] . "/user_Page.php");
+  exit;
 }
- if(isset($_GET['logout'])){
-    unset($_SESSION['isAdmin']);
-    session_destroy();
-    header("Location: http://".$_SERVER['HTTP_HOST']."/home_Page.php");
-    exit;
- }
+if (isset($_GET['logout'])) {
+  unset($_SESSION['isAdmin']);
+  session_destroy();
+  header("Location: http://" . $_SERVER['HTTP_HOST'] . "/home_Page.php");
+  exit;
+}
 ?>
 
 
@@ -28,12 +28,11 @@ if (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) {
 
 </head>
 
+
 <body>
-  <?php  $title = "Admin Page";
-        include "header.php"; ?>
-
-
-<div class="menu">
+  <?php $title = "Admin Page";
+  include($_SERVER["DOCUMENT_ROOT"] . "\list.php"); ?>
+  <div class="menu">
     <ul>
       <li class="profile">
         <div class="img-box">
@@ -42,10 +41,10 @@ if (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) {
         <h2> <?php echo $fetch_user['name']; ?> </h2>
       </li>
 
-    
+
 
       <li>
-        <a href="<?php echo "http://".$_SERVER['HTTP_HOST']."/customer/userProfile.php";?>">
+        <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/customer/userProfile.php"; ?>">
           <i class="fas fa-users"></i>
           <p> profile </p>
         </a>
@@ -100,4 +99,5 @@ if (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) {
 
 
 </body>
+
 </html>

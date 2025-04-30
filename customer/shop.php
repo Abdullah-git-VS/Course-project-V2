@@ -77,7 +77,6 @@ if (isset($_GET['add'])) {
              <div class='card-body' style='border: 1px black solid;'>
                     <h5 class='card-title'>$row[name]</h5>
                     <p class='card-text'>$row[price]</p>
-                    <a href='"."http://".$_SERVER['HTTP_HOST']."/admin/Function/delete.php?id=".$row['id']."'class='btn btn-success'>إضافة المنتج للعربة</a>
                     <a href='?id=$row[id]&add='1' class='btn btn-success' name='add'>إضافة المنتج للعربة</a>
                 </div>
             </div>

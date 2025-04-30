@@ -1,6 +1,6 @@
 <?php
 session_start();
-include($_SERVER["DOCUMENT_ROOT"]."\admin\Function\config.php");
+include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
 
 $userID = $_SESSION['user_id'];
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             exit();
         }
     }
-    header("Location: http://".$_SERVER['HTTP_HOST']."/customer/userProfile.php");
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/customer/userProfile.php");
     exit();
 }
 

@@ -1,5 +1,5 @@
 <?php
-include($_SERVER["DOCUMENT_ROOT"]."\admin\Function\config.php");
+include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
 
 ?>
 
@@ -65,15 +65,30 @@ include($_SERVER["DOCUMENT_ROOT"]."\admin\Function\config.php");
       margin-left: 5px;
 
     }
+
+    .menu {
+      display: block;
+    }
   </style>
 </head>
 
 <body>
 
+  <style>
+    .menu {
+      display: block;
+    }
+  </style>
+  <?php $title = "About us"; ?>
 
-  <?php $title = "About us";
-  include 'header.php'; ?>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <h1> <?php echo isset($title) ? $title : "default page"; ?> </h1>
+      </div>
 
+    </nav>
+  </header>
 
   <div class="back">
     <a href="home_Page.php" class="back-btn"><i class="fas fa-home"></i> العودة</a>

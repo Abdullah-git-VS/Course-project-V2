@@ -1,9 +1,9 @@
-<?php 
+<?php
 session_start();
 $con = mysqli_connect('localhost', 'root', '12345678', 'online');
 
 if (!isset($_SESSION['isOwner']) || $_SESSION['isOwner'] != 1) {
-    header("Location: http://".$_SERVER['HTTP_HOST']."/home_Page.php");
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/home_Page.php");
     exit;
 }
 
@@ -16,8 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $row = mysqli_fetch_assoc($checkEmail);
         if ($row['isAdmin'] == 1) {
             echo "<script>alert('User is already an admin!')</script>";
-        } 
-        else {
+        } else {
             $Query = mysqli_query($con, "UPDATE `user_info` SET isAdmin = 1 WHERE email = '$emailAdmin'");
             echo "<script>alert('User has been granted admin access!')</script>";
         }
@@ -31,6 +30,7 @@ mysqli_close($con);
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,10 +41,12 @@ mysqli_close($con);
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             background: #f0f0f0;
             font-family: Arial, sans-serif;
         }
+
         .frame-container {
             width: 100%;
             height: 100vh;
@@ -52,6 +54,7 @@ mysqli_close($con);
             justify-content: center;
             align-items: center;
         }
+
         .info {
             background: #fff;
             padding: 20px;
@@ -59,11 +62,13 @@ mysqli_close($con);
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 300px;
         }
+
         .info h1 {
             margin-bottom: 20px;
             font-size: 24px;
             text-align: center;
         }
+
         .info input[type="email"] {
             width: 100%;
             padding: 10px;
@@ -71,6 +76,7 @@ mysqli_close($con);
             border: 1px solid #ccc;
             border-radius: 5px;
         }
+
         .info input[type="submit"] {
             width: 100%;
             padding: 10px;
@@ -80,9 +86,11 @@ mysqli_close($con);
             border-radius: 5px;
             cursor: pointer;
         }
+
         .info input[type="submit"]:hover {
             background: #0056b3;
         }
+
         .back-button {
             display: block;
             margin-top: 15px;
@@ -90,11 +98,13 @@ mysqli_close($con);
             color: #007bff;
             text-decoration: none;
         }
+
         .back-button:hover {
             text-decoration: underline;
         }
     </style>
 </head>
+
 <body>
     <div class="frame-container">
         <form action="" method="POST" class="info">
@@ -103,7 +113,8 @@ mysqli_close($con);
             <input type="submit" value="Make Admin">
         </form>
         <br>
-    </div>        
+    </div>
     <a href="AdminPage.php" class="back-button">Back to Admin Page</a>
 </body>
+
 </html>

@@ -1,5 +1,5 @@
 <?php
-include($_SERVER["DOCUMENT_ROOT"]."\admin\Function\logout.php");
+include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\logout.php");
 ?>
 
 <?php
@@ -23,9 +23,9 @@ mysqli_close($con);
 </head>
 
 <body>
-  <?php include "list.php"; ?>
-  <?php  $title = "user page";
-        include "header.php"; ?>
+  <?php $title = "user page";
+  include($_SERVER["DOCUMENT_ROOT"] . "\list.php"); ?>
+
 
 </body>
 

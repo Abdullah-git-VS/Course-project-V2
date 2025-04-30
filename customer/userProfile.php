@@ -176,10 +176,9 @@ text-align: left;
     </nav>
     -->
     
-    <?php include '../list.php'; ?>
-    <?php  $title = "User Profile";
-          include '../header.php'; ?>
-
+    <?php 
+    $title = "User Profile";
+    include($_SERVER["DOCUMENT_ROOT"]."\list.php");?>
     <div class="profile-container">
 
         <div class="profile-content">
