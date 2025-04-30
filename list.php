@@ -4,13 +4,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Full Navbar</title>
+  <title><?php echo isset($title) ? $title: "default";?></title>
   <link rel="stylesheet" href="hide_style.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 </head>
 
 <body>
-
+<header>
+    <nav class="navbar">
+      <div class="logo">
+        <h1> <?php echo isset($title) ? $title:"default page";?> </h1>
+      </div>
+    </nav>
+ </header>
+ 
   <div class="menu">
     <ul>
       <li class="profile">

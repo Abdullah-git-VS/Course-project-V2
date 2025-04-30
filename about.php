@@ -1,6 +1,10 @@
 <?php
+<<<<<<< HEAD
 include('admin\Function\config.php');
 
+=======
+include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
+>>>>>>> 877e22e (marge head.php & list.php)
 
 ?>
 
@@ -70,16 +74,39 @@ include('admin\Function\config.php');
       
     }
 
+<<<<<<< HEAD
     
 
+=======
+    .menu {
+      display: block;
+    }
+>>>>>>> 877e22e (marge head.php & list.php)
   </style>
 </head>
 <body>
 
+<<<<<<< HEAD
     
     <?php  $title = "About us";
           include 'header.php'; ?>
+=======
+  <style>
+    .menu {
+      display: block;
+    }
+  </style>
+  <?php $title = "About us"; ?>
 
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <h1> <?php echo isset($title) ? $title : "default page"; ?> </h1>
+      </div>
+>>>>>>> 877e22e (marge head.php & list.php)
+
+    </nav>
+  </header>
 
     <div class="back">
       <a href="home_Page.php" class="back-btn"><i class="fas fa-home"></i> العودة</a>

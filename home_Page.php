@@ -1,7 +1,10 @@
 <?php
+<<<<<<< HEAD
 include('admin\Function\config.php');
+=======
+include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
+>>>>>>> 877e22e (marge head.php & list.php)
 session_start();
-
 if (isset($_POST['submit'])) {
     $emaill = mysqli_real_escape_string($con, $_POST['email']);
     $passw = mysqli_real_escape_string($con, $_POST['password']);
@@ -17,21 +20,34 @@ if (isset($_POST['submit'])) {
                 // User is banned
                 $message[] = "You are banned from accessing the website!";
                 session_destroy();
-            } if ($row['isAdmin'] == 1 && $row['isOwner'] == 0) {
+            }
+            if ($row['isAdmin'] == 1 && $row['isOwner'] == 0) {
                 // Admin user
                 $_SESSION['isAdmin'] = $row['isAdmin'];
+<<<<<<< HEAD
                 header('location: AdminPage.php');
+=======
+                header("Location: http://" . $_SERVER['HTTP_HOST'] . "/AdminPage.php");
+>>>>>>> 877e22e (marge head.php & list.php)
                 exit;
             }
             if ($row['isOwner'] == 1) {
                 // Owner
                 $_SESSION['isOwner'] = $row['isOwner'];
+<<<<<<< HEAD
                 header('location: makeAdmin.php');
+=======
+                header("Location: http://" . $_SERVER['HTTP_HOST'] . "/makeAdmin.php");
+>>>>>>> 877e22e (marge head.php & list.php)
                 exit;
             } else {
                 // Regular user
                 $_SESSION['user_id'] = $row['id'];
+<<<<<<< HEAD
                 header('location: user_Page.php');
+=======
+                header("Location: http://" . $_SERVER['HTTP_HOST'] . "/user_Page.php");
+>>>>>>> 877e22e (marge head.php & list.php)
                 exit;
             }
         } else {
@@ -43,10 +59,8 @@ if (isset($_POST['submit'])) {
         $message[] = 'Incorrect password or email!';
     }
 }
-
 mysqli_close($con);
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -149,6 +163,12 @@ mysqli_close($con);
             <a id="openLogin">Sign-in</a>
         </div>
     </nav>
+<<<<<<< HEAD
+=======
+    <?php
+    echo $_SERVER['HTTP_HOST'] . "/";
+    ?>
+>>>>>>> 877e22e (marge head.php & list.php)
 
     <?php
     if (isset($message)) {

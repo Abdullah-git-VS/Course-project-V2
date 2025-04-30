@@ -1,4 +1,5 @@
 <?php
+<<<<<<< HEAD
 include('admin\Function\config.php');
 session_start();
 $user_id = $_SESSION['user_id'];
@@ -19,6 +20,9 @@ if (isset($_GET['logout'])) {
     exit;
   }
 };
+=======
+include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\logout.php");
+>>>>>>> 877e22e (marge head.php & list.php)
 ?>
 
 <?php
@@ -42,9 +46,9 @@ mysqli_close($con);
 </head>
 
 <body>
-  <?php include "list.php"; ?>
-  <?php  $title = "user page";
-        include "header.php"; ?>
+  <?php $title = "user page";
+  include($_SERVER["DOCUMENT_ROOT"] . "\list.php"); ?>
+
 
 </body>
 

@@ -1,5 +1,10 @@
 <?php
+<<<<<<< HEAD
 include('config.php');
+=======
+include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
+
+>>>>>>> 877e22e (marge head.php & list.php)
 if (isset($_POST['add'])) {
     $NAME = $_POST['name'];
     $PRICE = $_POST['price'];
@@ -7,6 +12,9 @@ if (isset($_POST['add'])) {
     $insert = "INSERT INTO addcard (name, price) VALUES ('$NAME','$PRICE')";
     mysqli_query($con, $insert);
     mysqli_close($con);
+<<<<<<< HEAD
     header('location: \..\customer\card.php');
+=======
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/customer/card.php");
+>>>>>>> 877e22e (marge head.php & list.php)
 }
-?>

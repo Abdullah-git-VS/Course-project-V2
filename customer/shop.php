@@ -69,7 +69,11 @@ $data = mysqli_fetch_array($up);
              <div class='card-body' style='border: 1px black solid;'>
                     <h5 class='card-title'>$row[name]</h5>
                     <p class='card-text'>$row[price]</p>
+<<<<<<< HEAD
                     <a href='? id=$row[id]' class='btn btn-success'>إضافة المنتج للعربة</a>
+=======
+                    <a href='?id=$row[id]&add='1' class='btn btn-success' name='add'>إضافة المنتج للعربة</a>
+>>>>>>> 877e22e (marge head.php & list.php)
                 </div>
             </div>
             ";

@@ -55,7 +55,12 @@
         <h3>جميع المنتجات المتوفرة</h3>
     </center>
     <?php
+<<<<<<< HEAD
     include('Function\config.php');
+=======
+    include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
+
+>>>>>>> 877e22e (marge head.php & list.php)
     $result = mysqli_query($con, "SELECT * FROM products");
     while ($row = mysqli_fetch_array($result)) {
         echo "

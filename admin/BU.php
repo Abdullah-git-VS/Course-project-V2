@@ -1,5 +1,10 @@
 <?php
+<<<<<<< HEAD
 include('Function\config.php');
+=======
+include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
+
+>>>>>>> 877e22e (marge head.php & list.php)
 session_start();
 if (isset($_GET['submit'])) {
   $userId = $_GET['id'];
@@ -7,7 +12,11 @@ if (isset($_GET['submit'])) {
   if (mysqli_num_rows($select) > 0) {
     $row = mysqli_fetch_assoc($select);
     $_SESSION['id'] = $row['id'];
+<<<<<<< HEAD
     header('Location: controlAccess.php');
+=======
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/admin/controlAccess.php");
+>>>>>>> 877e22e (marge head.php & list.php)
   } else {
     echo "<script>
         alert('incorrect User ID!');
@@ -38,8 +47,8 @@ if (isset($_GET['submit'])) {
 
 
 
-  <form actoin='' method='get'>    
-    <select id="userId" name="id" class="box" >
+  <form actoin='' method='get'>
+    <select id="userId" name="id" class="box">
       <?php
       $result = mysqli_query($con, "SELECT * FROM `user_info`") or die('query failed');
       while ($row = mysqli_fetch_array($result)) {
