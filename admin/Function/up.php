@@ -13,6 +13,6 @@ if (isset($_POST['update'])) {
     $update = "UPDATE products SET name='$NAME' , price='$PRICE', image='$image_up', id='$ID_n' WHERE id=$ID_o";
     mysqli_query($con, $update);
     mysqli_close($con);
-    header('location: ../add.php');
+    header("Location: http://".$_SERVER['HTTP_HOST']."/admin/add.php");
 }
 ?>

@@ -21,14 +21,14 @@
       </li>
 
       <li>
-        <a href="customer\shop_x.php">
+        <a href="<?php echo "http://".$_SERVER['HTTP_HOST']."/customer/shop_x.php";?>">
           <i class="fas fa-shopping-cart"></i>
           <p> cart </p>
         </a>
       </li>
 
       <li>
-        <a href="customer\userProfile.php">
+        <a href="<?php echo "http://".$_SERVER['HTTP_HOST']."/customer/userProfile.php";?>">
           <i class="fas fa-users"></i>
           <p> profile </p>
         </a>

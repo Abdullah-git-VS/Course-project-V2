@@ -7,7 +7,7 @@ if (isset($_GET['submit'])) {
   if (mysqli_num_rows($select) > 0) {
     $row = mysqli_fetch_assoc($select);
     $_SESSION['id'] = $row['id'];
-    header('Location: controlAccess.php');
+    header("Location: http://".$_SERVER['HTTP_HOST']."/admin/controlAccess.php");
   } else {
     echo "<script>
         alert('incorrect User ID!');

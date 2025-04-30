@@ -1,15 +1,16 @@
 <?php
 session_start();
+$user_id = $_SESSION['user_id'];
 
 if (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) {
     // Not an admin, send to user page or login
-    header("Location: userPage.php");
+    header("Location: http://".$_SERVER['HTTP_HOST']."/user_Page.php");
     exit;
 }
  if(isset($_GET['logout'])){
     unset($_SESSION['isAdmin']);
     session_destroy();
-    header('location: home_Page.php');
+    header("Location: http://".$_SERVER['HTTP_HOST']."/home_Page.php");
     exit;
  }
 ?>
@@ -44,7 +45,7 @@ if (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) {
     
 
       <li>
-        <a href="customer\userProfile.php">
+        <a href="<?php echo "http://".$_SERVER['HTTP_HOST']."/customer/userProfile.php";?>">
           <i class="fas fa-users"></i>
           <p> profile </p>
         </a>

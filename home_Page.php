@@ -20,18 +20,18 @@ if (isset($_POST['submit'])) {
             } if ($row['isAdmin'] == 1 && $row['isOwner'] == 0) {
                 // Admin user
                 $_SESSION['isAdmin'] = $row['isAdmin'];
-                header('location: AdminPage.php');
+                header("Location: http://".$_SERVER['HTTP_HOST']."/AdminPage.php");
                 exit;
             }
             if ($row['isOwner'] == 1) {
                 // Owner
                 $_SESSION['isOwner'] = $row['isOwner'];
-                header('location: makeAdmin.php');
+                header("Location: http://".$_SERVER['HTTP_HOST']."/makeAdmin.php");
                 exit;
             } else {
                 // Regular user
                 $_SESSION['user_id'] = $row['id'];
-                header('location: user_Page.php');
+                header("Location: http://".$_SERVER['HTTP_HOST']."/user_Page.php");
                 exit;
             }
         } else {
@@ -149,6 +149,9 @@ mysqli_close($con);
             <a id="openLogin">Sign-in</a>
         </div>
     </nav>
+    <?php
+    echo $_SERVER['HTTP_HOST']."/";
+    ?>
 
     <?php
     if (isset($message)) {

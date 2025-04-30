@@ -11,6 +11,6 @@ if (isset($_POST['upload'])) {
     mysqli_query($con, $insert);
     mysqli_close($con);
 }
-header('location: ..\add.php');
+header("Location: http://".$_SERVER['HTTP_HOST']."/admin/add.php");
 ?>
 !

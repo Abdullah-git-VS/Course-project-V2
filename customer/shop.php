@@ -3,6 +3,14 @@ include('..\admin\Function\config.php');
 $ID = $_GET['id'];
 $up = mysqli_query($con, "SELECT * FROM products WHERE id=$ID");
 $data = mysqli_fetch_array($up);
+
+if (isset($data['add'])) {
+    $NAME = $data['name'];
+    $PRICE = $data['price'];
+    $ID = $data['id'];
+    $insert = "INSERT INTO addcard (name, price) VALUES ('$NAME','$PRICE')";
+    mysqli_query($con, $insert);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +77,8 @@ $data = mysqli_fetch_array($up);
              <div class='card-body' style='border: 1px black solid;'>
                     <h5 class='card-title'>$row[name]</h5>
                     <p class='card-text'>$row[price]</p>
-                    <a href='? id=$row[id]' class='btn btn-success'>إضافة المنتج للعربة</a>
+                    <a href='"."http://".$_SERVER['HTTP_HOST']."/admin/Function/delete.php?id=".$row['id']."'class='btn btn-success'>إضافة المنتج للعربة</a>
+                    <a href='?id=$row[id]' class='btn btn-success'>إضافة المنتج للعربة</a>
                 </div>
             </div>
             ";

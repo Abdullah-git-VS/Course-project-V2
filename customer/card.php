@@ -78,13 +78,12 @@
                 include('..\admin\Function\config.php');
                 $result = mysqli_query($con, "SELECT * FROM addcard");
                 while ($row = mysqli_fetch_array($result)) {
-                    echo "
+                    echo ("
                     <tbody>
                     <tr>
                         <td>$row[name]</td>
                         <td>$row[price]</td>
-                        <td><a href='..\Function\delete.php? id=$row[id]' class='btn btn-danger'>ازالة</a></td>
-                    </tr>";
+                        <td><a href='"."http://".$_SERVER['HTTP_HOST']."/admin/Function/delete.php?id=".$row['id']."'class='btn btn-danger'>ازالة</a></td></tr>");
                 }
                 mysqli_close($con);
                 ?>

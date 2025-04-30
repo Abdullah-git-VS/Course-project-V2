@@ -3,7 +3,7 @@ session_start();
 $con = mysqli_connect('localhost', 'root', '12345678', 'online');
 
 if (!isset($_SESSION['isOwner']) || $_SESSION['isOwner'] != 1) {
-    header('location: ../user_Page.php');
+    header("Location: http://".$_SERVER['HTTP_HOST']."/home_Page.php");
     exit;
 }
 

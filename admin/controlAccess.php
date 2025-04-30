@@ -7,11 +7,11 @@ $id   = $_SESSION['id'];
 if (isset($_POST['submit'])) {
     $q = mysqli_query($con, "UPDATE user_info SET canAccess = '0' WHERE id = '$id'")
     or die('query failed');
-    header("Location: BU.php");
+    header("Location: http://".$_SERVER['HTTP_HOST']."/admin/BU.php");
 } elseif (isset($_POST['submit2'])) {
     $q = mysqli_query($con, "UPDATE user_info SET canAccess = '1' WHERE id = '$id'")
     or die('query failed');
-    header("Location: BU.php");
+    header("Location: http://".$_SERVER['HTTP_HOST']."/admin/BU.php");
 }
 mysqli_close($con);
 ?>

@@ -1,24 +1,5 @@
 <?php
-include('admin\Function\config.php');
-session_start();
-$user_id = $_SESSION['user_id'];
-
-if (!isset($user_id)) {
-  header('location:home_Page.php');
-};
-
-if (isset($_GET['logout'])) {
-  unset($user_id);
-  session_destroy();
-
-  if (file_exists('home_Page.php')) {
-    header('Location: home_Page.php');
-    exit;
-  } else {
-    header('Location: \home_Page.php');
-    exit;
-  }
-};
+include($_SERVER["DOCUMENT_ROOT"]."\admin\Function\logout.php");
 ?>
 
 <?php

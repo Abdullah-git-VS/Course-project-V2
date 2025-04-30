@@ -1,19 +1,5 @@
 <?php
-
-include('..\admin\Function\config.php');
-session_start();
-$user_id = $_SESSION['user_id'];
-
-if (!isset($user_id)) {
-   header('location:../home_Page.php');
-};
-
-if (isset($_GET['logout'])) {
-   unset($user_id);
-   session_destroy();
-   header('location:../home_Page.php');
-};
-
+include($_SERVER["DOCUMENT_ROOT"]."\admin\Function\logout.php");
 if (isset($_POST['add_to_cart'])) {
 
    $product_name = $_POST['product_name'];
@@ -41,12 +27,12 @@ if (isset($_POST['update_cart'])) {
 if (isset($_GET['remove'])) {
    $remove_id = $_GET['remove'];
    mysqli_query($con, "DELETE FROM `cart` WHERE id = '$remove_id'") or die('query failed');
-   header('location:shop_x.php');
+   header("Location: http://".$_SERVER['HTTP_HOST']."/customer/shop_x.php");
 }
 
 if (isset($_GET['delete_all'])) {
    mysqli_query($con, "DELETE FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
-   header('location:shop_x.php');
+   header("Location: http://".$_SERVER['HTTP_HOST']."/customer/shop_x.php");
 }
 mysqli_close($con);
 ?>

@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             exit();
         }
     }
-    header('location: userProfile.php');
+    header("Location: http://".$_SERVER['HTTP_HOST']."/customer/userProfile.php");
     exit();
 }
 

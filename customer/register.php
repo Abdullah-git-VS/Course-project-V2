@@ -28,7 +28,7 @@ if(isset($_POST['submit'])){
       mysqli_query($con, "INSERT INTO user_info(name, email, password, profile_pic, address, phone) VALUES('$name', '$email', '$hashed_password','$images','$address','$phone')") or die('query failed');
       $message[] = 'registered successfully!';
       mysqli_close($con);
-      header('location:../home_Page.php');
+      header("Location: http://".$_SERVER['HTTP_HOST']."/home_Page.php");
    }
 }
 
