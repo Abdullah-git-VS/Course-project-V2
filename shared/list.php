@@ -41,21 +41,21 @@ if (!empty($profile_pic) && file_exists(BASE_PATH . 'shared/' . $profile_pic)) {
 
 
       <li>
-        <a href="#">
+        <a href="<?php echo BASE_URL . 'transport-project/customer/order.php'; ?>">
           <i class="fas fa-list"></i>
           <p> order </p>
         </a>
       </li>
 
       <li>
-        <a href="customer\shop_x.php">
+        <a href="<?php echo BASE_URL . 'transport-project/customer/cart.php'; ?>">
           <i class="fas fa-shopping-cart"></i>
           <p> cart </p>
         </a>
       </li>
 
       <li>
-        <a href="<?php echo BASE_URL . 'customer/userProfile.php'; ?>" style="text-decoration: none; color: inherit;">
+        <a href="<?php echo BASE_URL . 'transport-project/customer/userProfile.php'; ?>" style="text-decoration: none; color: inherit;">
           <i class="fas fa-users"></i>
           <p> profile </p>
         </a>
