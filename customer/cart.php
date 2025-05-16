@@ -56,7 +56,7 @@ if (isset($_GET['confirm'])) {
 
   echo "<script>
         alert('Your order has been confirmed!');
-        window.location.href = '../shared/homePage.php';
+        window.location.href = 'userPage.php';
     </script>";
     }
   }
