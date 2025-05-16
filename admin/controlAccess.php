@@ -1,16 +1,22 @@
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
 include('Function\config.php');
 =======
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
 
 >>>>>>> 877e22e (marge head.php & list.php)
+=======
+include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
+
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
 session_start();
 $id   = $_SESSION['id'];
 
 
 if (isset($_POST['submit'])) {
     $q = mysqli_query($con, "UPDATE user_info SET canAccess = '0' WHERE id = '$id'")
+<<<<<<< HEAD
 <<<<<<< HEAD
     or die('query failed');
     header("Location: BU.php");
@@ -26,6 +32,14 @@ if (isset($_POST['submit'])) {
         or die('query failed');
     header("Location: http://" . $_SERVER['HTTP_HOST'] . "/admin/BU.php");
 >>>>>>> 877e22e (marge head.php & list.php)
+=======
+        or die('query failed');
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/admin/BU.php");
+} elseif (isset($_POST['submit2'])) {
+    $q = mysqli_query($con, "UPDATE user_info SET canAccess = '1' WHERE id = '$id'")
+        or die('query failed');
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/admin/BU.php");
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
 }
 mysqli_close($con);
 ?>

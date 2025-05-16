@@ -1,5 +1,6 @@
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 include('..\admin\Function\config.php');
 session_start();
@@ -18,6 +19,9 @@ if (isset($_GET['logout'])) {
 =======
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\logout.php");
 >>>>>>> 877e22e (marge head.php & list.php)
+=======
+include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\logout.php");
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
 if (isset($_POST['add_to_cart'])) {
 
    $product_name = $_POST['product_name'];
@@ -46,19 +50,27 @@ if (isset($_GET['remove'])) {
    $remove_id = $_GET['remove'];
    mysqli_query($con, "DELETE FROM `cart` WHERE id = '$remove_id'") or die('query failed');
 <<<<<<< HEAD
-   header('location:shop_x.php');
-=======
-   header("Location: http://" . $_SERVER['HTTP_HOST'] . "/customer/shop_x.php");
->>>>>>> 877e22e (marge head.php & list.php)
-}
-
-if (isset($_GET['delete_all'])) {
-   mysqli_query($con, "DELETE FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
 <<<<<<< HEAD
    header('location:shop_x.php');
 =======
    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/customer/shop_x.php");
 >>>>>>> 877e22e (marge head.php & list.php)
+=======
+   header("Location: http://" . $_SERVER['HTTP_HOST'] . "/customer/shop_x.php");
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
+}
+
+if (isset($_GET['delete_all'])) {
+   mysqli_query($con, "DELETE FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
+<<<<<<< HEAD
+<<<<<<< HEAD
+   header('location:shop_x.php');
+=======
+   header("Location: http://" . $_SERVER['HTTP_HOST'] . "/customer/shop_x.php");
+>>>>>>> 877e22e (marge head.php & list.php)
+=======
+   header("Location: http://" . $_SERVER['HTTP_HOST'] . "/customer/shop_x.php");
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
 }
 mysqli_close($con);
 ?>
@@ -79,11 +91,16 @@ mysqli_close($con);
 <body>
    <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
    include('..\user_Page.php');
 =======
    include($_SERVER["DOCUMENT_ROOT"] . "\user_Page.php");
 
 >>>>>>> 877e22e (marge head.php & list.php)
+=======
+   include($_SERVER["DOCUMENT_ROOT"] . "\user_Page.php");
+
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
    ?>
    <?php
    if (isset($message)) {
@@ -105,11 +122,16 @@ mysqli_close($con);
 
             <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
             include('..\admin\Function\config.php');
 =======
             include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
 
 >>>>>>> 877e22e (marge head.php & list.php)
+=======
+            include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
+
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
             $result = mysqli_query($con, "SELECT * FROM products");
             while ($row = mysqli_fetch_array($result)) {
             ?>

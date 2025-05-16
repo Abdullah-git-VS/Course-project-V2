@@ -1,10 +1,15 @@
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
 include('config.php');
 =======
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
 
 >>>>>>> 877e22e (marge head.php & list.php)
+=======
+include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
+
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
 if (isset($_POST['update'])) {
     $ID_o = $_POST['o'];
     $ID_n = $_POST['id'];
@@ -19,8 +24,12 @@ if (isset($_POST['update'])) {
     mysqli_query($con, $update);
     mysqli_close($con);
 <<<<<<< HEAD
+<<<<<<< HEAD
     header('location: ../add.php');
 =======
     header("Location: http://" . $_SERVER['HTTP_HOST'] . "/admin/add.php");
 >>>>>>> 877e22e (marge head.php & list.php)
+=======
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/admin/add.php");
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
 }

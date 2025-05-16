@@ -1,10 +1,15 @@
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
 include('Function\config.php');
 =======
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
 
 >>>>>>> 877e22e (marge head.php & list.php)
+=======
+include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
+
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
 $sql = "SELECT id, name, email FROM `user_info` WHERE id = ? ";
 $stmt = $con->prepare($sql);
 $stmt->bind_param("s", $_GET['q']);

@@ -1,11 +1,16 @@
 <?php
 session_start();
 <<<<<<< HEAD
+<<<<<<< HEAD
 include('..\admin\Function\config.php');
 =======
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
 
 >>>>>>> 877e22e (marge head.php & list.php)
+=======
+include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
+
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
 $userID = $_SESSION['user_id'];
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($_POST['name'] != "") {
@@ -34,10 +39,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
     header('location: userProfile.php');
 =======
     header("Location: http://" . $_SERVER['HTTP_HOST'] . "/customer/userProfile.php");
 >>>>>>> 877e22e (marge head.php & list.php)
+=======
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/customer/userProfile.php");
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
     exit();
 }
 

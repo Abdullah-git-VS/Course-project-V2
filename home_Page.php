@@ -1,9 +1,13 @@
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
 include('admin\Function\config.php');
 =======
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
 >>>>>>> 877e22e (marge head.php & list.php)
+=======
+include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
 session_start();
 if (isset($_POST['submit'])) {
     $emaill = mysqli_real_escape_string($con, $_POST['email']);
@@ -25,29 +29,41 @@ if (isset($_POST['submit'])) {
                 // Admin user
                 $_SESSION['isAdmin'] = $row['isAdmin'];
 <<<<<<< HEAD
+<<<<<<< HEAD
                 header('location: AdminPage.php');
 =======
                 header("Location: http://" . $_SERVER['HTTP_HOST'] . "/AdminPage.php");
 >>>>>>> 877e22e (marge head.php & list.php)
+=======
+                header("Location: http://" . $_SERVER['HTTP_HOST'] . "/AdminPage.php");
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
                 exit;
             }
             if ($row['isOwner'] == 1) {
                 // Owner
                 $_SESSION['isOwner'] = $row['isOwner'];
 <<<<<<< HEAD
+<<<<<<< HEAD
                 header('location: makeAdmin.php');
 =======
                 header("Location: http://" . $_SERVER['HTTP_HOST'] . "/makeAdmin.php");
 >>>>>>> 877e22e (marge head.php & list.php)
+=======
+                header("Location: http://" . $_SERVER['HTTP_HOST'] . "/makeAdmin.php");
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
                 exit;
             } else {
                 // Regular user
                 $_SESSION['user_id'] = $row['id'];
 <<<<<<< HEAD
+<<<<<<< HEAD
                 header('location: user_Page.php');
 =======
                 header("Location: http://" . $_SERVER['HTTP_HOST'] . "/user_Page.php");
 >>>>>>> 877e22e (marge head.php & list.php)
+=======
+                header("Location: http://" . $_SERVER['HTTP_HOST'] . "/user_Page.php");
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
                 exit;
             }
         } else {
@@ -164,11 +180,17 @@ mysqli_close($con);
         </div>
     </nav>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
     <?php
     echo $_SERVER['HTTP_HOST'] . "/";
     ?>
 >>>>>>> 877e22e (marge head.php & list.php)
+=======
+    <?php
+    echo $_SERVER['HTTP_HOST'] . "/";
+    ?>
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
 
     <?php
     if (isset($message)) {

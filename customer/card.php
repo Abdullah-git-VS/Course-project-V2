@@ -76,24 +76,33 @@
                 </thead>
                 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
                 include('..\admin\Function\config.php');
 =======
                 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
 
 >>>>>>> 877e22e (marge head.php & list.php)
+=======
+                include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
+
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
                 $result = mysqli_query($con, "SELECT * FROM addcard");
                 while ($row = mysqli_fetch_array($result)) {
-                    echo "
+                    echo ("
                     <tbody>
                     <tr>
                         <td>$row[name]</td>
                         <td>$row[price]</td>
+<<<<<<< HEAD
 <<<<<<< HEAD
                         <td><a href='..\Function\delete.php? id=$row[id]' class='btn btn-danger'>ازالة</a></td>
                     </tr>";
 =======
                         <td><a href='" . "http://" . $_SERVER['HTTP_HOST'] . "/admin/Function/delete.php?id=" . $row['id'] . "'class='btn btn-danger'>ازالة</a></td></tr>");
 >>>>>>> 877e22e (marge head.php & list.php)
+=======
+                        <td><a href='" . "http://" . $_SERVER['HTTP_HOST'] . "/admin/Function/delete.php?id=" . $row['id'] . "'class='btn btn-danger'>ازالة</a></td></tr>");
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
                 }
                 mysqli_close($con);
                 ?>

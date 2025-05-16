@@ -4,10 +4,14 @@ $con = mysqli_connect('localhost', 'root', '12345678', 'online');
 
 if (!isset($_SESSION['isOwner']) || $_SESSION['isOwner'] != 1) {
 <<<<<<< HEAD
+<<<<<<< HEAD
     header('location: ../user_Page.php');
 =======
     header("Location: http://" . $_SERVER['HTTP_HOST'] . "/home_Page.php");
 >>>>>>> 877e22e (marge head.php & list.php)
+=======
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/home_Page.php");
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
     exit;
 }
 

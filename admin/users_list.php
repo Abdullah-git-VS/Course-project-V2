@@ -56,11 +56,16 @@
     </center>
     <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
     include('Function\config.php');
 =======
     include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
 
 >>>>>>> 877e22e (marge head.php & list.php)
+=======
+    include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
+
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
     $result = mysqli_query($con, "SELECT * FROM user_info");
     while ($row = mysqli_fetch_array($result)) {
         echo "

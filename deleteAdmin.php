@@ -3,11 +3,7 @@ session_start();
 $con = mysqli_connect('localhost', 'root', '12345678', 'online');
 
 if (!isset($_SESSION['isOwner']) || $_SESSION['isOwner'] != 1) {
-<<<<<<< HEAD
     header('location: ../user_Page.php');
-=======
-    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/user_Page.php");
->>>>>>> 877e22e (marge head.php & list.php)
     exit;
 }
 

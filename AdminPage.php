@@ -1,7 +1,9 @@
 <?php
 session_start();
+$user_id = $_SESSION['user_id'];
 
 if (!isset($_SESSION['isAdmin']) || $_SESSION['isAdmin'] != 1) {
+<<<<<<< HEAD
 <<<<<<< HEAD
     // Not an admin, send to user page or login
     header("Location: userPage.php");
@@ -25,6 +27,18 @@ if (isset($_GET['logout'])) {
   exit;
 }
 >>>>>>> 877e22e (marge head.php & list.php)
+=======
+  // Not an admin, send to user page or login
+  header("Location: http://" . $_SERVER['HTTP_HOST'] . "/user_Page.php");
+  exit;
+}
+if (isset($_GET['logout'])) {
+  unset($_SESSION['isAdmin']);
+  session_destroy();
+  header("Location: http://" . $_SERVER['HTTP_HOST'] . "/home_Page.php");
+  exit;
+}
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
 ?>
 
 
@@ -57,10 +71,14 @@ if (isset($_GET['logout'])) {
 
       <li>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <a href="customer\userProfile.php">
 =======
         <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/customer/userProfile.php"; ?>">
 >>>>>>> 877e22e (marge head.php & list.php)
+=======
+        <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/customer/userProfile.php"; ?>">
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
           <i class="fas fa-users"></i>
           <p> profile </p>
         </a>

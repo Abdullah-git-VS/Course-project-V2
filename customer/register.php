@@ -20,6 +20,7 @@ if (isset($_POST['submit'])) {
       $select = mysqli_query($con, "SELECT * FROM user_info WHERE email = '$email' AND password = '$pass'") or die('query failed');
 
 <<<<<<< HEAD
+<<<<<<< HEAD
    if(mysqli_num_rows($select) > 0){
       $message[] = 'user already exist!';
    }else{
@@ -28,6 +29,8 @@ if (isset($_POST['submit'])) {
       mysqli_close($con);
       header('location:../home_Page.php');
 =======
+=======
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
       if (mysqli_num_rows($select) > 0) {
          $message[] = 'user already exist!';
       } else {
@@ -36,7 +39,10 @@ if (isset($_POST['submit'])) {
          mysqli_close($con);
          header("Location: http://" . $_SERVER['HTTP_HOST'] . "/home_Page.php");
       }
+<<<<<<< HEAD
 >>>>>>> 877e22e (marge head.php & list.php)
+=======
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
    }
 }
 ?>

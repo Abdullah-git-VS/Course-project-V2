@@ -1,10 +1,15 @@
 <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
 include('Function\config.php');
 =======
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
 
 >>>>>>> 877e22e (marge head.php & list.php)
+=======
+include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
+
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
 session_start();
 if (isset($_GET['submit'])) {
   $userId = $_GET['id'];
@@ -13,10 +18,14 @@ if (isset($_GET['submit'])) {
     $row = mysqli_fetch_assoc($select);
     $_SESSION['id'] = $row['id'];
 <<<<<<< HEAD
+<<<<<<< HEAD
     header('Location: controlAccess.php');
 =======
     header("Location: http://" . $_SERVER['HTTP_HOST'] . "/admin/controlAccess.php");
 >>>>>>> 877e22e (marge head.php & list.php)
+=======
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/admin/controlAccess.php");
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
   } else {
     echo "<script>
         alert('incorrect User ID!');

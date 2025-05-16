@@ -14,15 +14,21 @@
 <body>
     <?php
 <<<<<<< HEAD
+<<<<<<< HEAD
     include('Function\config.php');
     $ID=$_GET['id'];
     $UP=mysqli_query($con,"SELECT * FROM user_info WHERE id=$ID");
 =======
+=======
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
     include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
 
     $ID = $_GET['id'];
     $UP = mysqli_query($con, "SELECT * FROM user_info WHERE id=$ID");
+<<<<<<< HEAD
 >>>>>>> 877e22e (marge head.php & list.php)
+=======
+>>>>>>> 877e22ea1a3d0d422c58cfd4b20dc4ca4b7483a4
     $data = mysqli_fetch_array($UP);
     mysqli_close($con);
     ?>
