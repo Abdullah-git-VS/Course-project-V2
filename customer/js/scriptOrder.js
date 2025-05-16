@@ -102,13 +102,13 @@ function showStep(steps) {
             </div>
 
             <h3> confirm </h3>
-            <form id="confirmForm">
+            <form id="confirmForm" action="../order.php" method="get">
               
               <input type="hidden" name="vehicle" value="${orderData.vehicle}">
-              <input type="hidden" name="vehicle" value="${orderData.product}">
-              <input type="hidden" name="vehicle" value="${orderData.quantity}">
-              <input type="hidden" name="vehicle" value="${orderData.destination}">
-              <button type="submit">Confirm Order</button>
+              <input type="hidden" name="product" value="${orderData.product}">
+              <input type="hidden" name="quantity" value="${orderData.quantity}">
+              <input type="hidden" name="destination" value="${orderData.destination}">
+              <button type="submit" name="submit2">Confirm Order</button>
             </form>
             
             `;

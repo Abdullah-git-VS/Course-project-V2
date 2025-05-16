@@ -179,8 +179,6 @@ if (isset($_GET['logout'])) {
 
 <body>
 
-<!-- <a href='/transport-project/transport-project/customer/cart.php'><button>go</button></a> -->
-
 
 
 

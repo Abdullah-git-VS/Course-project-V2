@@ -25,6 +25,12 @@ if (isset($_GET['logout'])) {
 };
     $res=mysqli_query($con, "SELECT * FROM `order` WHERE userID='$userId'");
 
+    if(mysqli_num_rows($res) == 0) {
+      echo'Your cart is empty!';
+    } else {
+
+      
+
     while ($row = mysqli_fetch_assoc($res)) {
     echo "Product: " . $row['product'] . "<br>";
     echo "Vehicle: " . $row['vehicle'] . "<br>";
@@ -45,6 +51,16 @@ if (isset($_POST['delete_id'])) {
     exit;
 }
 
+if (isset($_GET['confirm'])) {
+  mysqli_query($con, "DELETE FROM `order` WHERE userID = $userId");
+
+  echo "<script>
+        alert('Your order has been confirmed!');
+        window.location.href = '../shared/homePage.php';
+    </script>";
+    }
+  }
+
 
     mysqli_close($con);
   ob_end_flush();
@@ -59,6 +75,13 @@ if (isset($_POST['delete_id'])) {
         <title>Document</title>
     </head>
     <body>
-        
+
+    <?php if (mysqli_num_rows($res) > 0){ ?>
+  <form method="get">
+      <button type="submit" name="confirm">Confirm order</button>
+  </form>
+<?php } ?>
+    
+      
     </body>
     </html>
