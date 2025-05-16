@@ -1,24 +1,20 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title><?php echo isset($title) ? $title: "default";?></title>
-  <link rel="stylesheet" href="hide_style.css">
+  <title>Full Navbar</title>
+  <link rel="stylesheet" href="headerList.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
 </head>
 
 <body>
-<header>
-    <nav class="navbar">
-      <div class="logo">
-        <h1> <?php echo isset($title) ? $title:"default page";?> </h1>
-      </div>
-    </nav>
- </header>
- 
-  <div class="menu">
+  <?php  $title = "Admin Page";
+        include "header.php"; ?>
+
+
+<div class="menu">
     <ul>
       <li class="profile">
         <div class="img-box">
@@ -27,15 +23,10 @@
         <h2> <?php echo $fetch_user['name']; ?> </h2>
       </li>
 
-      <li>
-        <a href="<?php echo "http://".$_SERVER['HTTP_HOST']."/customer/shop_x.php";?>">
-          <i class="fas fa-shopping-cart"></i>
-          <p> cart </p>
-        </a>
-      </li>
+    
 
       <li>
-        <a href="<?php echo "http://".$_SERVER['HTTP_HOST']."/customer/userProfile.php";?>">
+        <a href="customer\userProfile.php">
           <i class="fas fa-users"></i>
           <p> profile </p>
         </a>
@@ -64,15 +55,15 @@
 
       <li>
         <a href="#">
-          <i class="fas fa-star"></i>
-          <p> favorite </p>
+          <i class="fas fa-lightbulb"></i>
+          <p> view product </p>
         </a>
       </li>
 
       <li>
         <a href="#">
           <i class="fas fa-cog"></i>
-          <p> settings </p>
+          <p> configuration </p>
         </a>
       </li>
 
@@ -86,6 +77,8 @@
     </ul>
 
   </div>
-</body>
 
+
+
+</body>
 </html>

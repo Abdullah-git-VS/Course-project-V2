@@ -104,8 +104,7 @@
 </head>
 
 <body>
-    <?php include($_SERVER["DOCUMENT_ROOT"]."\list.php");
-header.php'; ?>
+    <?php include 'header.php'; ?>
 
     <h2> Sign-in form </h2>
     <p> Please fill the information </p>

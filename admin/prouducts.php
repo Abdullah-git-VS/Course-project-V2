@@ -9,7 +9,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
-    <title>prouducts | المنتجات</title>
+    <title>users | المستخدمين</title>
     <style>
         h3,
         h5 {
@@ -49,21 +49,20 @@
 
 <body>
     <nav calss="navbar">
-        <a id="aa" class="navbar-brand" href="add.php">Add Product | إضافة منتج</a>
+        <a id="aa" class="navbar-brand" href="add.php">Add user | إضافة مستخدم</a>
     </nav>
     <center>
-        <h3>جميع المنتجات المتوفرة</h3>
+        <h3>جميع المستخدمين</h3>
     </center>
     <?php
-    include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
-
-    $result = mysqli_query($con, "SELECT * FROM products");
+    include('Function\config.php');
+    $result = mysqli_query($con, "SELECT * FROM user_info");
     while ($row = mysqli_fetch_array($result)) {
         echo "
         <center>
         <main>
             <div class='card' style='width: 15rem; border: 1px black solid;'>
-             <img src='/customer/$row[image]' class='card-img-top'>
+             <img src='../$row[profile_pic]' class='card-img-top'>
              <div class='card-body' style='border: 1px black solid;'>
                     <h5 class='card-title'>$row[name]</h5>
                     <p class='card-text'>$row[price]</p>

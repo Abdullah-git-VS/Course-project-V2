@@ -1,5 +1,19 @@
 <?php
-include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\logout.php");
+
+include('..\admin\Function\config.php');
+session_start();
+$user_id = $_SESSION['user_id'];
+
+if (!isset($user_id)) {
+   header('location:../home_Page.php');
+};
+
+if (isset($_GET['logout'])) {
+   unset($user_id);
+   session_destroy();
+   header('location:../home_Page.php');
+};
+
 if (isset($_POST['add_to_cart'])) {
 
    $product_name = $_POST['product_name'];
@@ -27,12 +41,12 @@ if (isset($_POST['update_cart'])) {
 if (isset($_GET['remove'])) {
    $remove_id = $_GET['remove'];
    mysqli_query($con, "DELETE FROM `cart` WHERE id = '$remove_id'") or die('query failed');
-   header("Location: http://" . $_SERVER['HTTP_HOST'] . "/customer/shop_x.php");
+   header('location:shop_x.php');
 }
 
 if (isset($_GET['delete_all'])) {
    mysqli_query($con, "DELETE FROM `cart` WHERE user_id = '$user_id'") or die('query failed');
-   header("Location: http://" . $_SERVER['HTTP_HOST'] . "/customer/shop_x.php");
+   header('location:shop_x.php');
 }
 mysqli_close($con);
 ?>
@@ -46,14 +60,13 @@ mysqli_close($con);
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>عربة التسوق</title>
    <link rel="stylesheet" href="css/style.css">
-   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-
+     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+   
 </head>
 
 <body>
    <?php
-   include($_SERVER["DOCUMENT_ROOT"] . "\user_Page.php");
-
+   include('..\user_Page.php');
    ?>
    <?php
    if (isset($message)) {
@@ -74,8 +87,7 @@ mysqli_close($con);
          <div class="box-container">
 
             <?php
-            include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
-
+            include('..\admin\Function\config.php');
             $result = mysqli_query($con, "SELECT * FROM products");
             while ($row = mysqli_fetch_array($result)) {
             ?>
@@ -96,7 +108,7 @@ mysqli_close($con);
          </div>
 
       </div>
-
+      
       <div class="shopping-cart">
 
          <h1 class="heading"> عربة التسوق</h1>
@@ -151,7 +163,7 @@ mysqli_close($con);
 
       </div>
 
-   </div>
+   </div> 
 </body>
 
 </html>

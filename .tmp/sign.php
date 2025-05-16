@@ -1,7 +1,6 @@
 <html lang="ar">
 <?php
-include($_SERVER["DOCUMENT_ROOT"]."\admin\Function\config.php");
-
+include('config.php');
 session_start();
 
 if (isset($_POST['submit'])) {
@@ -14,7 +13,7 @@ if (isset($_POST['submit'])) {
     if (mysqli_num_rows($select) > 0) {
         $row = mysqli_fetch_assoc($select);
         $_SESSION['user_id'] = $row['id'];
-        header("Location: http://".$_SERVER['HTTP_HOST']."/customer/shop_x.php");
+        header('location: shop_x.php');
     } else {
         $message[] = 'incorrect password or email!!';
     }

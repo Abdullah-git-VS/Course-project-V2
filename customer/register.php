@@ -1,35 +1,50 @@
 <?php
-include('..\admin\Function\config.php');
-if (isset($_POST['submit'])) {
-   if (strlen($_POST['password']) < 8) {
-      $message[] = "Password must be at least 8 characters!";
-   } else {
-      $name = mysqli_real_escape_string($con, $_POST['name']);
-      $email = mysqli_real_escape_string($con, $_POST['email']);
-      $pass = mysqli_real_escape_string($con, $_POST['password']);
-      $cpass = mysqli_real_escape_string($con, $_POST['cpassword']);
-      $address = mysqli_real_escape_string($con, $_POST['address']);
-      $phone = mysqli_real_escape_string($con, $_POST['phone']);
-      $hashed_password = password_hash($pass, PASSWORD_DEFAULT);
-      $images = 'pics/Sample_User_Icon.png';
-      $image = $_FILES['profile_pic'];
-      $image_location = $_FILES['profile_pic']['tmp_name'];
-      $image_name = $_FILES['profile_pic']['name'];
-      $profile_pic = "pics/" . $image_name;
-      move_uploaded_file($image_location, $profile_pic);
-      $select = mysqli_query($con, "SELECT * FROM user_info WHERE email = '$email' AND password = '$pass'") or die('query failed');
+include('..\shared\functions\config.php');
+session_start();
 
-      if (mysqli_num_rows($select) > 0) {
-         $message[] = 'user already exist!';
-      } else {
-         mysqli_query($con, "INSERT INTO user_info(name, email, password, profile_pic, address, phone) VALUES('$name', '$email', '$hashed_password','$images','$address','$phone')") or die('query failed');
-         $message[] = 'registered successfully!';
-         mysqli_close($con);
-         header("Location: http://" . $_SERVER['HTTP_HOST'] . "/home_Page.php");
-      }
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
+
+   $name = mysqli_real_escape_string($con, $_POST['name']);
+   $email = mysqli_real_escape_string($con, $_POST['email']);
+   $pass = mysqli_real_escape_string($con, $_POST['password']);
+   $cpass = mysqli_real_escape_string($con, $_POST['cpassword']);
+   $address = mysqli_real_escape_string($con, $_POST['address']);
+   $phone = mysqli_real_escape_string($con, $_POST['phone']);
+   $hashed_password = password_hash($pass, PASSWORD_DEFAULT);
+   $images = 'images/Sample_User_Icon.png';
+   // file uploading
+   $image = $_FILES['profile_pic'];
+   $image_location = $_FILES['profile_pic']['tmp_name'];
+   $image_name = $_FILES['profile_pic']['name'];
+   $profile_pic = "images/" . $image_name;
+   move_uploaded_file($image_location, $profile_pic);
+
+   if (strlen($pass) < 8) {
+      $_SESSION['message'] = "Password must be at least 8 characters!";
+      header('Location: ' . $_SERVER['PHP_SELF']);
+      exit();
+   } else if ($pass !== $cpass) {
+      $_SESSION['message'] = "Passwords do not match!";
+      header('Location: ' . $_SERVER['PHP_SELF']);
+      exit();
+   }
+   // check if the email already exists
+   $select = mysqli_query($con, "SELECT * FROM user_info WHERE email = '$email'") or die('query failed');
+
+   if (mysqli_num_rows($select) > 0) {
+      $_SESSION['message'] = 'User already exist!';
+      header('Location: ' . $_SERVER['PHP_SELF']);
+      exit();
+   } else {
+      mysqli_query($con, "INSERT INTO user_info(name, email, password, profile_pic, address, phone) VALUES('$name', '$email', '$hashed_password','$images','$address','$phone')") or die('query failed');
+      $_SESSION['message'] = 'Registered successfully!';
+      mysqli_close($con);
+      header('location:../shared/homePage.php');
+      exit();
    }
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,187 +52,72 @@ if (isset($_POST['submit'])) {
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>register</title>
-
+   <title>Register</title>
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="../shared/css/newStyle.css">
+
    <style>
-      * {
-         margin: 0;
-         padding: 0;
-         box-sizing: border-box;
-      }
-
-      body {
+      .register-container {
+         margin: 1px auto;
+         padding: 10px 20px;
+         border-radius: 15px;
          display: flex;
+         justify-content: center;
+         align-items: center;
          flex-direction: column;
-         justify-content: center;
-         align-items: center;
-         min-height: 100vh;
       }
 
-      header {
-         display: flex;
-         justify-content: space-between;
-         align-items: center;
-         padding: 10px;
-         width: 100%;
-         background-color: #252557;
-      }
-
-      .navbar {
-         display: flex;
-         justify-content: space-between;
-         align-items: center;
-         padding: 10px;
-         background-color: #252557;
-         width: 100%;
-         height: 60px;
-      }
-
-      .logo {
-         display: flex;
-         align-items: center;
-         color: white;
-         font-size: 30px;
-         font-weight: bold;
-      }
-
-      .logo p {
-         margin-left: 800px;
-         border-radius: 5px;
-      }
-
-      .logo h1 {
-         font-size: 30px;
-         text-transform: uppercase;
-      }
-
-      .logo a {
-         color: white;
-         text-decoration: none;
-         font-size: 20px;
-         transition: 0.3 ease;
-
-      }
-
-      .logo a:hover {
-         background-color: rgba(255, 255, 255, 0.21);
-      }
-
-      .form-container {
-         background-color: #272757;
-         width: 450px;
-         height: 450px;
-         margin: 100px auto;
-         padding: 20px;
-         border-radius: 20px;
-
-         display: flex;
-         justify-content: center;
-         align-items: center;
-      }
-
-      form {
-         width: 100%;
-         height: 500px;
-         border-radius: 20px;
-         display: flex;
-         flex-wrap: wrap;
-         gap: 5px;
-      }
-
-      .form-container form h3 {
-         color: black;
-         font-size: 30px;
-
-      }
-
-      .form-container form .inputs {
-         margin: 10px;
-         width: 300px;
-         height: 50px;
-         border-radius: 5px;
-         background-color: rgb(43, 43, 115);
-         border: none;
-         outline: none;
-         color: white;
-         padding: 20px;
-         /* the input size will grow if there is a space for grow */
-         flex-grow: 1;
-      }
-
-      .form-container form .inputs::placeholder {
-         color: white;
-         font-size: 20px;
-      }
-
-      .form-container form .submitting {
-         background-color: rgb(43, 43, 115);
+      .register-btn {
+         background-color: #3a3a94;
          color: white;
          border: none;
          border-radius: 5px;
-         position: relative;
-         bottom: 3px;
-         margin: 5px;
+         margin: 15px 0 10px;
          cursor: pointer;
-         width: 200px;
-         height: 50px;
-         flex-grow: 1;
-         font-size: 20px;
-
-         transition: 0.3s ease;
+         width: 100%;
+         height: 45px;
+         font-size: 18px;
+         transition: background-color 0.3s ease;
       }
 
-      .form-container form .submitting:hover {
-         background-color: rgb(126, 126, 161);
-         transition: 0.3s;
-      }
-
-
-      .form-container form p,
-      a {
-         color: black;
-         font-size: 20px;
-         text-decoration: none;
+      .register-btn:hover {
+         background-color: #5050b8;
       }
    </style>
-
-
-   <script src="../script.js"></script>
 </head>
 
 <body>
-   <?php
-   if (isset($message)) {
-      foreach ($message as $message) {
-         echo '<div class="message" onclick="this.remove();">' . $message . '</div>';
-      }
-   }
-   ?>
 
-   <header>
-      <nav class="navbar">
-         <div class="logo">
-            <h1>Transport</h1>
-            <p> <a href="#">back</a></p>
-         </div>
-      </nav>
-   </header>
+   <nav class="navbar">
+      <div class="logo">
+         <h1>Transport</h1>
+      </div>
+      <div class="nav-link">
+         <a href="about.php">About</a>
+      </div>
+   </nav>
 
-   <div class="form-container">
-
-      <form onSubmit="return validate();" method="post" enctype="multipart/form-data">
-         <h3 class="heading">انشاء حساب جديد</h3>
-         <input class="inputs" type="text" name="name" required placeholder="اسم المستخدم" class="box">
-         <input class="inputs" type="email" name="email" required placeholder="البريد الالكتروني" class="box">
-         <input class="inputs" type="password" name="password" required placeholder="كلمة المرور" class="box" name="password" id="password">
-         <input class="inputs" type="password" name="cpassword" required placeholder="تأكيد كلمة المرور" class="box" id="confirm_password">
-         <input class="inputs" type="text" name="address" required placeholder="العنوان" class="box">
-         <input class="inputs" type="text" name="phone" required placeholder="رقم الهاتف" class="box">
-         <input class="submitting" type="submit" name="submit" class="btn" value="تسجيل حساب">
-         <p>هل لديك حساب؟ <a href="../../home_Page.php"> تسجيل دخول</a></p>
-      </form>
+   <div class="register-container">
+      <div class="popup-content">
+         <h2>Register</h2>
+         <form onsubmit="return validate();" method="post" enctype="multipart/form-data">
+            <h3 class="heading">Create a New Account</h3>
+            <input class="box" type="text" name="name" required placeholder="Username" class="box">
+            <input class="box" type="email" name="email" required placeholder="Email" class="box">
+            <input class="box" type="password" name="password" required placeholder="Password" class="box" id="password">
+            <input class="box" type="password" name="cpassword" required placeholder="Confirm Password" class="box" id="confirm_password">
+            <input class="box" type="text" name="address" required placeholder="Address" class="box">
+            <input class="box" type="text" name="phone" required placeholder="Phone Number" class="box">
+            <?php
+            if (isset($_SESSION['message'])) {
+               echo '<div class="message" onclick="this.remove();">' . $_SESSION['message'] . '</div>';
+               unset($_SESSION['message']);
+            }
+            ?>
+            <input type="submit" name="submit" class="register-btn" value="Register">
+            <p>Already have an account? <a href="../shared/homePage.php">Sign In</a></p>
+         </form>
+      </div>
    </div>
 
 </body>

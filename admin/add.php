@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
-
+    
 
 <head>
-
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400&display=swap" rel="stylesheet">
@@ -29,7 +29,7 @@
                     <button name='upload'>✅رفع المنتج</button>
                     <br><br>
                 </div>
-                <a href="prouducts.php">عرض المنتجات</a>
+                <a href="users.php">عرض المنتجات</a>
             </form>
         </div>
         <p>Developer by love❤️</p>

@@ -1,20 +1,12 @@
 <?php
-include($_SERVER["DOCUMENT_ROOT"]."\admin\Function\config.php");
-
+include('..\admin\Function\config.php');
 $ID = $_GET['id'];
 $up = mysqli_query($con, "SELECT * FROM products WHERE id=$ID");
 $data = mysqli_fetch_array($up);
-
-if (isset($_GET['add'])) {
-    $NAME = $data['name'];
-    $PRICE = $data['price'];
-    $ID = $data['id'];
-    $insert = "INSERT INTO addcard (name, price) VALUES ('$NAME','$PRICE')";
-    mysqli_query($con, $insert);
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -59,6 +51,7 @@ if (isset($_GET['add'])) {
         }
     </style>
 </head>
+
 <body>
     <nav calss="navbar">
         <a id="aa" class="navbar-brand" href="card.php">Mycard | عربتي</a>
@@ -67,8 +60,7 @@ if (isset($_GET['add'])) {
         <h3>المنتجات المتوفرة</h3>
         <main>
             <?php
-            include($_SERVER["DOCUMENT_ROOT"]."\admin\Function\config.php");
-
+            include('..\Function\config.php');
             $result = mysqli_query($con, "SELECT * FROM products");
             while ($row = mysqli_fetch_array($result)) {
                 echo "
@@ -77,7 +69,7 @@ if (isset($_GET['add'])) {
              <div class='card-body' style='border: 1px black solid;'>
                     <h5 class='card-title'>$row[name]</h5>
                     <p class='card-text'>$row[price]</p>
-                    <a href='?id=$row[id]&add='1' class='btn btn-success' name='add'>إضافة المنتج للعربة</a>
+                    <a href='? id=$row[id]' class='btn btn-success'>إضافة المنتج للعربة</a>
                 </div>
             </div>
             ";

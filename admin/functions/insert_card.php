@@ -1,6 +1,5 @@
 <?php
-include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
-
+include('config.php');
 if (isset($_POST['add'])) {
     $NAME = $_POST['name'];
     $PRICE = $_POST['price'];
@@ -8,5 +7,6 @@ if (isset($_POST['add'])) {
     $insert = "INSERT INTO addcard (name, price) VALUES ('$NAME','$PRICE')";
     mysqli_query($con, $insert);
     mysqli_close($con);
-    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/customer/card.php");
+    header('location: \..\customer\card.php');
 }
+?>
