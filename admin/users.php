@@ -12,7 +12,7 @@
 </head>
 <body>
     <?php
-    include('Function\config.php');
+    include('../shared/functions/config.php');
     $ID=$_GET['id'];
     $UP=mysqli_query($con,"SELECT * FROM user_info WHERE id=$ID");
     $data = mysqli_fetch_array($UP);

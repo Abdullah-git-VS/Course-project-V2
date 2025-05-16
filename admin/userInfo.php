@@ -1,5 +1,5 @@
 <?php
-include('Function\config.php');
+include('../shared/functions/config.php');
 session_start();
 $id   = $_SESSION['id'];
 $name = $_SESSION['name'];

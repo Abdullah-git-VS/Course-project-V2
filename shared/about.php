@@ -1,5 +1,5 @@
 <?php
-include('admin\Function\config.php');
+include('../shared/functions/config.php');
 
 
 ?>
@@ -81,7 +81,7 @@ include('admin\Function\config.php');
 
 
     <div class="back">
-      <a href="home_Page.php" class="back-btn"><i class="fas fa-home"></i> العودة</a>
+      <a href="homePage.php" class="back-btn"><i class="fas fa-home"></i> العودة</a>
     </div>
 
 <?php

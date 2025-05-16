@@ -1,5 +1,5 @@
 <?php
-include('Function\config.php');
+include('../shared/functions/config.php');
 session_start();
 if (isset($_POST['submit'])) {
      $userId = $_POST['id'];

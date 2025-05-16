@@ -2,6 +2,10 @@
 session_start();
 include('..\shared\functions\config.php');
 $userID = $_SESSION['user_id'];
+if (!isset($_SESSION['user_id'])) {
+    header("Location: ../shared/homePage.php");
+    exit;
+}
 $select = mysqli_query($con, "SELECT * FROM `user_info` WHERE `id` = $userID");
 $row =  mysqli_fetch_array($select);
 
