@@ -216,7 +216,6 @@ if (isset($_GET['submit2'])) {
             VALUES ('$vehicle', '$product', '$quantity', '$destination', '$userId')" or die("Query failed");
     
     $result = mysqli_query($con, $sql);
-
     header("Location: order.php");
     exit;
 
