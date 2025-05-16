@@ -40,9 +40,9 @@
       </li>
 
       <li>
-        <a href="#">
+        <a href="../admin/banUser.php">
           <i class="fas fa-chart-pie"></i>
-          <p> chart </p>
+          <p> Control Managment </p>
         </a>
       </li>
 
