@@ -33,7 +33,7 @@ if (!empty($profile_pic) && file_exists(BASE_PATH . 'shared/' . $profile_pic)) {
     <ul>
       <li class="profile">
         <div class="img-box">
-          <img src="<?php echo BASE_URL . 'shared/' . $image_to_show; ?>" alt="User Pic">
+          <img src="<?php echo BASE_URL . '../shared/' . $image_to_show; ?>" alt="User Pic">
         </div>
         <h2> <?php echo $user['name']; ?> </h2>
       </li>
@@ -41,21 +41,21 @@ if (!empty($profile_pic) && file_exists(BASE_PATH . 'shared/' . $profile_pic)) {
 
 
       <li>
-        <a href="<?php echo BASE_URL . 'customer/order.php'; ?>">
+        <a href="<?php echo BASE_URL . '../customer/order.php'; ?>">
           <i class="fas fa-list"></i>
           <p> order </p>
         </a>
       </li>
 
       <li>
-        <a href="<?php echo BASE_URL . 'customer/cart.php'; ?>">
+        <a href="<?php echo BASE_URL . '../customer/cart.php'; ?>">
           <i class="fas fa-shopping-cart"></i>
           <p> cart </p>
         </a>
       </li>
 
       <li>
-        <a href="<?php echo BASE_URL . 'customer/userProfile.php'; ?>" style="text-decoration: none; color: inherit;">
+        <a href="<?php echo BASE_URL . '../customer/userProfile.php'; ?>" style="text-decoration: none; color: inherit;">
           <i class="fas fa-users"></i>
           <p> profile </p>
         </a>

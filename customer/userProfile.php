@@ -212,7 +212,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="form-container">
             <div class="form-header">
                 <?php
-                echo "<img src='" . BASE_URL . 'shared/' . $userImg . "' alt='User Pic' width='100px'>";
+                echo "<img src='" . BASE_URL . '../shared/' . $userImg . "' alt='User Pic' width='100px'>";
                 echo "Welcome " . $row['name'];
                 ?>
             </div>
