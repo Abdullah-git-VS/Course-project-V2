@@ -33,7 +33,7 @@ if (!empty($profile_pic) && file_exists(BASE_PATH . 'shared/' . $profile_pic)) {
     <ul>
       <li class="profile">
         <div class="img-box">
-          <img src="<?php echo BASE_URL . 'shared/' . $image_to_show; ?>" alt="User Pic">
+          <img src="<?php echo BASE_URL . '../shared/' . $image_to_show; ?>" alt="User Pic">
         </div>
         <h2> <?php echo $user['name']; ?> </h2>
       </li>
