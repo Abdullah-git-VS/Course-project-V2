@@ -93,12 +93,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
-    <link rel="stylesheet" href="../shared/css/headerList.css">
+    <link rel="stylesheet" href="../shared/css/newStyle.css">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-        }
+        
 
         .profile-form {
             max-width: 600px;
@@ -188,12 +185,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body>
+
+
+    <!-- include of list -->
     <?php include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php"); ?>
 
+    <!-- include of header -->
     <?php
     $title = "Profile";
     include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php");
     ?>
+
+
+
+
 
     <?php
     // Display success or error messages
@@ -208,8 +213,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
     ?>
 
+    <div class="form-container">
     <form action="" method="post" class="profile-form">
-        <div class="form-container">
+        
             <div class="form-header">
                 <?php
                 echo "<img src='" . BASE_URL . '../shared/' . $userImg . "' alt='User Pic' width='100px'>";

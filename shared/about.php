@@ -10,8 +10,8 @@ include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tariq is here</title>
-  <link rel="stylesheet" href="headerList.css">
+  <title></title>
+  <link rel="stylesheet" href="css/newStyle.css">
   <style>
     .frame-container {
       border: 2px solid rgb(0, 0, 0);
@@ -36,48 +36,27 @@ include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
       font-size: 60px;
     }
 
-    .back {
-      background-color: #272757;
-      height: 40px;
-      display: flex;
-      justify-content: flex-end;
-      align-items: center;
-
-    }
-
-    .back a {
-      text-decoration: none;
-      color: white;
-      font-size: 30px;
-      padding: 10px 20px;
-      border-radius: 5px;
-      margin-right: 25px;
-      margin-bottom: 25px;
-    }
-
-    .back a:hover {
-      background-color: #ffffff55;
-      transition: .5s;
-    }
-
-    .back i {
-      font-size: 30px;
-      margin-left: 5px;
-
-    }
+    
   </style>
 </head>
 
 <body>
 
 
+
+    <!-- header and block here -->
   <?php $title = "About us";
   include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php"); ?>
-
-
+  
   <div class="back">
     <a href="homePage.php" class="back-btn"><i class="fas fa-home"></i> العودة</a>
   </div>
+
+  <!-- untill here -->
+
+
+
+
 
   <?php
   $sql = mysqli_query($con, "SELECT * FROM `user_info`;") or die('query failed');
