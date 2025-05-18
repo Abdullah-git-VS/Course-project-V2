@@ -8,11 +8,11 @@ $email = $_SESSION['email'];
 if (isset($_POST['submit'])) {
     $q = mysqli_query($con, "UPDATE user_info SET canAccess = '0' WHERE id = '$id'")
     or die('query failed');
-    header("Location: userInfo.php");
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/admin/userInfo.php");
 } elseif (isset($_POST['submit2'])) {
     $q = mysqli_query($con, "UPDATE user_info SET canAccess = '1' WHERE id = '$id'")
     or die('query failed');
-    header("Location: userInfo.php");
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/admin/userInfo.php");
 }
 mysqli_close($con);
 ?>

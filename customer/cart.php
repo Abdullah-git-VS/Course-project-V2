@@ -8,7 +8,7 @@
     include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
 
     if (!isset($_SESSION['user_id'])) {
-    header("Location: ../shared/homePage.php");
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
     exit;
 }
 if (isset($_GET['logout'])) {
@@ -16,10 +16,10 @@ if (isset($_GET['logout'])) {
   session_destroy();
 
   if (file_exists('../shared/homePage.php')) {
-    header('Location: ../shared/homePage.php');
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
     exit;
   } else {
-    header('Location: ../shared/homePage.php');
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
     exit;
   }
 };
@@ -47,7 +47,7 @@ if (isset($_GET['logout'])) {
 if (isset($_POST['delete_id'])) {
     $id = $_POST['delete_id'];
     mysqli_query($con, "DELETE FROM `order` WHERE id = $id AND userID = $userId");
-    header("Location: cart.php");
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/customer/cart.php");
     exit;
 }
 

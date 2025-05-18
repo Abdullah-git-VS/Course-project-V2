@@ -3,7 +3,7 @@ session_start();
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
 $userID = $_SESSION['user_id'];
 if (!isset($_SESSION['user_id'])) {
-    header("Location: ../shared/homePage.php");
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
     exit;
 }
 if (isset($_GET['logout'])) {
@@ -11,10 +11,10 @@ if (isset($_GET['logout'])) {
   session_destroy();
 
   if (file_exists('../shared/homePage.php')) {
-    header('Location: ../shared/homePage.php');
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
     exit;
   } else {
-    header('Location: ../shared/homePage.php');
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
     exit;
   }
 };
@@ -48,7 +48,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         if (mysqli_num_rows($emailCheckResult) > 0) {
             $_SESSION['error_message'] = 'The email is already in use by another user!';
-            header('Location: userProfile.php');
+            header("Location: http://" . $_SERVER['HTTP_HOST'] . "/customer/userProfile.php");
             exit();
         } else {
             // Update email if it's unique
@@ -73,14 +73,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $success = true;
         } else {
             $_SESSION['error_message'] = 'Password and Confirm Password do not match!';
-            header('Location: userProfile.php');
+            header("Location: http://" . $_SERVER['HTTP_HOST'] . "/customer/userProfile.php");
             exit();
         }
     }
 
     if ($success) {
         $_SESSION['success_message'] = 'Profile updated successfully!';
-        header('Location: userProfile.php');
+        header("Location: http://" . $_SERVER['HTTP_HOST'] . "/customer/userProfile.php");
         exit();
     }
 }

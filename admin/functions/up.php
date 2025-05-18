@@ -13,6 +13,6 @@ if (isset($_POST['update'])) {
     $update = "UPDATE user_info SET name='$NAME' , email='$EMAIL', profile_pic='$image_up', id='$ID_n' WHERE id=$ID_o";
     mysqli_query($con, $update);
     mysqli_close($con);
-    header('location: ../add.php');
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/admin/add.php");
 }
 ?>

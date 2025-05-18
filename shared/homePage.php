@@ -4,7 +4,7 @@
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
 session_start();
 
-if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
+if (isset($_POST['submit'])) {
   $email = mysqli_real_escape_string($con, $_POST['email']);
   $passw = mysqli_real_escape_string($con, $_POST['password']);
   $select = mysqli_query($con, "SELECT * FROM `user_info` WHERE email = '$email'") or die('query failed');
@@ -13,22 +13,28 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
   echo "<script>console.log(" . json_encode($row) . ");</script>";
 
 
+  if ($row['isAdmin'] == 1) {
+    // Admin user
+    $_SESSION['isAdmin'] = $row['isAdmin'];
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/admin/adminPage.php");
+    exit;
+  }
   if (!$row || !password_verify($passw, $row['password'])) {
     $_SESSION['message'] = "Incorrect email or password!";
-    header('Location: ' . $_SERVER['PHP_SELF']);
+    header("Location: " . $_SERVER['PHP_SELF']);
     exit();
   }
 
   if ($row['canAccess'] == 0) {
     $_SESSION['message'] = "You are banned from accessing the website!";
     session_destroy();
-    header('Location: ' . $_SERVER['PHP_SELF']);
+    header("Location: " . $_SERVER['PHP_SELF']);
     exit();
   }
 
   $_SESSION['user_id'] = $row['id'];
   $_SESSION['isAdmin'] = $row['isAdmin'];
-  header('location: ../customer/userPage.php');
+  header("Location: http://" . $_SERVER['HTTP_HOST'] . "/customer/userPage.php");
   exit();
 }
 
@@ -42,7 +48,6 @@ mysqli_close($con);
   <link rel="stylesheet" href="css/newStyle.css">
 
   <style>
-
     /* Login Container */
     .login-container {
       margin: 100px auto;

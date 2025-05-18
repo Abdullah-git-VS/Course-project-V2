@@ -9,7 +9,7 @@ if (isset($_POST['submit'])) {
         $_SESSION['id'] = $row['id'];
         $_SESSION['name'] = $row['name'];
         $_SESSION['email'] = $row['email'];
-        header('Location: userInfo.php');
+        header("Location: http://" . $_SERVER['HTTP_HOST'] . "/admin/userInfo.php");
         
       } else {
         $message[] = 'incorrect User ID!';

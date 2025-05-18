@@ -21,11 +21,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
 
    if (strlen($pass) < 8) {
       $_SESSION['message'] = "Password must be at least 8 characters!";
-      header('Location: ' . $_SERVER['PHP_SELF']);
+      header("Location: " . $_SERVER['PHP_SELF']);
       exit();
    } else if ($pass !== $cpass) {
       $_SESSION['message'] = "Passwords do not match!";
-      header('Location: ' . $_SERVER['PHP_SELF']);
+      header("Location: " . $_SERVER['PHP_SELF']);
       exit();
    }
    // check if the email already exists
@@ -33,13 +33,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
 
    if (mysqli_num_rows($select) > 0) {
       $_SESSION['message'] = 'User already exist!';
-      header('Location: ' . $_SERVER['PHP_SELF']);
+      header("Location: " . $_SERVER['PHP_SELF']);
       exit();
    } else {
       mysqli_query($con, "INSERT INTO user_info(name, email, password, profile_pic, address, phone) VALUES('$name', '$email', '$hashed_password','$images','$address','$phone')") or die('query failed');
       $_SESSION['message'] = 'Registered successfully!';
       mysqli_close($con);
-      header('location:../shared/homePage.php');
+      header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
       exit();
    }
 }

@@ -6,7 +6,7 @@
     $userId=$_SESSION['user_id'];
     $isAdmin=$_SESSION['isAdmin'];
     if (!isset($_SESSION['user_id'])) {
-    header("Location: ../shared/homePage.php");
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
     exit;
 }
 if (isset($_GET['logout'])) {
@@ -14,10 +14,10 @@ if (isset($_GET['logout'])) {
   session_destroy();
 
   if (file_exists('../shared/homePage.php')) {
-    header('Location: ../shared/homePage.php');
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
     exit;
   } else {
-    header('Location: ../shared/homePage.php');
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
     exit;
   }
 };
@@ -223,7 +223,7 @@ if (isset($_GET['submit2'])) {
     
     $result = mysqli_query($con, $sql);
 
-    header("Location: order.php");
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/customer/order.php");
     exit;
 
 

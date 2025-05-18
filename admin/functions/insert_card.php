@@ -7,6 +7,6 @@ if (isset($_POST['add'])) {
     $insert = "INSERT INTO addcard (name, price) VALUES ('$NAME','$PRICE')";
     mysqli_query($con, $insert);
     mysqli_close($con);
-    header('location: \..\customer\card.php');
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/customer/card.php");
 }
 ?>

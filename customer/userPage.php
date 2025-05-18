@@ -3,23 +3,16 @@ include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
 
 session_start();
 $user_id = $_SESSION['user_id'];
-$isAdmin=$_SESSION['isAdmin'];
+$isAdmin = $_SESSION['isAdmin'];
 
 if (!isset($user_id)) {
-  header('location:../shared/homePage.php');
+  header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
 };
 
 if (isset($_GET['logout'])) {
   unset($user_id);
   session_destroy();
-
-  if (file_exists('../shared/homePage.php')) {
-    header('Location: ../shared/homePage.php');
-    exit;
-  } else {
-    header('Location: ../shared/homePage.php');
-    exit;
-  }
+  header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
 };
 ?>
 
@@ -47,8 +40,8 @@ if (mysqli_num_rows($select_user) > 0) {
   <?php include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php"); ?>
 
   <?php
-    $title = "user page";
-    include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php");
+  $title = "user page";
+  include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php");
   ?>
 
   <!-- <div class="image-container">
