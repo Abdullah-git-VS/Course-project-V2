@@ -4,6 +4,7 @@
     session_start();
     include("../shared/functions/config.php");
     $userId=$_SESSION['user_id'];
+    $isAdmin=$_SESSION['isAdmin'];
     if (!isset($_SESSION['user_id'])) {
     header("Location: ../shared/homePage.php");
     exit;
