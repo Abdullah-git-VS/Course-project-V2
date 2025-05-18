@@ -3,6 +3,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
 
 session_start();
 $user_id = $_SESSION['user_id'];
+$isAdmin=$_SESSION['isAdmin'];
 
 if (!isset($user_id)) {
   header('location:../shared/homePage.php');
@@ -53,6 +54,8 @@ if (mysqli_num_rows($select_user) > 0) {
   <!-- <div class="image-container">
     <img src="images/animals.png" alt="Animals" class="bg-image">
   </div> -->
+
+
 
 </body>
 

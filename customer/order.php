@@ -4,6 +4,7 @@
     session_start();
     include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
     $userId=$_SESSION['user_id'];
+    $isAdmin=$_SESSION['isAdmin'];
     if (!isset($_SESSION['user_id'])) {
     header("Location: ../shared/homePage.php");
     exit;
@@ -198,6 +199,13 @@ if (isset($_GET['logout'])) {
 
 
 <script src="../customer/js/scriptOrder.js"> </script>
+
+<?php if($isAdmin == 1) {?>
+    
+        <a href='../admin/addProduct.php'><button>Add products</button></a>
+    
+
+    <?php } ?>
 
 
 </body>

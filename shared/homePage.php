@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
   }
 
   $_SESSION['user_id'] = $row['id'];
+  $_SESSION['isAdmin'] = $row['isAdmin'];
   header('location: ../customer/userPage.php');
   exit();
 }

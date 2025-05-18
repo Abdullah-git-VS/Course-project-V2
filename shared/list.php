@@ -4,7 +4,7 @@ include_once(BASE_PATH . 'shared/functions/getUser.php');
 
 $user_id = $_SESSION['user_id'];
 $user = getUserData($con, $user_id);
-
+$isAdmin=$_SESSION['isAdmin'];
 $default_image = 'images/user.png';
 $profile_pic = $user['profile_pic'];
 
@@ -70,11 +70,13 @@ if (!empty($profile_pic) && file_exists(BASE_PATH . 'shared/' . $profile_pic)) {
       </li>
 
       <li>
-        <a href="#">
+      <?php if($isAdmin == 1) {?>
+        <a href="<?php echo BASE_URL . '../admin/banUser.php'; ?>">
           <i class="fas fa-chart-pie"></i>
-          <p> chart </p>
+          <p> Control Accessability </p>
         </a>
       </li>
+      <?php }?>
 
       <li>
         <a href="#">
