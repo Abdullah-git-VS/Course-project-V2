@@ -18,11 +18,11 @@
     $data = mysqli_fetch_array($UP);
     mysqli_close($con);
     ?>
-    <center>
+    <center><?php echo "../shared/".$data['profile_pic'];?>
         <div class="main">
             <form action="Function/up.php" method="post" enctype="multipart/form-data">
                 <h2>تعديل المستخدم</h2>
-                <img src="../<?php echo $data['profile_pic'];?>" alt="logo" width="450px">
+                <img src="<?php echo "../shared/".$data['profile_pic'];?>" alt="logo" width="450px">
 
                 <input style="display: none;" type="text" name='o' value='<?php echo $data['id'];?>'>
                 <br>

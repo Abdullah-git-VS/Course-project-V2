@@ -1,6 +1,5 @@
 <?php
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Function\config.php");
-
 if (isset($_POST['update'])) {
     $ID_o = $_POST['o'];
     $ID_n = $_POST['id'];
