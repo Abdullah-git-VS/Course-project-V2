@@ -65,7 +65,7 @@ $data = mysqli_fetch_array($up);
             while ($row = mysqli_fetch_array($result)) {
                 echo "
             <div class='card' style='width: 15rem; border: 1px black solid;'>
-             <img src='$row[image]' class='card-img-top'>
+             <img src='../shared/$row[image]' class='card-img-top'>
              <div class='card-body' style='border: 1px black solid;'>
                     <h5 class='card-title'>$row[name]</h5>
                     <p class='card-text'>$row[price]</p>
