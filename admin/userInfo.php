@@ -1,5 +1,5 @@
 <?php
-include('../shared/functions/config.php');
+include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
 session_start();
 $id   = $_SESSION['id'];
 $name = $_SESSION['name'];

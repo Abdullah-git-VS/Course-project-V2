@@ -1,5 +1,6 @@
 <?php
-include('..\shared\functions\config.php');
+include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
+
 session_start();
 $user_id = $_SESSION['user_id'];
 
@@ -42,11 +43,11 @@ if (mysqli_num_rows($select_user) > 0) {
 
 <body>
 
-  <?php include "../shared/list.php"; ?>
+  <?php include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php"); ?>
 
   <?php
     $title = "user page";
-    include "../shared/header.php";
+    include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php");
   ?>
 
   <!-- <div class="image-container">

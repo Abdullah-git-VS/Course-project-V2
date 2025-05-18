@@ -1,4 +1,5 @@
 <?php
+
 include_once(BASE_PATH . 'shared/functions/getUser.php');
 
 $user_id = $_SESSION['user_id'];

@@ -2,10 +2,10 @@
  <?php
     ob_start();
     session_start();
-    include("../shared/functions/config.php");
+    include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
     $userId=$_SESSION['user_id'];
 
-    include("../shared/list.php");
+    include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
 
     if (!isset($_SESSION['user_id'])) {
     header("Location: ../shared/homePage.php");

@@ -1,6 +1,6 @@
 <?php
 
-include('..\admin\Function\config.php');
+include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
 session_start();
 $user_id = $_SESSION['user_id'];
 
@@ -66,7 +66,7 @@ mysqli_close($con);
 
 <body>
    <?php
-   include('..\user_Page.php');
+   include($_SERVER["DOCUMENT_ROOT"] . "\customer\userPage.php");
    ?>
    <?php
    if (isset($message)) {
@@ -87,7 +87,7 @@ mysqli_close($con);
          <div class="box-container">
 
             <?php
-            include('..\admin\Function\config.php');
+            include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
             $result = mysqli_query($con, "SELECT * FROM products");
             while ($row = mysqli_fetch_array($result)) {
             ?>

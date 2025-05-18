@@ -55,7 +55,7 @@
         <h3>جميع المستخدمين</h3>
     </center>
     <?php
-    include('../shared/functions/config.php');
+    include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
     $result = mysqli_query($con, "SELECT * FROM user_info");
     while ($row = mysqli_fetch_array($result)) {
         echo "

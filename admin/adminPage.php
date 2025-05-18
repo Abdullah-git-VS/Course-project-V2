@@ -11,7 +11,7 @@
 
 <body>
   <?php  $title = "Admin Page";
-        include "header.php"; ?>
+        include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php"); ?>
 
 
 <div class="menu">

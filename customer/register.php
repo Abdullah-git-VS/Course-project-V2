@@ -1,5 +1,5 @@
 <?php
-include('..\shared\functions\config.php');
+include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
 session_start();
 
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {

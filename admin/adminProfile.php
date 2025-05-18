@@ -6,7 +6,7 @@
 
     <body>
        <?php  $title = "user page";
-        include "../header.php"; ?>
+        include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php"); ?>
 
 
 

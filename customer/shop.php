@@ -1,5 +1,5 @@
 <?php
-include('..\admin\Function\config.php');
+include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
 $ID = $_GET['id'];
 $up = mysqli_query($con, "SELECT * FROM products WHERE id=$ID");
 $data = mysqli_fetch_array($up);
@@ -60,7 +60,7 @@ $data = mysqli_fetch_array($up);
         <h3>المنتجات المتوفرة</h3>
         <main>
             <?php
-            include('..\Function\config.php');
+            include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
             $result = mysqli_query($con, "SELECT * FROM products");
             while ($row = mysqli_fetch_array($result)) {
                 echo "

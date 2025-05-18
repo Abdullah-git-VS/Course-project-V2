@@ -1,6 +1,6 @@
 <html lang="ar">
 <?php
-include('config.php');
+include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
 session_start();
 
 if (isset($_POST['submit'])) {

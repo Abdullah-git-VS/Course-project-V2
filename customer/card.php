@@ -75,7 +75,7 @@
                     </tr>
                 </thead>
                 <?php
-                include('..\admin\Function\config.php');
+                include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
                 $result = mysqli_query($con, "SELECT * FROM addcard");
                 while ($row = mysqli_fetch_array($result)) {
                     echo "
@@ -83,7 +83,7 @@
                     <tr>
                         <td>$row[name]</td>
                         <td>$row[price]</td>
-                        <td><a href='..\Function\delete.php? id=$row[id]' class='btn btn-danger'>ازالة</a></td>
+                        <td><a href='..\Functions\delete.php? id=$row[id]' class='btn btn-danger'>ازالة</a></td>
                     </tr>";
                 }
                 mysqli_close($con);

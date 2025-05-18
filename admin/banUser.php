@@ -1,5 +1,5 @@
 <?php
-include('../shared/functions/config.php');
+include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
 session_start();
 if (isset($_POST['submit'])) {
      $userId = $_POST['id'];

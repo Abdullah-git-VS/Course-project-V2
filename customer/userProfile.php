@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('..\shared\functions\config.php');
+include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
 $userID = $_SESSION['user_id'];
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../shared/homePage.php");
@@ -188,11 +188,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 </head>
 
 <body>
-    <?php include "../shared/list.php"; ?>
+    <?php include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php"); ?>
 
     <?php
     $title = "Profile";
-    include "../shared/header.php";
+    include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php");
     ?>
 
     <?php

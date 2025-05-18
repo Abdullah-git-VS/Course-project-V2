@@ -104,7 +104,7 @@
 </head>
 
 <body>
-    <?php include 'header.php'; ?>
+    <?php include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php"); ?>
 
     <h2> Sign-in form </h2>
     <p> Please fill the information </p>

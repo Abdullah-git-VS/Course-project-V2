@@ -1,6 +1,6 @@
 <?php
 session_start();
-include('..\admin\Function\config.php');
+include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
 $userID = $_SESSION['user_id'];
 if($_SERVER['REQUEST_METHOD'] == 'POST'){
     if($_POST['name'] != ""){
