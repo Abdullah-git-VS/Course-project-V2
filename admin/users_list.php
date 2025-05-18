@@ -1,9 +1,3 @@
-<?php
-include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
-$ID = $_GET['id'];
-$up = mysqli_query($con, "SELECT * FROM products WHERE id=$ID");
-$data = mysqli_fetch_array($up);
-?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -14,8 +8,8 @@ $data = mysqli_fetch_array($up);
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="..\admin\css\index.css">
-    <title>prouducts | المنتجات</title>
+    <link rel="stylesheet" href="css\index.css">
+    <title>users | المستخدمين</title>
     <style>
         h3,
         h5 {
@@ -28,6 +22,7 @@ $data = mysqli_fetch_array($up);
             margin-top: 20px;
             margin-left: 10px;
             margin-right: 10px;
+
         }
 
         .card img {
@@ -37,7 +32,7 @@ $data = mysqli_fetch_array($up);
         }
 
         main {
-            padding-right: 20px;
+            width: 100%;
         }
 
         #aa {
@@ -54,28 +49,35 @@ $data = mysqli_fetch_array($up);
 
 <body>
     <nav calss="navbar">
-        <a id="aa" class="navbar-brand" href="card.php">Mycard | عربتي</a>
+        <a id="aa" class="navbar-brand" href="add.php">Add user | إضافة مستخدم</a>
     </nav>
     <center>
-        <h3>المنتجات المتوفرة</h3>
+        <h3>جميع المستخدمين</h3>
+    </center>
+    <?php
+    include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
+    
+    $result = mysqli_query($con, "SELECT * FROM user_info");
+    while ($row = mysqli_fetch_array($result)) {
+        echo "
+        <center>
         <main>
-            <?php
-            include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
-            $result = mysqli_query($con, "SELECT * FROM products");
-            while ($row = mysqli_fetch_array($result)) {
-                echo "
             <div class='card' style='width: 15rem; border: 1px black solid;'>
-             <img src='$row[image]' class='card-img-top'>
+             <img src='/../shared/$row[profile_pic]' class='card-img-top'>
              <div class='card-body' style='border: 1px black solid;'>
                     <h5 class='card-title'>$row[name]</h5>
                     <p class='card-text'>$row[price]</p>
-                    <a href='? id=$row[id]' class='btn btn-success'>إضافة المنتج للعربة</a>
+                    <a href='Function\delete_user.php? id=$row[id]' class='btn btn-danger'>حذف</a>
+                    <a href='update.php? id=$row[id]' class='btn btn-primary'>تعديل</a>
                 </div>
             </div>
-            ";
-            }
-            mysqli_close($con);
-            ?>
         </main>
+            <center>
+            ";
+    }
+    mysqli_close($con);
+    ?>
+    </center>
 </body>
+
 </html>

@@ -22,7 +22,7 @@ if (!empty($profile_pic) && file_exists(BASE_PATH . 'shared/' . $profile_pic)) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Full Navbar</title>
-  <link rel="stylesheet" href="<?php echo BASE_URL; ?>shared/css/headerList.css">
+  <link rel="stylesheet" href="<?php echo BASE_URL ."shared/css/headerList.css"; ?>">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 
 </head>
@@ -33,7 +33,7 @@ if (!empty($profile_pic) && file_exists(BASE_PATH . 'shared/' . $profile_pic)) {
     <ul>
       <li class="profile">
         <div class="img-box">
-          <img src="<?php echo BASE_URL . '../shared/' . $image_to_show; ?>" alt="User Pic">
+          <img src="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shared/" . $image_to_show; ?>" alt="User Pic">
         </div>
         <h2> <?php echo $user['name']; ?> </h2>
       </li>

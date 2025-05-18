@@ -7,16 +7,9 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 if (isset($_GET['logout'])) {
-  unset($user_id);
-  session_destroy();
-
-  if (file_exists('../shared/homePage.php')) {
+    unset($user_id);
+    session_destroy();
     header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
-    exit;
-  } else {
-    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
-    exit;
-  }
 };
 $select = mysqli_query($con, "SELECT * FROM `user_info` WHERE `id` = $userID");
 $row =  mysqli_fetch_array($select);
@@ -26,9 +19,9 @@ $profile_pic = $row['profile_pic'];
 
 // Check if the image file exists and is not empty
 if (!empty($profile_pic) && file_exists(BASE_PATH . 'shared/' . $profile_pic)) {
-  $userImg = $profile_pic;
+    $userImg = $profile_pic;
 } else {
-  $userImg = $default_image;
+    $userImg = $default_image;
 }
 
 // Handle form submission

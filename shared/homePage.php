@@ -48,7 +48,6 @@ mysqli_close($con);
   <link rel="stylesheet" href="css/newStyle.css">
 
   <style>
-    /* Login Container */
     .login-container {
       margin: 100px auto;
       padding: 10px 10px;
