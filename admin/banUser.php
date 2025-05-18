@@ -25,8 +25,8 @@ mysqli_close($con);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="../customer/style.css">
+    
+    <link rel="stylesheet" href="../shared/css/headerList.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400&display=swap" rel="stylesheet">
     
     <script src="../script.js"></script>
@@ -37,12 +37,15 @@ mysqli_close($con);
          </style>
 </head>
 <body>
-
+   <div style='margin-top:100px'>
     <form  action='' method='post'>
        
-       <input type='text' name='id' required placeholder="USER ID" class="box"><br>
-       <input type='submit' name='submit' value='Enter'><br>
+       <input type='text' name='id' id="userId" required placeholder="USER ID" class="box" style='width:300px; height:30px'><br>
+       <button type='submit' name='submit' value='Control Accessability' style='background-color:white; width:300px; font-size:25px'>Control Accessability</button>
    </form>
+     
+   </div>
+     
     
 
 
