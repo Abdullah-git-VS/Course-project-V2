@@ -200,6 +200,13 @@ if (isset($_GET['logout'])) {
 
 <script src="../customer/js/scriptOrder.js"> </script>
 
+<?php if($isAdmin == 1) {?>
+    
+        <a href='../admin/addProduct.php'><button>Add products</button></a>
+    
+
+    <?php } ?>
+
 
 </body>
 <?php
