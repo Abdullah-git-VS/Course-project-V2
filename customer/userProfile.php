@@ -212,7 +212,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         
             <div class="form-header">
                 <?php
-                echo "<img src='" . BASE_URL . '../shared/' . $userImg . "' alt='User Pic' width='100px'>";
+                echo "<img src='" . "http://" . $_SERVER['HTTP_HOST'] . '/shared/' . $userImg . "' alt='User Pic' width='100px'>";
                 echo "Welcome " . $row['name'];
                 ?>
             </div>
