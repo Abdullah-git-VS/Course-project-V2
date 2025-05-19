@@ -9,7 +9,6 @@
 body {
   margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: linear-gradient(to right, #1e1e50, #272757);
   color: #fff;
 }
 
@@ -333,3 +332,6 @@ a {
   padding-bottom: 20px;
 }
 /* shop page end here (customer) */
+
+
+
