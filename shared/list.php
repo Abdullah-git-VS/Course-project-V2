@@ -8,7 +8,7 @@ $default_image = 'images/user.png';
 $profile_pic = $user['profile_pic'];
 
 // Check if the image file exists and is not empty
-if (!empty($profile_pic) && file_exists(BASE_PATH . 'shared/' . $profile_pic)) {
+if (!empty($profile_pic) && file_exists("http://" . $_SERVER['HTTP_HOST'] . 'shared/' . $profile_pic)) {
   $image_to_show = $profile_pic;
 } else {
   $image_to_show = $default_image;
@@ -41,21 +41,21 @@ if (!empty($profile_pic) && file_exists(BASE_PATH . 'shared/' . $profile_pic)) {
 
 
       <li>
-        <a href="<?php echo BASE_URL . '../customer/order.php'; ?>">
+        <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . '/customer/order.php'; ?>">
           <i class="fas fa-list"></i>
           <p> order </p>
         </a>
       </li>
 
       <li>
-        <a href="<?php echo BASE_URL . '../customer/cart.php'; ?>">
+        <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . '/customer/cart.php'; ?>">
           <i class="fas fa-shopping-cart"></i>
           <p> cart </p>
         </a>
       </li>
 
       <li>
-        <a href="<?php echo BASE_URL . '../customer/userProfile.php'; ?>" style="text-decoration: none; color: inherit;">
+        <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . '/customer/userProfile.php'; ?>" style="text-decoration: none; color: inherit;">
           <i class="fas fa-users"></i>
           <p> profile </p>
         </a>
@@ -70,7 +70,7 @@ if (!empty($profile_pic) && file_exists(BASE_PATH . 'shared/' . $profile_pic)) {
 
       <li>
       <?php if($isAdmin == 1) {?>
-        <a href="<?php echo BASE_URL . '../admin/banUser.php'; ?>">
+        <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . '/admin/banUser.php'; ?>">
           <i class="fas fa-chart-pie"></i>
           <p> Control Accessability </p>
         </a>
