@@ -2,17 +2,6 @@
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
 session_start();
 $user_id = $_SESSION['user_id'];
-
-if (!isset($user_id)) {
-   header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
-};
-
-if (isset($_GET['logout'])) {
-   unset($user_id);
-   session_destroy();
-   header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
-};
-
 if (isset($_POST['add_to_cart'])) {
 
    $product_name = $_POST['product_name'];
@@ -58,12 +47,13 @@ mysqli_close($con);
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>عربة التسوق</title>
-   
-     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-   
+
+   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
 </head>
 
 <body>
+   <?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shared/images" . $fetch_cart['image']; ?>
    <?php
    include($_SERVER["DOCUMENT_ROOT"] . "\customer\userPage.php");
    ?>
@@ -90,8 +80,9 @@ mysqli_close($con);
             $result = mysqli_query($con, "SELECT * FROM products");
             while ($row = mysqli_fetch_array($result)) {
             ?>
+               <?php $row['image'] ?>
                <form method="post" class="box" action="">
-                  <img src="<?php echo $row['image']; ?>" width="200">
+                  <img src="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shared/images/" . $row['image']; ?>" width="200">
                   <div class="name"><?php echo $row['name']; ?></div>
                   <div class="price"><?php echo $row['price']; ?></div>
                   <input type="number" min="1" name="product_quantity" value="1">
@@ -107,7 +98,7 @@ mysqli_close($con);
          </div>
 
       </div>
-      
+
       <div class="shopping-cart">
 
          <h1 class="heading"> عربة التسوق</h1>
@@ -129,7 +120,9 @@ mysqli_close($con);
                   while ($fetch_cart = mysqli_fetch_assoc($cart_query)) {
                ?>
                      <tr>
-                        <td><img src="admin/<?php echo $fetch_cart['image']; ?>" height="75" alt=""></td>
+                        <td>
+                           <img src="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shared/images/" . $fetch_cart['image']; ?>" height="75">
+                        </td>
                         <td><?php echo $fetch_cart['name']; ?></td>
                         <td><?php echo $fetch_cart['price']; ?>$ </td>
                         <td>
@@ -157,12 +150,9 @@ mysqli_close($con);
                </tr>
             </tbody>
          </table>
-
-
-
       </div>
 
-   </div> 
+   </div>
 </body>
 
 </html>
