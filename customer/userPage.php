@@ -36,15 +36,12 @@ if (mysqli_num_rows($select_user) > 0) {
 
 <body>
 
-  <!-- include of list -->
-  <?php include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php"); ?>
-
-
-  <!--include of header -->
-  <?php
-  $title = "user page";
-  include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php");
-  ?>
+    <!-- include of header and list -->
+    <?php
+    $title = "Profile";
+    include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php");
+    include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
+    ?>
 
   
 

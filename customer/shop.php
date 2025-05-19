@@ -14,11 +14,10 @@ $data = mysqli_fetch_array($up);
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="..\admin\css\index.css">
+    <link rel="stylesheet" href="../shared/css/newStyle.css">
     <title>prouducts | المنتجات</title>
     <style>
-        h3,
-        h5 {
+        h3,h5 {
             font-family: "Cairo", sans-serif;
             font-weight: bold;
         }
@@ -49,6 +48,7 @@ $data = mysqli_fetch_array($up);
         nav {
             background-color: black;
         }
+        
     </style>
 </head>
 

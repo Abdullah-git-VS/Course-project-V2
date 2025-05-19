@@ -1,6 +1,6 @@
-// here is js code for order dynamic steps :
 
 
+// here start js code for order dynamic steps :
 showStep(1);
 // Function to show the steps of the process
 
@@ -201,3 +201,5 @@ function selectProduct(product, element) {
     // form.reset();
     // showStep(1); // Restart the process
 }
+
+//end of js code for order 

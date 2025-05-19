@@ -1,4 +1,12 @@
- 
+<!-- include header  -->
+   <?php
+    $title = "cart";
+    include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php");
+    ?>
+<!-- untill here -->
+
+
+
  <?php
     ob_start();
     session_start();
@@ -69,12 +77,17 @@ if (isset($_GET['confirm'])) {
     <html lang="en">
     <head>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-        <link rel="stylesheet" href="../shared/css/headerList.css">
+        <link rel="stylesheet" href="../shared/css/newStyle.css">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Document</title>
     </head>
     <body>
+    
+   
+
+
+      
 
     <?php if (mysqli_num_rows($res) > 0){ ?>
   <form method="get">

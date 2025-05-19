@@ -174,19 +174,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             background-color: #f44336;
             color: white;
         }
+
     </style>
 </head>
 
 <body>
 
 
-    <!-- include of list -->
-    <?php include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php"); ?>
+   
 
-    <!-- include of header -->
+    <!-- include of header and list -->
     <?php
     $title = "Profile";
     include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php");
+    include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
     ?>
 
 
