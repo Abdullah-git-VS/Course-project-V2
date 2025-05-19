@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php
+  <?php
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
 session_start();
 
@@ -9,6 +9,8 @@ if (isset($_POST['submit'])) {
   $passw = mysqli_real_escape_string($con, $_POST['password']);
   $select = mysqli_query($con, "SELECT * FROM `user_info` WHERE email = '$email'") or die('query failed');
   $row = mysqli_fetch_assoc($select);
+  $_SESSION['user_id'] = $row['id'];
+  $_SESSION['isAdmin'] = $row['isAdmin'];
 
   echo "<script>console.log(" . json_encode($row) . ");</script>";
 
@@ -32,8 +34,6 @@ if (isset($_POST['submit'])) {
     exit();
   }
 
-  $_SESSION['user_id'] = $row['id'];
-  $_SESSION['isAdmin'] = $row['isAdmin'];
   header("Location: http://" . $_SERVER['HTTP_HOST'] . "/customer/userPage.php");
   exit();
 }
@@ -74,9 +74,6 @@ mysqli_close($con);
   </div>
 
   <!-- untill here -->
-  
-
-
   <div class="form-container">
         <form action="" method="post">
           <h2>Login</h2>
@@ -95,7 +92,7 @@ mysqli_close($con);
           ?>
 
           <p>Don't have an acccunt?
-            <a href="../customer/register.php" style="color: red;">Register Now</a>
+            <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . '/customer/register.php'; ?>" style="color: red;">Register Now</a>
           </p>
         </form>
   </div>

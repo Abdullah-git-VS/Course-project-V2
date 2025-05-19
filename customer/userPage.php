@@ -1,19 +1,8 @@
 <?php
-include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
-
 session_start();
+include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
 $user_id = $_SESSION['user_id'];
 $isAdmin = $_SESSION['isAdmin'];
-
-if (!isset($user_id)) {
-  header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
-};
-
-if (isset($_GET['logout'])) {
-  unset($user_id);
-  session_destroy();
-  header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
-};
 ?>
 
 <?php

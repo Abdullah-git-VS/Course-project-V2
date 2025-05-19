@@ -2,28 +2,9 @@
 session_start();
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
 $userID = $_SESSION['user_id'];
-if (!isset($_SESSION['user_id'])) {
-    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
-    exit;
-}
-if (isset($_GET['logout'])) {
-    unset($user_id);
-    session_destroy();
-    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
-};
+
 $select = mysqli_query($con, "SELECT * FROM `user_info` WHERE `id` = $userID");
 $row =  mysqli_fetch_array($select);
-
-$default_image = 'images/user.png';
-$profile_pic = $row['profile_pic'];
-
-// Check if the image file exists and is not empty
-if (!empty($profile_pic) && file_exists("http://" . $_SERVER['HTTP_HOST'] . 'shared/' . $profile_pic)) {
-    $userImg = $profile_pic;
-} else {
-    $userImg = $default_image;
-}
-
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $success = false;
@@ -49,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $success = true;
         }
     }
+
     if ($_POST['phone'] != "") {
         $phone = mysqli_real_escape_string($con, $_POST['phone']);
         mysqli_query($con, "UPDATE user_info SET phone = '$phone' WHERE id = '$userID'");
@@ -70,7 +52,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             exit();
         }
     }
-
     if ($success) {
         $_SESSION['success_message'] = 'Profile updated successfully!';
         header("Location: http://" . $_SERVER['HTTP_HOST'] . "/customer/userProfile.php");
@@ -88,8 +69,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <title>User Profile</title>
     <link rel="stylesheet" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shared/css/newStyle.css"; ?>">
     <style>
-        
-
         .profile-form {
             max-width: 600px;
             margin: 50px auto;
@@ -174,47 +153,40 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             background-color: #f44336;
             color: white;
         }
-
     </style>
 </head>
 
 <body>
-
-
-   
-
     <!-- include of header and list -->
     <?php
     $title = "Profile";
     include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php");
-    include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
+    if (isset($_SESSION['user_id']))
+        include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
+    else
+    include($_SERVER["DOCUMENT_ROOT"] . "\admin\admine_list.php");
     ?>
-
-
-
-
-
     <?php
-    // Display success or error messages
-    if (isset($_SESSION['success_message'])) {
-        echo "<div class='message success-message'>" . $_SESSION['success_message'] . "</div>";
-        unset($_SESSION['success_message']);
-    }
+// Display success or error messages
+if (isset($_SESSION['success_message'])) {
+    echo "<div class='message success-message'>" . $_SESSION['success_message'] . "</div>";
+    unset($_SESSION['success_message']);
+}
 
-    if (isset($_SESSION['error_message'])) {
-        echo "<div class='message error-message'>" . $_SESSION['error_message'] . "</div>";
-        unset($_SESSION['error_message']);
-    }
+if (isset($_SESSION['error_message'])) {
+    echo "<div class='message error-message'>" . $_SESSION['error_message'] . "</div>";
+    unset($_SESSION['error_message']);
+}
     ?>
 
     <div class="form-container">
-    <form action="" method="post" class="profile-form">
-        
+        <form action="" method="post" class="profile-form">
+
             <div class="form-header">
-                <?php
-                echo "<img src='" . "http://" . $_SERVER['HTTP_HOST'] . '/shared/' . $userImg . "' alt='User Pic' width='100px'>";
-                echo "Welcome " . $row['name'];
-                ?>
+                <img src="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shared/" . $row['profile_pic']; ?>">
+
+                Welcome <?php echo $row['name']; ?>
+
             </div>
 
             <div class="form-body">
@@ -257,7 +229,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <input type="submit" value="Update Profile">
                 </div>
             </div>
-        </div>
+    </div>
     </form>
 </body>
 

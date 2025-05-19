@@ -49,17 +49,11 @@
 
 <body>
 
-
-     
-
-
-
-
     <nav calss="navbar">
-        <a id="aa" class="navbar-brand" href="add.php">Add user | إضافة مستخدم</a>
+        <a id="aa" class="navbar-brand" href="add.php">Add prodct | إضافة منتج</a>
     </nav>
     <center>
-        <h3>جميع المستخدمين</h3>
+        <h3>جميع المنتجات</h3>
     </center>
     <?php
     include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
@@ -69,7 +63,7 @@
         <center>
         <main>
             <div class='card' style='width: 15rem; border: 1px black solid;'>
-             <img src=''../shared/'$row[profile_pic]' class='card-img-top'>
+             <img src='../shared/$row[image]' class='card-img-top'>
              <div class='card-body' style='border: 1px black solid;'>
                     <h5 class='card-title'>$row[name]</h5>
                     <p class='card-text'>$row[price]</p>
