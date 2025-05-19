@@ -1,9 +1,6 @@
 <?php
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
-
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,29 +32,24 @@ include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
       text-align: center;
       font-size: 60px;
     }
-
-    
   </style>
 </head>
 
 <body>
+  <?php $title = "About us"; ?>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <h1><?php echo isset($title) ? htmlspecialchars($title) : "Default"; ?></h1>
+      </div>
+
+  </header>
 
 
 
-    <!-- header and block here -->
-  <?php $title = "About us";
-  include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php"); ?>
-  
   <div class="back">
     <a href="homePage.php" class="back-btn"><i class="fas fa-home"></i> العودة</a>
   </div>
-
-  <!-- untill here -->
-
-
-
-
-
   <?php
   $sql = mysqli_query($con, "SELECT * FROM `user_info`;") or die('query failed');
   $sql2 = mysqli_query($con, "SELECT * FROM `products`;") or die('query failed');

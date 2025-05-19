@@ -1,13 +1,24 @@
 <?php
 session_start();
+include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
+
+
+$isAdmin = $_SESSION['isAdmin'];
+
+if (!isset($isAdmin)) {
+  header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
+};
+
+if (isset($_GET['logout'])) {
+  unset($user_id);
+  session_destroy();
+  header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
+};
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\getUser.php");
 $user_id = $_SESSION['user_id'];
 $user = getUserData($con, $user_id);
 $isAdmin = $_SESSION['isAdmin'];
 $profile_pic = $user['profile_pic'];
-
-// Check if the image file exists and is not empty
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +29,13 @@ $profile_pic = $user['profile_pic'];
 </head>
 
 <body>
+      <header>
+    <nav class="navbar">
+      <div class="logo">
+        <h1><?php echo isset($title) ? htmlspecialchars($title) : "Default"; ?></h1>
+      </div>
+
+  </header>
     
     <div class="menu">
         <ul>

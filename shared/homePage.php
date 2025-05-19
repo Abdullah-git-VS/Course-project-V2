@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-  <?php
+<?php
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
 session_start();
 
@@ -63,11 +63,15 @@ mysqli_close($con);
 
 <body>
 
- <!-- include header and i use block to go to about page -->
-  <?php 
-  $title = "home Page";
-  include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php");
-  ?>
+  <!-- include header and i use block to go to about page -->
+  <?php $title = "home Page"; ?>
+    <header>
+    <nav class="navbar">
+      <div class="logo">
+        <h1><?php echo isset($title) ? htmlspecialchars($title) : "Default"; ?></h1>
+      </div>
+
+  </header>
 
   <div class="back">
     <a href="about.php" class="back-btn"><i class="fas fa-home"></i> about</a>
@@ -75,26 +79,26 @@ mysqli_close($con);
 
   <!-- untill here -->
   <div class="form-container">
-        <form action="" method="post">
-          <h2>Login</h2>
-          <input type="email" class="box" name="email" id="username" required placeholder="Email">
-          <input type="password" class="box" name="password" id="password" required placeholder="Password">
+    <form action="" method="post">
+      <h2>Login</h2>
+      <input type="email" class="box" name="email" id="username" required placeholder="Email">
+      <input type="password" class="box" name="password" id="password" required placeholder="Password">
 
-          <button type="submit" name="submit" class="btn">
-            <strong>Sign-in</strong>
-          </button>
+      <button type="submit" name="submit" class="btn">
+        <strong>Sign-in</strong>
+      </button>
 
-          <?php
-          if (isset($_SESSION['message'])) {
-            echo '<div class="message" onclick="this.remove();">' . $_SESSION['message'] . '</div>';
-            unset($_SESSION['message']);
-          }
-          ?>
+      <?php
+      if (isset($_SESSION['message'])) {
+        echo '<div class="message" onclick="this.remove();">' . $_SESSION['message'] . '</div>';
+        unset($_SESSION['message']);
+      }
+      ?>
 
-          <p>Don't have an acccunt?
-            <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . '/customer/register.php'; ?>" style="color: red;">Register Now</a>
-          </p>
-        </form>
+      <p>Don't have an acccunt?
+        <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . '/customer/register.php'; ?>" style="color: red;">Register Now</a>
+      </p>
+    </form>
   </div>
 
 </body>

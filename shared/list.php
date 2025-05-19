@@ -3,7 +3,7 @@ include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\getUser.php");
 $user_id = $_SESSION['user_id'];
 if (!isset($user_id)) {
   header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
-   exit;
+  exit;
 };
 
 if (isset($_GET['logout'])) {
@@ -31,6 +31,13 @@ $profile_pic = $user['profile_pic'];
 </head>
 
 <body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">
+        <h1><?php echo isset($title) ? htmlspecialchars($title) : "Default"; ?></h1>
+      </div>
+
+  </header>
 
   <div class="menu">
     <ul>

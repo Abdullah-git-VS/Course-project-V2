@@ -1,21 +1,7 @@
 <?php
 session_start();
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
-
-
-$isAdmin = $_SESSION['isAdmin'];
-
-if (!isset($isAdmin)) {
-  header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
-};
-
-if (isset($_GET['logout'])) {
-  unset($user_id);
-  session_destroy();
-  header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
-};
 ?>
-
 <?php
 $select_user = mysqli_query($con, "SELECT * FROM `user_info` WHERE id = '$user_id'") or die('query failed');
 if (mysqli_num_rows($select_user) > 0) {
@@ -34,15 +20,12 @@ if (mysqli_num_rows($select_user) > 0) {
 </head>
 
 <body>
-
-  <!-- include header -->
   <?php $title = "Admin Page";
   include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php");
   include($_SERVER["DOCUMENT_ROOT"] . "\admin\admine_list.php"); ?>
   <?php
-print_r($_SESSION);
-?>
-
+  print_r($_SESSION);
+  ?>
 </body>
 
 </html>

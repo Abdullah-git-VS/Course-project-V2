@@ -2,30 +2,6 @@
 session_start();
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
 $userID = $_SESSION['user_id'];
-if (isset($_POST['update'])) {
-    if ($_POST['password'] == $_POST['confirm_password']) {
-        $ID_o = $_POST['o'];
-        $ID_n = $_POST['id'];
-        $NAME = $_POST['name'];
-        $email = $_POST['email'];
-        $phone = $_POST['phone'];
-        $address = $_POST['address'];
-        $password = md5($_POST['password']);
-        $IMAGE = $_FILES['image'];
-        $image_location = $_FILES['image']['tmp_name'];
-        $image_name = $_FILES['image']['name'];
-        move_uploaded_file($image_location, 'images/' . $image_name);
-        $image_up = "images/" . $image_name;
-        $update = "UPDATE products SET name='$NAME' , price='$PRICE', image='$image_up', id='$ID_n' WHERE id=$ID_o";
-        mysqli_query($con, $update);
-        mysqli_close($con);
-        header("Location: http://" . $_SERVER['HTTP_HOST'] . "/admin/add.php");
-    }
- else {
-    $_SESSION['error_message'] = 'Password and Confirm Password do not match!';
-    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/customer/userProfile.php");
-    exit();
-}}
 
 $select = mysqli_query($con, "SELECT * FROM `user_info` WHERE `id` = $userID");
 $row =  mysqli_fetch_array($select);
