@@ -77,8 +77,7 @@
     <!-- include of header and block -->
     <?php
     $title = "add product";
-    include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php");
-    ?>
+    include($_SERVER["DOCUMENT_ROOT"] . "\admin\admine_list.php");?>
 
     <div class="back">
         <a href="adminPage.php" class="back-btn"><i class="fas fa-home"></i> العودة</a>

@@ -48,6 +48,8 @@
 </head>
 
 <body>
+    <?php $title = "Admin Registration"; ?>
+    <?php include($_SERVER["DOCUMENT_ROOT"] . "\admin\admine_list.php"); ?>
 
     <nav calss="navbar">
         <a id="aa" class="navbar-brand" href="add.php">Add prodct | إضافة منتج</a>

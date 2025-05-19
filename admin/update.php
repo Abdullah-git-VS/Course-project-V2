@@ -11,6 +11,8 @@
     <title>Update | تعديل المنتجات</title>
 </head>
 <body>
+       <?php $title = "Admin Registration"; ?>
+   <?php include($_SERVER["DOCUMENT_ROOT"] . "\admin\admine_list.php"); ?>
     <?php
     include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
     $ID=$_GET['id'];
@@ -21,7 +23,7 @@
     <center><?php echo "../shared/".$data['profile_pic'];?>
         <div class="main">
             <form action="<?php echo "http://" . $_SERVER['HTTP_HOST'] ."/admin/Functions/up_user.php"; ?>" method="post" enctype="multipart/form-data">
-                <h2>تعديل المستخدم</h2>
+                <h2>تعديل المنتج</h2>
                 <img src="<?php echo "../shared/".$data['profile_pic'];?>" alt="logo" width="450px">
 
                 <input style="display: none;" type="text" name='o' value='<?php echo $data['id'];?>'>
@@ -34,9 +36,9 @@
                 <br>
                 <input type="file" name='profile_pic' id="file" value="<?php echo $data['image'];?>" style='display: none;'>
                 <label for="file">تحديث الصورة </label>
-                <button type="submit" name='update'>✅تعديل المستخدم</button>
+                <button type="submit" name='update'>✅تعديل المنتج</button>
                 <br><br>
-                <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] ."/admin/users_list.php"; ?>">عرض المستخدمين</a>
+                <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] ."/admin/prouducts.php"; ?>">عرض المنتجات</a>
             </form>
         </div>
     </center>

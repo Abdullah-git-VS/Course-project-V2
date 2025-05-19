@@ -11,6 +11,8 @@
     <title>Update | تعديل المنتجات</title>
 </head>
 <body>
+       <?php $title = "Admin Registration"; ?>
+   <?php include($_SERVER["DOCUMENT_ROOT"] . "\admin\admine_list.php"); ?>
     <?php
     include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
     $ID=$_GET['id'];
