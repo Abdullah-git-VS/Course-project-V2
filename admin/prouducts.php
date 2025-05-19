@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../shared/css/newStyle.css">
+    <link rel="stylesheet" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shared/css/newStyle.css"; ?>">
     <title>users | المستخدمين</title>
     <style>
         h3,
@@ -48,18 +48,14 @@
 </head>
 
 <body>
-
-
-     
-
-
-
+    <?php $title = "Admin Registration"; ?>
+    <?php include($_SERVER["DOCUMENT_ROOT"] . "\admin\admine_list.php"); ?>
 
     <nav calss="navbar">
-        <a id="aa" class="navbar-brand" href="add.php">Add user | إضافة مستخدم</a>
+        <a id="aa" class="navbar-brand" href="add.php">Add prodct | إضافة منتج</a>
     </nav>
     <center>
-        <h3>جميع المستخدمين</h3>
+        <h3>جميع المنتجات</h3>
     </center>
     <?php
     include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
@@ -69,7 +65,7 @@
         <center>
         <main>
             <div class='card' style='width: 15rem; border: 1px black solid;'>
-             <img src=''../shared/'$row[profile_pic]' class='card-img-top'>
+             <img src='../shared/$row[image]' class='card-img-top'>
              <div class='card-body' style='border: 1px black solid;'>
                     <h5 class='card-title'>$row[name]</h5>
                     <p class='card-text'>$row[price]</p>

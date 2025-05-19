@@ -8,7 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../shared/css/newStyle.css">
+    <link rel="stylesheet" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shared/css/newStyle.css"; ?>">
     <title>users | المستخدمين</title>
     <style>
         h3,
@@ -48,6 +48,8 @@
 </head>
 
 <body>
+       <?php $title = "Admin Registration"; ?>
+   <?php include($_SERVER["DOCUMENT_ROOT"] . "\admin\admine_list.php"); ?>
     <nav calss="navbar">
         <a id="aa" class="navbar-brand" href="add.php">Add user | إضافة مستخدم</a>
     </nav>
@@ -67,9 +69,8 @@
              <div class='card-body' style='border: 1px black solid;'>
                     <h5 class='card-title'>$row[name]</h5>
                     <p class='card-text'>$row[price]</p>
-                    <a href='Function\delete_user.php? id=$row[id]' class='btn btn-danger'>حذف</a>
-                    <a href='update.php? id=$row[id]' class='btn btn-primary'>تعديل</a>
-                </div>
+                    <a href='http://" . $_SERVER['HTTP_HOST'] ."/admin/Functions/delete_user.php?id=$row[id]' class='btn btn-danger'>حذف</a>
+                    <a href='http://" . $_SERVER['HTTP_HOST'] ."/admin/users_update.php? id=$row[id]' class='btn btn-primary'>تعديل</a>
             </div>
         </main>
             <center>

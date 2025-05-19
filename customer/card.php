@@ -76,14 +76,14 @@
                 </thead>
                 <?php
                 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
-                $result = mysqli_query($con, "SELECT * FROM addcard");
+                $result = mysqli_query($con, "SELECT * FROM cart");
                 while ($row = mysqli_fetch_array($result)) {
                     echo "
                     <tbody>
                     <tr>
                         <td>$row[name]</td>
                         <td>$row[price]</td>
-                        <td><a href='..\Functions\delete.php? id=$row[id]' class='btn btn-danger'>ازالة</a></td>
+                        <td><a href='http://".$_SERVER['HTTP_HOST']."/admin/Functions/delete_product.php?id=".$row['id']."'class='btn btn-danger'>ازالة</a></td>
                     </tr>";
                 }
                 mysqli_close($con);

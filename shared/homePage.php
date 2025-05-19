@@ -9,6 +9,8 @@ if (isset($_POST['submit'])) {
   $passw = mysqli_real_escape_string($con, $_POST['password']);
   $select = mysqli_query($con, "SELECT * FROM `user_info` WHERE email = '$email'") or die('query failed');
   $row = mysqli_fetch_assoc($select);
+  $_SESSION['user_id'] = $row['id'];
+  $_SESSION['isAdmin'] = $row['isAdmin'];
 
   echo "<script>console.log(" . json_encode($row) . ");</script>";
 
@@ -32,8 +34,6 @@ if (isset($_POST['submit'])) {
     exit();
   }
 
-  $_SESSION['user_id'] = $row['id'];
-  $_SESSION['isAdmin'] = $row['isAdmin'];
   header("Location: http://" . $_SERVER['HTTP_HOST'] . "/customer/userPage.php");
   exit();
 }
@@ -63,41 +63,42 @@ mysqli_close($con);
 
 <body>
 
- <!-- include header and i use block to go to about page -->
-  <?php 
-  $title = "home Page";
-  include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php");
-  ?>
+  <!-- include header and i use block to go to about page -->
+  <?php $title = "home Page"; ?>
+    <header>
+    <nav class="navbar">
+      <div class="logo">
+        <h1><?php echo isset($title) ? htmlspecialchars($title) : "Default"; ?></h1>
+      </div>
+
+  </header>
 
   <div class="back">
     <a href="about.php" class="back-btn"><i class="fas fa-home"></i> about</a>
   </div>
 
   <!-- untill here -->
-  
-
-
   <div class="form-container">
-        <form action="" method="post">
-          <h2>Login</h2>
-          <input type="email" class="box" name="email" id="username" required placeholder="Email">
-          <input type="password" class="box" name="password" id="password" required placeholder="Password">
+    <form action="" method="post">
+      <h2>Login</h2>
+      <input type="email" class="box" name="email" id="username" required placeholder="Email">
+      <input type="password" class="box" name="password" id="password" required placeholder="Password">
 
-          <button type="submit" name="submit" class="btn">
-            <strong>Sign-in</strong>
-          </button>
+      <button type="submit" name="submit" class="btn">
+        <strong>Sign-in</strong>
+      </button>
 
-          <?php
-          if (isset($_SESSION['message'])) {
-            echo '<div class="message" onclick="this.remove();">' . $_SESSION['message'] . '</div>';
-            unset($_SESSION['message']);
-          }
-          ?>
+      <?php
+      if (isset($_SESSION['message'])) {
+        echo '<div class="message" onclick="this.remove();">' . $_SESSION['message'] . '</div>';
+        unset($_SESSION['message']);
+      }
+      ?>
 
-          <p>Don't have an acccunt?
-            <a href="../customer/register.php" style="color: red;">Register Now</a>
-          </p>
-        </form>
+      <p>Don't have an acccunt?
+        <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . '/customer/register.php'; ?>" style="color: red;">Register Now</a>
+      </p>
+    </form>
   </div>
 
 </body>

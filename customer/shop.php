@@ -1,8 +1,21 @@
 <?php
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
+
 $ID = $_GET['id'];
 $up = mysqli_query($con, "SELECT * FROM products WHERE id=$ID");
 $data = mysqli_fetch_array($up);
+
+if (isset($_GET['add'])) {
+    $NAME = $data['name'];
+    $PRICE = $data['price'];
+    $ID = $data['id'];
+    $user_id = $data['user_id'];
+    $quantity = 1;
+    $image=$data['image'];
+
+    $insert = "INSERT INTO cart (user_id,name,price,image,quantity) VALUES ('$user_id','$NAME','$PRICE','$image','$quantity')";
+    mysqli_query($con, $insert);
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,10 +27,11 @@ $data = mysqli_fetch_array($up);
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../shared/css/newStyle.css">
+    <link rel="stylesheet" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shared/css/newStyle.css"; ?>">
     <title>prouducts | المنتجات</title>
     <style>
-        h3,h5 {
+        h3,
+        h5 {
             font-family: "Cairo", sans-serif;
             font-weight: bold;
         }
@@ -48,7 +62,6 @@ $data = mysqli_fetch_array($up);
         nav {
             background-color: black;
         }
-        
     </style>
 </head>
 
@@ -69,7 +82,7 @@ $data = mysqli_fetch_array($up);
              <div class='card-body' style='border: 1px black solid;'>
                     <h5 class='card-title'>$row[name]</h5>
                     <p class='card-text'>$row[price]</p>
-                    <a href='? id=$row[id]' class='btn btn-success'>إضافة المنتج للعربة</a>
+                    <a href='?id=$row[id]&add' class='btn btn-success'>إضافة المنتج للعربة</a>
                 </div>
             </div>
             ";
@@ -78,4 +91,5 @@ $data = mysqli_fetch_array($up);
             ?>
         </main>
 </body>
+
 </html>

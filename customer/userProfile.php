@@ -2,28 +2,9 @@
 session_start();
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
 $userID = $_SESSION['user_id'];
-if (!isset($_SESSION['user_id'])) {
-    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
-    exit;
-}
-if (isset($_GET['logout'])) {
-    unset($user_id);
-    session_destroy();
-    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
-};
+
 $select = mysqli_query($con, "SELECT * FROM `user_info` WHERE `id` = $userID");
 $row =  mysqli_fetch_array($select);
-
-$default_image = 'images/user.png';
-$profile_pic = $row['profile_pic'];
-
-// Check if the image file exists and is not empty
-if (!empty($profile_pic) && file_exists(BASE_PATH . 'shared/' . $profile_pic)) {
-    $userImg = $profile_pic;
-} else {
-    $userImg = $default_image;
-}
-
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $success = false;
@@ -49,6 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $success = true;
         }
     }
+
     if ($_POST['phone'] != "") {
         $phone = mysqli_real_escape_string($con, $_POST['phone']);
         mysqli_query($con, "UPDATE user_info SET phone = '$phone' WHERE id = '$userID'");
@@ -70,7 +52,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             exit();
         }
     }
-
     if ($success) {
         $_SESSION['success_message'] = 'Profile updated successfully!';
         header("Location: http://" . $_SERVER['HTTP_HOST'] . "/customer/userProfile.php");
@@ -86,10 +67,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
-    <link rel="stylesheet" href="../shared/css/newStyle.css">
+    <link rel="stylesheet" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shared/css/newStyle.css"; ?>">
     <style>
-        
-
         .profile-form {
             max-width: 600px;
             margin: 50px auto;
@@ -174,26 +153,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             background-color: #f44336;
             color: white;
         }
-
     </style>
 </head>
 
 <body>
-
-
-   
-
     <!-- include of header and list -->
     <?php
     $title = "Profile";
     include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php");
-    include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
+    if (isset($_SESSION['user_id']))
+        include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
+    else
+        include($_SERVER["DOCUMENT_ROOT"] . "\admin\admine_list.php");
     ?>
-
-
-
-
-
     <?php
     // Display success or error messages
     if (isset($_SESSION['success_message'])) {
@@ -208,13 +180,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     ?>
 
     <div class="form-container">
-    <form action="" method="post" class="profile-form">
-        
+        <form action="" method="post" class="profile-form" enctype="multipart/form-data">
+
             <div class="form-header">
-                <?php
-                echo "<img src='" . BASE_URL . '../shared/' . $userImg . "' alt='User Pic' width='100px'>";
-                echo "Welcome " . $row['name'];
-                ?>
+                <img src="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shared/" . $row['profile_pic']; ?>">
+
+                Welcome <?php echo $row['name']; ?>
+
             </div>
 
             <div class="form-body">
@@ -251,13 +223,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <label for="confirm_password">Confirm New Password: </label>
                     <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm new password">
                 </div>
-
+                
+                <input type="file" name='image' id="file" value="<?php echo $data['image']; ?>" style='display: none;'>
+                <label for="file">تحديث صورة للمنتج</label>
                 <!-- Submit Button -->
                 <div class="form-group">
                     <input type="submit" value="Update Profile">
                 </div>
             </div>
-        </div>
+    </div>
     </form>
 </body>
 

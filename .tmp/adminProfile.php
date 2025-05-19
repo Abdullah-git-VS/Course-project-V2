@@ -1,6 +1,6 @@
 <html> 
     <head>
-        <rel="stylesheet" href="../style.css">
+        <rel="stylesheet" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shared/css/newStyle.css"; ?>">
     </head>
 
 
