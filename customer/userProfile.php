@@ -18,7 +18,7 @@ $default_image = 'images/user.png';
 $profile_pic = $row['profile_pic'];
 
 // Check if the image file exists and is not empty
-if (!empty($profile_pic) && file_exists(BASE_PATH . 'shared/' . $profile_pic)) {
+if (!empty($profile_pic) && file_exists("http://" . $_SERVER['HTTP_HOST'] . 'shared/' . $profile_pic)) {
     $userImg = $profile_pic;
 } else {
     $userImg = $default_image;
@@ -86,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
-    <link rel="stylesheet" href="../shared/css/newStyle.css">
+    <link rel="stylesheet" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shared/css/newStyle.css"; ?>">
     <style>
         
 
