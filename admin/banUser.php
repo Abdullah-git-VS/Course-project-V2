@@ -26,25 +26,46 @@ mysqli_close($con);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     
-    <link rel="stylesheet" href="../shared/css/headerList.css">
+    <link rel="stylesheet" href="../shared/css/newStyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400&display=swap" rel="stylesheet">
     
     <script src="../script.js"></script>
     <style>
+      .banForm {
+         background-color:rgb(51, 31, 82);
+         width:350px;
+         height:200px;
+         margin: 0 auto;
+         margin-top: 120px;
+      }
+
          input{
             text-align: center;
+         }
+         button {
+            background-color:rgb(61, 61, 181);
+
          }
          </style>
 </head>
 <body>
-   <div style='margin-top:100px'>
-    <form  action='' method='post'>
-       
+
+
+      <!-- include header for admin ban -->
+       <?php  $title = "Admin Registration";
+        include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php"); ?>
+
+          <div class="back">
+           <a href="adminPage.php" class="back-btn"><i class="fas fa-home"></i> العودة</a>
+         </div>
+
+
+         
+  
+    <form  class="banForm" action='' method='post'>
        <input type='text' name='id' id="userId" required placeholder="USER ID" class="box" style='width:300px; height:30px'><br>
-       <button type='submit' name='submit' value='Control Accessability' style='background-color:white; width:300px; font-size:25px'>Control Accessability</button>
+       <button type='submit' name='submit' value='Control Accessability' >Control Accessability</button>
    </form>
-     
-   </div>
      
     
 
