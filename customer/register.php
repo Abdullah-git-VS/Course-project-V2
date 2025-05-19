@@ -88,14 +88,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
 
 <body>
 
-   <nav class="navbar">
-      <div class="logo">
-         <h1>Transport</h1>
-      </div>
-      <div class="nav-link">
-         <a href="about.php">About</a>
-      </div>
-   </nav>
+   <!-- include of header and block to return to home page -->
+  <?php 
+  $title = "Register";
+  include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php");
+  ?>
+
+  <div class="back">
+    <a href="..\shared\homePage.php" class="back-btn"><i class="fas fa-home"></i> home Page</a>
+  </div>
+
+  <!-- untill here -->
+
+
+
 
    <div class="register-container">
       <div class="popup-content">

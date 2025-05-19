@@ -48,6 +48,7 @@ mysqli_close($con);
   <link rel="stylesheet" href="css/newStyle.css">
 
   <style>
+    /* Login Container */
     .login-container {
       margin: 100px auto;
       padding: 10px 10px;
@@ -62,21 +63,23 @@ mysqli_close($con);
 
 <body>
 
-  <nav class="navbar">
-    <div class="logo">
-      <h1>Transport</h1>
-    </div>
-    <div class="nav-link">
-      <a href="about.php">About</a>
-    </div>
-  </nav>
+ <!-- include header and i use block to go to about page -->
+  <?php 
+  $title = "home Page";
+  include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php");
+  ?>
 
-  <div class="login-popup" id="loginPopup">
-    <div class="login-container">
-      <div class="popup-content">
-        <h2>Login</h2>
+  <div class="back">
+    <a href="about.php" class="back-btn"><i class="fas fa-home"></i> about</a>
+  </div>
 
-        <form action="" method="post" style="padding-top: 50px;">
+  <!-- untill here -->
+  
+
+
+  <div class="form-container">
+        <form action="" method="post">
+          <h2>Login</h2>
           <input type="email" class="box" name="email" id="username" required placeholder="Email">
           <input type="password" class="box" name="password" id="password" required placeholder="Password">
 
@@ -95,8 +98,6 @@ mysqli_close($con);
             <a href="../customer/register.php" style="color: red;">Register Now</a>
           </p>
         </form>
-      </div>
-    </div>
   </div>
 
 </body>

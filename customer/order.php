@@ -21,20 +21,23 @@ if (isset($_GET['logout'])) {
     exit;
   }
 };
-        include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
+        
+        
     ?>
 <head>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="../shared/css/headerList.css">
+<link rel="stylesheet" href="../shared/css/newStyle.css">
 <style>
 
-    body {
+    
+
+    .frameContent {
         display:flex;
         flex-direction:column;
         align-items:center;
         padding: 50px;
-    }
+        }
 
     .steps-container {
         display: flex;
@@ -180,7 +183,15 @@ if (isset($_GET['logout'])) {
 
 <body>
 
+    <!-- include header and list -->
+   <?php
+    $title = "Order";
+    include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php");
+    include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
+    ?>
+    <!-- untill here -->
 
+    
 
 
 <div class="steps-container">
@@ -190,15 +201,17 @@ if (isset($_GET['logout'])) {
     <div class="steps" onclick="showStep(4)"> <h5> Step 4 </h5> </div>
 </div>
 
+<div class="frameContent"> 
 <div class="content-container" id="content">
 <!-- content steps 1,2,3,4 will implemented here in js -->
    
 </div>
+</div>
 
 
 
-
-<script src="../customer/js/scriptOrder.js"> </script>
+<!-- <script src="../customer/js/scriptOrder.js"> </script> -->
+ <script src="../shared/js/all_script.js"> </script>
 
 <?php if($isAdmin == 1) {?>
     

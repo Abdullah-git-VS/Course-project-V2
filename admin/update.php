@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css\index.css">
+    <link rel="stylesheet" href="../shared/css/newStyle.css">
     <title>Update | تعديل المنتجات</title>
 </head>
 <body>
@@ -39,7 +39,6 @@
                 <a href="users_list.php">عرض المستخدمين</a>
             </form>
         </div>
-        <p>Developer by love❤️</p>
     </center>
 </body>
 

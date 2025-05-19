@@ -29,24 +29,21 @@ if (mysqli_num_rows($select_user) > 0) {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Full Navbar</title>
-  <link rel="stylesheet" href="../shared/css/headerList.css">
-  <!-- <link rel="stylesheet" href="style.css"> -->
-  <!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"> -->
+  <link rel="stylesheet" href="../shared/css/newStyle.css">
+ 
 
 </head>
 
 <body>
 
-  <?php include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php"); ?>
+    <!-- include of header and list -->
+    <?php
+    $title = "Profile";
+    include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php");
+    include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
+    ?>
 
-  <?php
-  $title = "user page";
-  include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php");
-  ?>
-
-  <!-- <div class="image-container">
-    <img src="images/animals.png" alt="Animals" class="bg-image">
-  </div> -->
+  
 
 
 

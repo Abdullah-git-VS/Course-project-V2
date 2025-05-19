@@ -23,15 +23,24 @@ mysqli_close($con);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../shared/css/headerList.css">
+    <link rel="stylesheet" href="../shared/css/newStyle.css">
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div style='margin-top:100px'>
+
+      <!-- include header for admin register -->
+       <?php  $title = "Admin Registration";
+        include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php"); ?>
+
+
+
+
+    <div style='margin-top:100px;width:500px; margin-left:400px; '>
     <form action='' method='post'>
         <button type='submit' name='submit' style='background-color:darkred; font-size:25px'>Ban User</button>
         <button type='submit' name='submit2' style='background-color:green; font-size:25px'>Unban User</button>
     </form>
+
     <button onclick="userInfo()" style='font-size:25px'>Get User Information</button>
     <a href='banUser.php'><button style='font-size:25px'>Return</button></a>
     </div>

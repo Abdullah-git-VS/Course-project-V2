@@ -4,14 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Full Navbar</title>
-  <link rel="stylesheet" href="../shared/css/headerList.css">
+  <link rel="stylesheet" href="../shared/css/newStyle.css">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 
 </head>
 
 <body>
-  <?php  $title = "Admin Page";
+
+          <!-- include header -->
+       <?php  $title = "Admin Page";
         include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php"); ?>
+
 
 
 <div class="menu">

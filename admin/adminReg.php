@@ -86,14 +86,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['submit'])) {
 
 <body>
 
-   <nav class="navbar">
-      <div class="logo">
-         <h1>Transport</h1>
-      </div>
-      <div class="nav-link">
-         <a href="about.php">About</a>
-      </div>
-   </nav>
+      <!-- include header for admin register -->
+       <?php  $title = "Admin Registration";
+        include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php"); ?>
+
+
+
 
    <div class="register-container">
       <div class="popup-content">
