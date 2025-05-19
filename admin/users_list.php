@@ -56,17 +56,18 @@
     </center>
     <?php
     include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
-    $result = mysqli_query($con, "SELECT * FROM products");
+    
+    $result = mysqli_query($con, "SELECT * FROM user_info");
     while ($row = mysqli_fetch_array($result)) {
         echo "
         <center>
         <main>
             <div class='card' style='width: 15rem; border: 1px black solid;'>
-             <img src=''../shared/'$row[profile_pic]' class='card-img-top'>
+             <img src='../shared/$row[profile_pic]' class='card-img-top'>
              <div class='card-body' style='border: 1px black solid;'>
                     <h5 class='card-title'>$row[name]</h5>
                     <p class='card-text'>$row[price]</p>
-                    <a href='Function\delete.php? id=$row[id]' class='btn btn-danger'>حذف</a>
+                    <a href='Function\delete_user.php? id=$row[id]' class='btn btn-danger'>حذف</a>
                     <a href='update.php? id=$row[id]' class='btn btn-primary'>تعديل</a>
                 </div>
             </div>

@@ -14,7 +14,7 @@ $data = mysqli_fetch_array($up);
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="..\admin\css\index.css">
     <title>prouducts | المنتجات</title>
     <style>
         h3,
@@ -65,7 +65,7 @@ $data = mysqli_fetch_array($up);
             while ($row = mysqli_fetch_array($result)) {
                 echo "
             <div class='card' style='width: 15rem; border: 1px black solid;'>
-             <img src='$row[image]' class='card-img-top'>
+             <img src='../shared/$row[image]' class='card-img-top'>
              <div class='card-body' style='border: 1px black solid;'>
                     <h5 class='card-title'>$row[name]</h5>
                     <p class='card-text'>$row[price]</p>

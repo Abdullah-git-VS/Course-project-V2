@@ -7,7 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="css\index.css">
     <title>Update | تعديل المنتجات</title>
 </head>
 <body>
@@ -18,11 +18,11 @@
     $data = mysqli_fetch_array($UP);
     mysqli_close($con);
     ?>
-    <center>
+    <center><?php echo "../shared/".$data['profile_pic'];?>
         <div class="main">
             <form action="Function/up.php" method="post" enctype="multipart/form-data">
                 <h2>تعديل المستخدم</h2>
-                <img src="../<?php echo $data['profile_pic'];?>" alt="logo" width="450px">
+                <img src="<?php echo "../shared/".$data['profile_pic'];?>" alt="logo" width="450px">
 
                 <input style="display: none;" type="text" name='o' value='<?php echo $data['id'];?>'>
                 <br>
@@ -36,7 +36,7 @@
                 <label for="file">تحديث الصورة </label>
                 <button type="submit" name='update'>✅تعديل المستخدم</button>
                 <br><br>
-                <a href="users.php">عرض المنتجات</a>
+                <a href="users_list.php">عرض المستخدمين</a>
             </form>
         </div>
         <p>Developer by love❤️</p>

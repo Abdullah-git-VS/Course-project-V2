@@ -47,7 +47,18 @@ mysqli_close($con);
   <title>transport</title>
   <link rel="stylesheet" href="css/newStyle.css">
 
-  
+  <style>
+    /* Login Container */
+    .login-container {
+      margin: 100px auto;
+      padding: 10px 10px;
+      border-radius: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+  </style>
 </head>
 
 <body>
