@@ -1,5 +1,4 @@
 <?php
-
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
 session_start();
 $user_id = $_SESSION['user_id'];

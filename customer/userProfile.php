@@ -2,6 +2,30 @@
 session_start();
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
 $userID = $_SESSION['user_id'];
+if (isset($_POST['update'])) {
+    if ($_POST['password'] == $_POST['confirm_password']) {
+        $ID_o = $_POST['o'];
+        $ID_n = $_POST['id'];
+        $NAME = $_POST['name'];
+        $email = $_POST['email'];
+        $phone = $_POST['phone'];
+        $address = $_POST['address'];
+        $password = md5($_POST['password']);
+        $IMAGE = $_FILES['image'];
+        $image_location = $_FILES['image']['tmp_name'];
+        $image_name = $_FILES['image']['name'];
+        move_uploaded_file($image_location, 'images/' . $image_name);
+        $image_up = "images/" . $image_name;
+        $update = "UPDATE products SET name='$NAME' , price='$PRICE', image='$image_up', id='$ID_n' WHERE id=$ID_o";
+        mysqli_query($con, $update);
+        mysqli_close($con);
+        header("Location: http://" . $_SERVER['HTTP_HOST'] . "/admin/add.php");
+    }
+ else {
+    $_SESSION['error_message'] = 'Password and Confirm Password do not match!';
+    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/customer/userProfile.php");
+    exit();
+}}
 
 $select = mysqli_query($con, "SELECT * FROM `user_info` WHERE `id` = $userID");
 $row =  mysqli_fetch_array($select);
@@ -164,23 +188,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_SESSION['user_id']))
         include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
     else
-    include($_SERVER["DOCUMENT_ROOT"] . "\admin\admine_list.php");
+        include($_SERVER["DOCUMENT_ROOT"] . "\admin\admine_list.php");
     ?>
     <?php
-// Display success or error messages
-if (isset($_SESSION['success_message'])) {
-    echo "<div class='message success-message'>" . $_SESSION['success_message'] . "</div>";
-    unset($_SESSION['success_message']);
-}
+    // Display success or error messages
+    if (isset($_SESSION['success_message'])) {
+        echo "<div class='message success-message'>" . $_SESSION['success_message'] . "</div>";
+        unset($_SESSION['success_message']);
+    }
 
-if (isset($_SESSION['error_message'])) {
-    echo "<div class='message error-message'>" . $_SESSION['error_message'] . "</div>";
-    unset($_SESSION['error_message']);
-}
+    if (isset($_SESSION['error_message'])) {
+        echo "<div class='message error-message'>" . $_SESSION['error_message'] . "</div>";
+        unset($_SESSION['error_message']);
+    }
     ?>
 
     <div class="form-container">
-        <form action="" method="post" class="profile-form">
+        <form action="" method="post" class="profile-form" enctype="multipart/form-data">
 
             <div class="form-header">
                 <img src="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shared/" . $row['profile_pic']; ?>">
@@ -223,7 +247,9 @@ if (isset($_SESSION['error_message'])) {
                     <label for="confirm_password">Confirm New Password: </label>
                     <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm new password">
                 </div>
-
+                
+                <input type="file" name='image' id="file" value="<?php echo $data['image']; ?>" style='display: none;'>
+                <label for="file">تحديث صورة للمنتج</label>
                 <!-- Submit Button -->
                 <div class="form-group">
                     <input type="submit" value="Update Profile">
