@@ -82,7 +82,7 @@ mysqli_close($con);
 
   <!-- untill here -->
   <div class="form-container">
-    <form action="" method="post">
+    <form action="" method="post" >
       <h2>Login</h2>
       <input type="email" class="box" name="email" id="username" required placeholder="Email">
       <input type="password" class="box" name="password" id="password" required placeholder="Password">

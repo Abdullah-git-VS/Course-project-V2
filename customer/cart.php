@@ -41,6 +41,7 @@ if (isset($_GET['logout'])) {
       
 
     while ($row = mysqli_fetch_assoc($res)) {
+    echo "<div style='background-color:#272757;width:50%; margin:0 auto;margin-top:20px;'>";  
     echo "Product: " . $row['product'] . "<br>";
     echo "Vehicle: " . $row['vehicle'] . "<br>";
     echo "Quantity: " . $row['quantity'] . "<br>";
@@ -91,10 +92,10 @@ if (isset($_GET['confirm'])) {
       
 
     <?php if (mysqli_num_rows($res) > 0){ ?>
-  <form method="get">
+    <form method="get" style="width:50%;margin:0 auto;">
       <button type="submit" name="confirm">Confirm order</button>
-  </form>
-<?php } ?>
+    </form>
+   <?php } ?>
     
       
     </body>
