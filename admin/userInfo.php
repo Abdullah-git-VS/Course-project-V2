@@ -67,7 +67,7 @@ mysqli_close($con);
       xhttp.send();
     }
   </script>
-  <div id="txt" style='margin: 30px auto; width: fit-content; text-align: center;'></div>
+  <div id="txt" style='margin: 30px auto; width: fit-content; text-align: center;color:black;'></div>
 </body>
 
 </html>

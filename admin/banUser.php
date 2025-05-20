@@ -53,7 +53,8 @@ mysqli_close($con);
 
 <body>
    <!-- include header for admin ban -->
-   <?php $title = "Admin Registration"; ?>
+   <?php $title = "Admin Registration"; 
+    include($_SERVER["DOCUMENT_ROOT"] . "\admin\admine_list.php"); ?>
    
    <form class="banForm" action='' method='post'>
       <input type='text' name='id' id="userId" required placeholder="USER ID" class="box" style='width:300px; height:30px'><br>
