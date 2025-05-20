@@ -59,7 +59,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -160,11 +159,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <!-- include of header and list -->
     <?php
     $title = "Profile";
-    include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php");
-    if (isset($_SESSION['user_id']))
-        include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
-    else
+    if ($_SESSION['isAdmin'])
         include($_SERVER["DOCUMENT_ROOT"] . "\admin\admine_list.php");
+    else
+        include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
     ?>
     <?php
     // Display success or error messages
@@ -223,7 +221,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <label for="confirm_password">Confirm New Password: </label>
                     <input type="password" name="confirm_password" id="confirm_password" placeholder="Confirm new password">
                 </div>
-                
+
                 <input type="file" name='image' id="file" value="<?php echo $data['image']; ?>" style='display: none;'>
                 <label for="file">تحديث صورة للمنتج</label>
                 <!-- Submit Button -->
