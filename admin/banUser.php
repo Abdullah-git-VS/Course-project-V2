@@ -53,7 +53,6 @@ mysqli_close($con);
    <?php $title = "Admin Registration"; ?>
    <?php include($_SERVER["DOCUMENT_ROOT"] . "\admin\admine_list.php"); ?>
    <form class="banForm" action='' method='post'>
-      <input type='text' name='id' id="userId" required placeholder="USER ID" class="box" style='width:300px; height:30px'><br>
       <select id="userId" name="id" class="box">
          <?php
          $result = mysqli_query($con, "SELECT * FROM `user_info`") or die('query failed');
