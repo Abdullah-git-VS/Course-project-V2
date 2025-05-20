@@ -68,7 +68,7 @@ mysqli_close($con);
 
   <!-- include header and i use block to go to about page -->
   <?php $title = "home Page"; ?>
-    <header>
+  <header>
     <nav class="navbar">
       <div class="logo">
         <h1><?php echo isset($title) ? htmlspecialchars($title) : "Default"; ?></h1>
@@ -91,9 +91,9 @@ mysqli_close($con);
         <strong>Sign-in</strong>
       </button>
 
-      
+
       <?php
-      
+
       if (isset($_SESSION['message'])) {
         echo '<div class="message" onclick="this.remove();">' . $_SESSION['message'] . '</div>';
         unset($_SESSION['message']);
