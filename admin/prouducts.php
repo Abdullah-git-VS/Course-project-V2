@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shared/css/newStyle.css"; ?>">
     <title>users | المستخدمين</title>
     <style>
+        .p {
+            margin-right: 70px;
+        }
+
         h3,
         h5 {
             font-family: "Cairo", sans-serif;
@@ -54,32 +58,34 @@
     <nav calss="navbar">
         <a id="aa" class="navbar-brand" href="add.php">Add prodct | إضافة منتج</a>
     </nav>
-    <center>
-        <h3>جميع المنتجات</h3>
-    </center>
-    <?php
-    include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
-    $result = mysqli_query($con, "SELECT * FROM products");
-    while ($row = mysqli_fetch_array($result)) {
-        echo "
+    <div class="p">
+        <center>
+            <h3>جميع المنتجات</h3>
+        </center>
+        <?php
+        include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
+        $result = mysqli_query($con, "SELECT * FROM products");
+        while ($row = mysqli_fetch_array($result)) {
+            echo "
         <center>
         <main>
             <div class='card' style='width: 15rem; border: 1px black solid;'>
-             <img src='../shared/$row[image]' class='card-img-top'>
+             <img src='/../shared/$row[image]' class='card-img-top'>
              <div class='card-body' style='border: 1px black solid;'>
                     <h5 class='card-title'>$row[name]</h5>
                     <p class='card-text'>$row[price]</p>
-                    <a href='Function\delete.php? id=$row[id]' class='btn btn-danger'>حذف</a>
-                    <a href='update.php? id=$row[id]' class='btn btn-primary'>تعديل</a>
+                    <a href='http://" . $_SERVER['HTTP_HOST'] . "/admin/Functions/delete_product.php?id=$row[id]' class='btn btn-danger'>حذف</a>
+                    <a href='http://" . $_SERVER['HTTP_HOST'] . "/admin/update_products.php?id=$row[id]' class='btn btn-primary'>تعديل</a>
                 </div>
             </div>
         </main>
             <center>
             ";
-    }
-    mysqli_close($con);
-    ?>
-    </center>
+        }
+        mysqli_close($con);
+        ?>
+        </center>
+    </div>
 </body>
 
 </html>

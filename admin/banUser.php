@@ -27,7 +27,7 @@ mysqli_close($con);
    <title>Document</title>
    <link rel="stylesheet" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shared/css/newStyle.css"; ?>">
    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400&display=swap" rel="stylesheet">
-   <script src="<?php "http://" . $_SERVER['HTTP_HOST'] ."/shared/js/all_script.js"?>"></script>
+   <script src="<?php "http://" . $_SERVER['HTTP_HOST'] . "/shared/js/all_script.js" ?>"></script>
    <style>
       .banForm {
          background-color: rgb(51, 31, 82);
@@ -54,6 +54,13 @@ mysqli_close($con);
    <?php include($_SERVER["DOCUMENT_ROOT"] . "\admin\admine_list.php"); ?>
    <form class="banForm" action='' method='post'>
       <input type='text' name='id' id="userId" required placeholder="USER ID" class="box" style='width:300px; height:30px'><br>
+      <select id="userId" name="id" class="box">
+         <?php
+         $result = mysqli_query($con, "SELECT * FROM `user_info`") or die('query failed');
+         while ($row = mysqli_fetch_array($result)) {
+            echo " <option value=$row[id] >$row[id]</option>";
+         } ?>
+      </select>
       <button type='submit' name='submit' value='Control Accessability'>Control Accessability</button>
    </form>
 

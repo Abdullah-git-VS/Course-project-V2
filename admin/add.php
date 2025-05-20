@@ -11,7 +11,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shared/css/newStyle.css"; ?>">
     <title>shop online | اضافة منتجات</title>
+    <script>
+        function previewImage(event) {
+            const input = event.target;
+            const image = document.getElementById('imagePreview');
 
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    image.src = e.target.result;
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
     <style>
         .addForm {
             display: flex;
@@ -77,20 +92,20 @@
     <!-- include of header and block -->
     <?php
     $title = "add product";
-    include($_SERVER["DOCUMENT_ROOT"] . "\admin\admine_list.php");?>
+    include($_SERVER["DOCUMENT_ROOT"] . "\admin\admine_list.php"); ?>
 
     <div class="back">
         <a href="adminPage.php" class="back-btn"><i class="fas fa-home"></i> العودة</a>
     </div>
-    <form class="addForm" action="Function\insert.php" method="post" enctype="multipart/form-data">
+    <form class="addForm" action="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/admin/Functions/insert.php"; ?>" method="post" enctype="multipart/form-data">
         <h2>إضافة المنتجات</h2>
-        <img src="../shared/images/map-operation.svg" alt="logo" width="450px">
+        <img src="../shared/images/map-operation.svg" alt="logo" width="450px" id="imagePreview">
         <input class="addInput" type="text" name='name' placeholder="name">
         <br>
         <input class="addInput" type="text" name='price' placeholder="price">
         <br>
-        <input class="addInput" type="file" id="file" name='image' style='display: none;'>
-        <label for="file">اختيار صورة للمنتج</label>
+        <input class="addInput" type="file" id="file" name='image' style='display: none;' onchange="previewImage(event)">
+        <label for="file" >اختيار صورة للمنتج</label>
         <button class="addProduct" name='upload'>✅رفع المنتج</button>
         <br><br>
         <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/customer/shop.php"; ?>">عرض المنتجات</a>

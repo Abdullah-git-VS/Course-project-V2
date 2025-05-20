@@ -47,7 +47,7 @@ $profile_pic = $user['profile_pic'];
                 </div>
                 <h2> <?php echo $user['name']; ?> </h2>
             </li>
-            
+
             <li>
                 <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/customer/userProfile.php"; ?>">
                     <i class="fas fa-users"></i>
@@ -56,9 +56,9 @@ $profile_pic = $user['profile_pic'];
             </li>
 
             <li>
-                <a href="#">
+                <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . '/admin/users_list.php'; ?>">
                     <i class="fas fa-table"></i>
-                    <p>product</p>
+                    <p>users_list</p>
                 </a>
             </li>
 
@@ -70,16 +70,15 @@ $profile_pic = $user['profile_pic'];
             </li>
 
             <li>
+                <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/admin/prouducts.php"; ?>">
+                    <i class="fas fa-lightbulb"></i>
+                    <p>view product</p>
+                </a>
+            </li>
+            <li>
                 <a href="#">
                     <i class="fas fa-pen"></i>
                     <p>post</p>
-                </a>
-            </li>
-
-            <li>
-                <a href="#">
-                    <i class="fas fa-lightbulb"></i>
-                    <p>view product</p>
                 </a>
             </li>
 

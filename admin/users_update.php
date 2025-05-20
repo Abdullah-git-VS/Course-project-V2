@@ -9,36 +9,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shared/css/newStyle.css"; ?>">
     <title>Update | تعديل المنتجات</title>
+    <script>
+        function previewImage(event) {
+            const input = event.target;
+            const image = document.getElementById('imagePreview');
+
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    image.src = e.target.result;
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 </head>
+
 <body>
-       <?php $title = "Admin Registration"; ?>
-   <?php include($_SERVER["DOCUMENT_ROOT"] . "\admin\admine_list.php"); ?>
+    <?php $title = "Admin Registration"; ?>
+    <?php include($_SERVER["DOCUMENT_ROOT"] . "\admin\admine_list.php"); ?>
     <?php
     include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
-    $ID=$_GET['id'];
-    $UP=mysqli_query($con,"SELECT * FROM user_info WHERE id=$ID");
+    $ID = $_GET['id'];
+    $UP = mysqli_query($con, "SELECT * FROM user_info WHERE id=$ID");
     $data = mysqli_fetch_array($UP);
     mysqli_close($con);
     ?>
-    <center><?php echo "../shared/".$data['profile_pic'];?>
+    <center><?php echo "../shared/" . $data['profile_pic']; ?>
         <div class="main">
-            <form action="<?php echo "http://" . $_SERVER['HTTP_HOST'] ."/admin/Functions/up_user.php"; ?>" method="post" enctype="multipart/form-data">
+            <form action="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/admin/Functions/up_user.php"; ?>" method="post" enctype="multipart/form-data">
                 <h2>تعديل المستخدم</h2>
-                <img src="<?php echo "../shared/".$data['profile_pic'];?>" alt="logo" width="450px">
+                <img src="<?php echo "../shared/" . $data['profile_pic']; ?>" alt="logo" width="450px" id="imagePreview">
 
-                <input style="display: none;" type="text" name='o' value='<?php echo $data['id'];?>'>
+                <input style="display: none;" type="text" name='o' value='<?php echo $data['id']; ?>'>
                 <br>
-                <input type="text" name='id' value='<?php echo $data['id'];?>'>
+                <input type="text" name='id' value='<?php echo $data['id']; ?>'>
                 <br>
-                <input type="text" name='name' value='<?php echo $data['name'];?>'>
+                <input type="text" name='name' value='<?php echo $data['name']; ?>'>
                 <br>
-                <input type="text" name='email' value="<?php echo $data['email'];?>">
+                <input type="text" name='email' value="<?php echo $data['email']; ?>">
                 <br>
-                <input type="file" name='profile_pic' id="file" value="<?php echo $data['image'];?>" style='display: none;'>
+                <input type="file" name='profile_pic' id="file" value="<?php echo $data['image']; ?>" style='display: none;' onchange="previewImage(event)">
                 <label for="file">تحديث الصورة </label>
                 <button type="submit" name='update'>✅تعديل المستخدم</button>
                 <br><br>
-                <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] ."/admin/users_list.php"; ?>">عرض المستخدمين</a>
+                <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/admin/users_list.php"; ?>">عرض المستخدمين</a>
             </form>
         </div>
     </center>
