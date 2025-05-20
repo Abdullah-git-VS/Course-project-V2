@@ -108,7 +108,7 @@
         <label for="file" >اختيار صورة للمنتج</label>
         <button class="addProduct" name='upload'>✅رفع المنتج</button>
         <br><br>
-        <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/customer/shop.php"; ?>">عرض المنتجات</a>
+        <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/admin/prouducts.php"; ?>">عرض المنتجات</a>
     </form>
 </body>
 
