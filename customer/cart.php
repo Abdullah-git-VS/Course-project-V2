@@ -11,6 +11,7 @@
     ob_start();
     session_start();
     include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
+    include("../admin/functions/restrictions.php");
     $userId=$_SESSION['user_id'];
 
     include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
