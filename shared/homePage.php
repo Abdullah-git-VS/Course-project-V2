@@ -4,6 +4,7 @@
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
 session_start();
 
+// Check if the user is already logged in
 if (isset($_POST['submit'])) {
   $email = mysqli_real_escape_string($con, $_POST['email']);
   $passw = mysqli_real_escape_string($con, $_POST['password']);
@@ -12,9 +13,10 @@ if (isset($_POST['submit'])) {
   $_SESSION['user_id'] = $row['id'];
   $_SESSION['isAdmin'] = $row['isAdmin'];
 
+
+
+  // Debugging: Check the values of $email and $passw
   echo "<script>console.log(" . json_encode($row) . ");</script>";
-
-
   if ($row['isAdmin'] == 1) {
     // Admin user
     $_SESSION['isAdmin'] = $row['isAdmin'];
@@ -88,7 +90,9 @@ mysqli_close($con);
         <strong>Sign-in</strong>
       </button>
 
+      
       <?php
+      
       if (isset($_SESSION['message'])) {
         echo '<div class="message" onclick="this.remove();">' . $_SESSION['message'] . '</div>';
         unset($_SESSION['message']);

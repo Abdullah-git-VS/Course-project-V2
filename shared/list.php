@@ -1,3 +1,6 @@
+
+
+<!-- validate user session -->
 <?php
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\getUser.php");
 $user_id = $_SESSION['user_id'];
@@ -6,16 +9,21 @@ if (!isset($user_id)) {
   exit;
 };
 
+
+
 if (isset($_GET['logout'])) {
   unset($user_id);
   session_destroy();
   header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
 };
 
+
 $user_id = $_SESSION['user_id'];
 $user = getUserData($con, $user_id);
 $isAdmin = $_SESSION['isAdmin'];
 $profile_pic = $user['profile_pic'];
+
+
 ?>
 
 <!DOCTYPE html>
@@ -71,26 +79,14 @@ $profile_pic = $user['profile_pic'];
         </a>
       </li>
 
-      <li>
-        <a href="?prod=<?php echo $user_id; ?>">
-          <i class="fas fa-table"></i>
-          <p> product </p>
-        </a>
-      </li>
 
       <li>
         <a href="#">
-          <i class="fas fa-pen"></i>
-          <p> post </p>
+          <i class="fas fa-cloud"></i>
+          <p> weather </p>
         </a>
       </li>
 
-      <li>
-        <a href="#">
-          <i class="fas fa-star"></i>
-          <p> favorite </p>
-        </a>
-      </li>
 
       <li>
         <a href="#">

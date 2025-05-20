@@ -32,7 +32,12 @@ if (mysqli_num_rows($select_user) > 0) {
     include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
     ?>
 
-  
+    
+
+  <script>
+
+
+  </script>
 
 
 
