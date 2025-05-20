@@ -1,19 +1,27 @@
 <?php
-include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
+include('../admin/functions/config.php');
+
 session_start();
 $id   = $_SESSION['id'];
 $name = $_SESSION['name'];
 $email = $_SESSION['email'];
+if($_SESSION['isAdmin'] == 0) {
+   header("Location: ../customer/userPage.php");
+}
+include("../admin/functions/restrictions.php");
+if($_SESSION['isAdmin'] == 0) {
+   header("Location: ../customer/userPage.php");
+}
 
 if (isset($_POST['submit'])) {
   $q = mysqli_query($con, "UPDATE user_info SET canAccess = '0' WHERE id = '$id'")
     or die('query failed');
-  header("Location: http://" . $_SERVER['HTTP_HOST'] . "/admin/userInfo.php");
+
 } elseif (isset($_POST['submit2'])) {
   $q = mysqli_query($con, "UPDATE user_info SET canAccess = '1' WHERE id = '$id'")
     or die('query failed');
-  header("Location: http://" . $_SERVER['HTTP_HOST'] . "/admin/userInfo.php");
-}
+    
+  }
 mysqli_close($con);
 ?>
 <!DOCTYPE html>
