@@ -77,8 +77,8 @@ $profile_pic = $user['profile_pic'];
             </li>
             <li>
                 <a href="#">
-                    <i class="fas fa-pen"></i>
-                    <p>post</p>
+                    <i class="fas fa-cloud"></i>
+                    <p>weather</p>
                 </a>
             </li>
 

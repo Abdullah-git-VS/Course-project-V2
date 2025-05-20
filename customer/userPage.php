@@ -32,14 +32,26 @@ if (mysqli_num_rows($select_user) > 0) {
     include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
     ?>
 
-    
+    <div id="greeting" style="font-size:2rem; font-weight:bold; margin: 30px 0;background-color:black;"></div>
 
-  <script>
+<script>
+  function updateGreeting() {
+    const now = new Date();
+    // Get Saudi time (UTC+3)
+    let saHour = now.getUTCHours() + 3;
+    if (saHour >= 24) saHour -= 24;
 
+    const greetingElement = document.getElementById("greeting");
+    if (saHour >= 6 && saHour < 18) {
+      greetingElement.textContent = "صباح الخير";
+    } else {
+      greetingElement.textContent = "مساء الخير";
+    }
+  }
 
-  </script>
-
-
+  updateGreeting(); // Initial call
+  setInterval(updateGreeting, 60000); // Update every minute
+</script>
 
 </body>
 
