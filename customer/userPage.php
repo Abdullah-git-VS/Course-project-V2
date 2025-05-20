@@ -1,6 +1,7 @@
 <?php
 session_start();
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
+include("../admin/functions/restrictions.php");
 $user_id = $_SESSION['user_id'];
 $isAdmin = $_SESSION['isAdmin'];
 ?>

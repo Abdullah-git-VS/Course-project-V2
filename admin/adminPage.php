@@ -1,6 +1,7 @@
 <?php
 session_start();
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
+include("../admin/functions/restrictions.php");
 ?>
 <?php
 $select_user = mysqli_query($con, "SELECT * FROM `user_info` WHERE id = '$user_id'") or die('query failed');

@@ -2,6 +2,7 @@
 <html lang="en">
 <?php
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
+include("../admin/functions/restrictions.php");
 session_start();
 
 // Check if the user is already logged in

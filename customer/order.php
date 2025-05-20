@@ -5,22 +5,7 @@
     include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
     $userId=$_SESSION['user_id'];
     $isAdmin=$_SESSION['isAdmin'];
-    if (!isset($_SESSION['user_id'])) {
-    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
-    exit;
-}
-if (isset($_GET['logout'])) {
-  unset($user_id);
-  session_destroy();
-
-  if (file_exists('../shared/homePage.php')) {
-    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
-    exit;
-  } else {
-    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
-    exit;
-  }
-};
+    include("../admin/functions/restrictions.php");
         
         
     ?>
