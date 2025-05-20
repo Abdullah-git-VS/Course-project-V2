@@ -9,6 +9,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shared/css/newStyle.css"; ?>">
     <title>Update | تعديل المنتجات</title>
+    <script>
+        function previewImage(event) {
+            const input = event.target;
+            const image = document.getElementById('imagePreview');
+
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+
+                reader.onload = function(e) {
+                    image.src = e.target.result;
+                }
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -24,7 +40,7 @@
         <div class="main">
             <form action="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/admin/Functions/up_products.php"; ?>" method="post" enctype="multipart/form-data">
                 <h2>تعديل المنتج</h2>
-                <img src="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/../shared/" . $data['image']; ?>" alt="logo" width="450px">
+                <img src="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/../shared/" . $data['image']; ?>" alt="logo" width="450px" id="imagePreview">
 
                 <input style="display: none;" type="text" name='o' value='<?php echo $data['id']; ?>'>
                 <br>
@@ -34,7 +50,7 @@
                 <br>
                 <input type="text" name='price' value="<?php echo $data['price']; ?>">
                 <br>
-                <input type="file" name='image' id="file" value="<?php echo $data['image']; ?>" style='display: none;'>
+                <input type="file" name='image' id="file" value="<?php echo $data['image']; ?>" style='display: none;' onchange="previewImage(event)">
                 <label for="file">تحديث الصورة </label>
                 <button type="submit" name='update'>✅تعديل المنتج</button>
                 <br><br>
