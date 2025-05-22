@@ -1,5 +1,8 @@
 <?php
 session_start();
+if($_SESSION['isAdmin'] == 0) {
+   header("Location: ../customer/userPage.php");
+}
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
 include("../admin/functions/restrictions.php");
 ?>
