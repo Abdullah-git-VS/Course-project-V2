@@ -192,19 +192,18 @@
 
     
     $title = "Cart";
-    include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php");
-    include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
+    include($_SERVER["DOCUMENT_ROOT"] . "/shared/list.php");
    
 
 if (isset($_GET['submit2'])) {
     $vehicle = $_GET['vehicle'];
     $destination = $_GET['destination'];
-    $sql = "SELECT id FROM `order` WHERE userID = $userId ORDER BY id DESC LIMIT 1";
+    $sql = "SELECT id FROM cart WHERE user_id = $userId ORDER BY id DESC LIMIT 1";
     $result = mysqli_query($con, $sql);
     $row = mysqli_fetch_assoc($result);
     $lastOrderId = $row['id'];
     
-    $sql = "UPDATE `order` SET vehicle='$vehicle', destination='$destination' WHERE id='$lastOrderId' AND userId='$userId' 
+    $sql = "UPDATE cart SET vehicle='$vehicle', destination='$destination' WHERE id='$lastOrderId' AND user_id='$userId' 
             " or die("Query failed");
     
     $q = mysqli_query($con, $sql);
