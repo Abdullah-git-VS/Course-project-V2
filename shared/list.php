@@ -59,7 +59,7 @@ $profile_pic = $user['profile_pic'];
 
 
       <li>
-        <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . '/customer/order.php'; ?>">
+        <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . '/shared/products.php'; ?>">
           <i class="fas fa-list"></i>
           <p> order </p>
         </a>
