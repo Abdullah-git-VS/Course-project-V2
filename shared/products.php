@@ -105,6 +105,7 @@
                     <h5 class='card-title'>$row[name]</h5>
                     <p class='card-text'>$row[price]</p>
                     <a href='../admin/functions/delete_product.php?id=$row[id]' class='btn btn-danger'>حذف</a>
+                    <a href='../admin/functions/up_products?id=$row[id]' class='btn btn-primary'>تعديل</a>
                 </div>
             </div>
         
@@ -124,7 +125,7 @@ if ($isAdmin==0) {
                     <h5 class='card-title'>$row[name]</h5>
                     <p class='card-text'>$row[price]</p>
                     <a href='../admin/functions/initialOrder.php?id=$row[id] &name=$row[name] &price=$row[price]' class='btn btn-danger'>Add</a>
-                    <a href='../admin/functions/up_products?id=$row[id]' class='btn btn-primary'>تعديل</a>
+                    
                 </div>
             </div>
         

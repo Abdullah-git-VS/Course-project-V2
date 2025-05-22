@@ -35,7 +35,7 @@ if (isset($_GET['logout'])) {
     $res=mysqli_query($con, "SELECT * FROM `order` WHERE userID='$userId'");
 
     if(mysqli_num_rows($res) == 0) {
-      echo'Your cart is empty!';
+      echo'<p style="text-align:center; font-size:50px;">Your cart is empty!</p>';
     } else {
 
       
