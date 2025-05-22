@@ -223,7 +223,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
 
                 <input type="file" name='image' id="file" value="<?php echo $data['image']; ?>" style='display: none;'>
-                <label for="file">تحديث صورة للمنتج</label>
+                <label for="file">update</label>
                 <!-- Submit Button -->
                 <div class="form-group">
                     <input type="submit" value="Update Profile">

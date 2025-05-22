@@ -7,13 +7,13 @@ showStep(1);
 
 const orderData={
     vehicle:'',
-    product:'',
-    quantity:'',
+    // product:'',
+   // quantity:'',
     destination:''
 }
 
  let selectedVehicle = null;
- let selectedProductCard = null;
+ //let selectedProductCard = null;
 
 function showStep(steps) {
 
@@ -45,7 +45,7 @@ function showStep(steps) {
         <button onclick="saveVehicle()">Next</button>
             `;
             break;
-        case 2:
+       /* case 2:
             content.innerHTML =`
                <h2>Choose your your product </h2>
                 <div class="icons">
@@ -76,8 +76,9 @@ function showStep(steps) {
 
                 
             `;
+            */
             break;
-        case 3:
+        case 2:
             content.innerHTML = `
                 <h2>Enter Destination</h2>
                  <div class="case3">
@@ -91,13 +92,12 @@ function showStep(steps) {
                 <button onclick="saveDestination()">Next</button>
            `;
             break;
-        case 4:
+        case 3:
             content.innerHTML = ` 
             <h2>Order Summary</h2>
             <div class="summary">
               <p><strong>Vehicle:</strong> ${orderData.vehicle}</p>
-              <p><strong>Product:</strong> ${orderData.product}</p>
-              <p><strong>Quantity:</strong> ${orderData.quantity}</p>
+
               <p><strong>Destination:</strong> ${orderData.destination}</p>
             </div>
 
@@ -105,8 +105,7 @@ function showStep(steps) {
             <form id="confirmForm" action="order.php" method="get">
               
               <input type="hidden" name="vehicle" value="${orderData.vehicle}">
-              <input type="hidden" name="product" value="${orderData.product}">
-              <input type="hidden" name="quantity" value="${orderData.quantity}">
+
               <input type="hidden" name="destination" value="${orderData.destination}">
               <button type="submit" name="submit2">Confirm Order</button>
             </form>
@@ -137,7 +136,7 @@ function selectVehicle(vehicle, element) {
   }
 
   
-function selectProduct(product, element) {
+/*function selectProduct(product, element) {
     orderData.product = product;
   
     if (selectedProductCard) {
@@ -164,6 +163,7 @@ function selectProduct(product, element) {
     orderData.quantity = quantity;
     showStep(3);
   }
+    */
 
 
   function saveDestination() {
@@ -176,7 +176,7 @@ function selectProduct(product, element) {
     }
   
     orderData.destination = `${fromCity} to ${toCity}`;
-    showStep(4);
+    showStep(3);
   }
 
 
@@ -190,12 +190,12 @@ function selectProduct(product, element) {
     const name = formData.get("name");
     const email = formData.get("email");
     const vehicle = formData.get("vehicle");
-    const product = formData.get("product");
-    const quantity = formData.get("quantity");
+    //const product = formData.get("product");
+   // const quantity = formData.get("quantity");
     const destination = formData.get("destination");
 
     // Display confirmation message
-    alert(`Order confirmed!\n\nName: ${name}\nEmail: ${email}\nVehicle: ${vehicle}\nProduct: ${product}\nQuantity: ${quantity}\nDestination: ${destination}`);
+    alert(`Order confirmed!\n\nName: ${name}\nEmail: ${email}\nVehicle: ${quantity}\nDestination: ${destination}`);
 
     // Optionally reset the form and restart the process
     // form.reset();

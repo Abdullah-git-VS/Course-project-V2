@@ -41,10 +41,11 @@ if (isset($_GET['logout'])) {
       
 
     while ($row = mysqli_fetch_assoc($res)) {
-    echo "Product: " . $row['product'] . "<br>";
-    echo "Vehicle: " . $row['vehicle'] . "<br>";
-    echo "Quantity: " . $row['quantity'] . "<br>";
-    echo "Destination: " . $row['destination'] . "<br>";
+    echo "<div style='background-color:#272757;width:50%; margin:0 auto;margin-top:20px;'>";  
+    echo "<span style='font-size:25px;'> Product: </span> " . $row['product'] . "<br>";
+    echo "<span style='font-size:25px;'>Vehicle: </span>" . $row['vehicle'] . "<br>";
+    echo "<span style='font-size:25px;'>Quantity: </span> " . $row['quantity'] . "<br>";
+    echo "<span style='font-size:25px;'>Destination: </span> " . $row['destination'] . "<br>";
     echo "<form method='post'>";
     echo "<input type='hidden' name='delete_id' value='" . $row['id'] . "'>";
     echo "<button type='submit' style='background-color:red'>Delete</button>";
@@ -91,10 +92,10 @@ if (isset($_GET['confirm'])) {
       
 
     <?php if (mysqli_num_rows($res) > 0){ ?>
-  <form method="get">
+    <form method="get" style="width:50%;margin:0 auto;">
       <button type="submit" name="confirm">Confirm order</button>
-  </form>
-<?php } ?>
+    </form>
+   <?php } ?>
     
       
     </body>

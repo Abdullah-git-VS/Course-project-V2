@@ -2,7 +2,7 @@
 <html lang="en">
 <?php
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
-include("../admin/functions/restrictions.php");
+//include("../admin/functions/restrictions.php");
 session_start();
 
 // Check if the user is already logged in
@@ -68,7 +68,7 @@ mysqli_close($con);
 
   <!-- include header and i use block to go to about page -->
   <?php $title = "home Page"; ?>
-    <header>
+  <header>
     <nav class="navbar">
       <div class="logo">
         <h1><?php echo isset($title) ? htmlspecialchars($title) : "Default"; ?></h1>
@@ -82,7 +82,7 @@ mysqli_close($con);
 
   <!-- untill here -->
   <div class="form-container">
-    <form action="" method="post">
+    <form action="" method="post" >
       <h2>Login</h2>
       <input type="email" class="box" name="email" id="username" required placeholder="Email">
       <input type="password" class="box" name="password" id="password" required placeholder="Password">
@@ -91,9 +91,9 @@ mysqli_close($con);
         <strong>Sign-in</strong>
       </button>
 
-      
+
       <?php
-      
+
       if (isset($_SESSION['message'])) {
         echo '<div class="message" onclick="this.remove();">' . $_SESSION['message'] . '</div>';
         unset($_SESSION['message']);
