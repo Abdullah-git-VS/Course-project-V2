@@ -9,6 +9,16 @@
     <link rel="stylesheet" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shared/css/newStyle.css"; ?>">
     <title>users | المستخدمين</title>
     <style>
+        ul {
+            padding-left: 0px;
+        }
+
+        *,
+        ::after,
+        ::before {
+            box-sizing: content-box;
+        }
+
         .p {
             margin-right: 70px;
         }

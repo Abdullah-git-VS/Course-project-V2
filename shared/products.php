@@ -34,6 +34,15 @@ include("../admin/functions/restrictions.php");
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
 
     <style>
+        ul{
+            padding-left: 0px;
+        }
+        *,
+        ::after,
+        ::before {
+            box-sizing: content-box;
+        }
+
         .contPr {
             margin-right: 120px;
         }
