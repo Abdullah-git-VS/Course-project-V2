@@ -59,7 +59,7 @@ $profile_pic = $user['profile_pic'];
 
 
       <li>
-        <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . '/shared/products.php'; ?>">
+        <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . '/customer/order.php'; ?>">
           <i class="fas fa-list"></i>
           <p> order </p>
         </a>
@@ -89,7 +89,7 @@ $profile_pic = $user['profile_pic'];
 
 
       <li>
-        <a href="#">
+        <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . '/customer/prevOrders.php'; ?>">
           <i class="fas fa-cart-plus"></i>
           <p> pre order </p>
         </a>
