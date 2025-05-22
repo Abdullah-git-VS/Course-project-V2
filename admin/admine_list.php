@@ -70,9 +70,9 @@ $profile_pic = $user['profile_pic'];
             </li>
 
             <li>
-                <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/admin/prouducts.php"; ?>">
-                    <i class="fas fa-lightbulb"></i>
-                    <p>view product</p>
+                <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . '/admin/add.php'; ?>">
+                    <i class="fas fa-plus"></i>
+                    <p>add product</p>
                 </a>
             </li>
             <li>
