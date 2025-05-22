@@ -24,6 +24,8 @@ if($_SESSION['isAdmin'] == 0) {
 </head>
 
 <body>
+        <?php include($_SERVER["DOCUMENT_ROOT"] . "\admin\admine_list.php"); ?>
+
     <center>
         <div class="main">
             <form action="../admin/functions/insert.php" method="post" enctype="multipart/form-data">

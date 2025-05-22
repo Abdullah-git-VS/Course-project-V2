@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+
 </body>
-</html><!DOCTYPE html>
+
+</html>
+<!DOCTYPE html>
 <html lang="en">
 <?php
-    session_start();
-    include('../admin/functions/config.php');
-    include("../admin/functions/restrictions.php");
-    $userId=$_SESSION['user_id'];
-    $isAdmin=$_SESSION['isAdmin'];   
+session_start();
+include('../admin/functions/config.php');
+include("../admin/functions/restrictions.php");
+
 
 ?>
+
 <head>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,16 +29,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400&display=swap" rel="stylesheet">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Products | المنتجات</title>
-          <link rel="stylesheet" href="css/newStyle.css">
-          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
-    
+    <title>Products | المنتجات</title>
+    <link rel="stylesheet" href="css/newStyle.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+
     <style>
+        .contPr {
+            margin-right: 120px;
+        }
 
-
-    .contPr {
-        margin-right: 120px;
-    }
         h3,
         h5 {
             font-family: "Cairo", sans-serif;
@@ -72,7 +75,7 @@
 </head>
 
 <body>
-        <!-- include of header and list -->
+    <!-- include of header and list -->
     <?php
     $title = "products";
     if ($_SESSION['isAdmin'])
@@ -80,23 +83,16 @@
     else
         include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
     ?>
-
-
-    <?php if ($isAdmin==1) {?>
-    <nav calss="navbar">
-        <a id="aa" class="navbar-brand" href="../admin/add.php">Add product | إضافة منتج</a>
-    </nav>
-    <?php }?>
     <center>
         <h3>جميع المنتجات</h3>
     </center>
     <?php
-    
+
     $result = mysqli_query($con, "SELECT * FROM products");
-    if ($isAdmin==1) {
-    while ($row = mysqli_fetch_array($result)) {
-        
-        echo "
+    if ($isAdmin == 1) {
+        while ($row = mysqli_fetch_array($result)) {
+
+            echo "
         <div class='contPr'>
         
             <div class='card' style='width: 15rem; border: 1px black solid;'>
@@ -111,12 +107,12 @@
         
             </div>
             ";
+        }
     }
-}
-if ($isAdmin==0) {
+    if ($isAdmin == 0) {
         while ($row = mysqli_fetch_array($result)) {
-        
-        echo "
+
+            echo "
         <div class='contPr'>
         
             <div class='card' style='width: 15rem; border: 1px black solid;'>
@@ -131,14 +127,15 @@ if ($isAdmin==0) {
         
             </div>
             ";
+        }
     }
-}
 
 
     mysqli_close($con);
     ?>
-    
+
 </body>
 <?php
 ?>
+
 </html>

@@ -29,7 +29,6 @@ if (mysqli_num_rows($select_user) > 0) {
     <!-- include of header and list -->
     <?php
     $title = "user Page";
-    include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php");
     include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
     ?>
 
