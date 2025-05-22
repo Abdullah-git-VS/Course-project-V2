@@ -12,20 +12,17 @@
 <head>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="../shared/css/headerList.css">
+<link rel="stylesheet" href="../shared/css/newStyle.css">
 <style>
 
-    body {
-        display:flex;
-        flex-direction:column;
-        align-items:center;
-        padding: 50px;
-    }
+
+
 
     .steps-container {
         display: flex;
         justify-content: center;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
+        margin-right:150px;
         
     }
 
@@ -55,11 +52,12 @@
     }
 
     .content-container {
-        max-width: 900px;
+        max-width: 700px;
         max-height: 900px;
         background-color: #272757;
         padding: 20px;
         border-radius: 10px;
+        margin-left: 200px;
     }
 
     h2 {
@@ -165,6 +163,11 @@
 </head>
 
 <body>
+    <!-- include of header and list -->
+    <?php
+    $title = "user Page";
+    include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
+    ?>
 
 
 
@@ -174,6 +177,7 @@
     <div class="steps" onclick="showStep(2)"> <h5> Step 2 </h5> </div> 
     <div class="steps" onclick="showStep(3)"> <h5> Step 3 </h5> </div>
 </div>
+
 
 <div class="content-container" id="content">
 <!-- content steps 1,2,3 will implemented here in js -->
@@ -188,11 +192,13 @@
 
 
 </body>
+
+
+
 <?php
 
     
-    $title = "Cart";
-    include($_SERVER["DOCUMENT_ROOT"] . "/shared/list.php");
+
    
 
 if (isset($_GET['submit2'])) {
