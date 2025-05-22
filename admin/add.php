@@ -19,7 +19,7 @@ if($_SESSION['isAdmin'] == 0) {
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="index.css">
+    
     <title>shop online | اضافة منتجات</title>
 </head>
 
@@ -36,7 +36,7 @@ if($_SESSION['isAdmin'] == 0) {
                     <br><br>
                     <input type="file" id="file" name='image' style='display: none;'>
                     <label for="file" style='font-size:30px'>اختيار صورة للمنتج</label><br><br>
-                    <button type='submit' name='upload' style='font-size:30px'>✅رفع المنتج</button>
+                    <button type='submit' name='upload' style='height:90px;font-size:30px'>✅رفع المنتج</button>
                     <br><br>
                 </div>
                 <a href="../shared/products.php" style='font-size:30px'>عرض المنتجات</a>

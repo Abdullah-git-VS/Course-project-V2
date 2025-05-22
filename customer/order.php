@@ -171,13 +171,12 @@
 
 <div class="steps-container">
     <div class="steps" onclick="showStep(1)"> <h5> Step 1 </h5> </div>
-    <!-- <div class="steps" onclick="showStep(2)"> <h5> Step 2 </h5> </div> -->
     <div class="steps" onclick="showStep(2)"> <h5> Step 2 </h5> </div> 
     <div class="steps" onclick="showStep(3)"> <h5> Step 3 </h5> </div>
 </div>
 
 <div class="content-container" id="content">
-<!-- content steps 1,2,3,4 will implemented here in js -->
+<!-- content steps 1,2,3 will implemented here in js -->
    
 </div>
 

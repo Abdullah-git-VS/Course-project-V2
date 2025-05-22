@@ -7,13 +7,11 @@ showStep(1);
 
 const orderData={
     vehicle:'',
-    // product:'',
-   // quantity:'',
     destination:''
 }
 
  let selectedVehicle = null;
- //let selectedProductCard = null;
+
 
 function showStep(steps) {
 
@@ -44,39 +42,6 @@ function showStep(steps) {
         <br>
         <button onclick="saveVehicle()">Next</button>
             `;
-            break;
-       /* case 2:
-            content.innerHTML =`
-               <h2>Choose your your product </h2>
-                <div class="icons">
-                    <div class="icon-item" onclick="selectProduct('product1', this)">
-                        <i class="fas fa-cow"></i> 
-                        <h3>Cow</h3>
-                    </div>
-                    <div class="icon-item" onclick="selectProduct('product2', this)">
-                        <i>🐪</i>
-                        <h3>Camel</h3>
-                    </div>
-                    <div class="icon-item" onclick="selectProduct('producr3', this)">
-                        <i>🐐</i>
-                        <h3>goat</h3>
-                    </div>
-                    <div class="icon-item" onclick="selectProduct('product4', this)">
-                        <i class="fa fa-horse"></i>
-                        <h3>horse</h3>
-                    </div>
-                </div> <br>
-
-                <div class="quantity">
-                  <label for="quantity"><strong>Quantity:</strong></label>
-                  <input type="number" id="quantity" min="1" placeholder="Enter quantity" style="margin-left: 10px;">
-                </div> <br>
-
-                <button onclick="saveProduct()">Next</button>
-
-                
-            `;
-            */
             break;
         case 2:
             content.innerHTML = `
@@ -136,34 +101,6 @@ function selectVehicle(vehicle, element) {
   }
 
   
-/*function selectProduct(product, element) {
-    orderData.product = product;
-  
-    if (selectedProductCard) {
-      selectedProductCard.classList.remove("selected");
-    }
-    selectedProductCard = element;
-    selectedProductCard.classList.add("selected");
-  }
-
-  function saveProduct() {
-    const quantityInput = document.getElementById("quantity");
-    const quantity = quantityInput ? quantityInput.value.trim() : '';
-  
-    if (!orderData.product) {
-      alert("Please select a product.");
-      return;
-    }
-  
-    if (!quantity || isNaN(quantity) || Number(quantity) < 1) {
-      alert("Please enter a valid quantity.");
-      return;
-    }
-  
-    orderData.quantity = quantity;
-    showStep(3);
-  }
-    */
 
 
   function saveDestination() {
@@ -190,12 +127,10 @@ function selectVehicle(vehicle, element) {
     const name = formData.get("name");
     const email = formData.get("email");
     const vehicle = formData.get("vehicle");
-    //const product = formData.get("product");
-   // const quantity = formData.get("quantity");
     const destination = formData.get("destination");
 
     // Display confirmation message
-    alert(`Order confirmed!\n\nName: ${name}\nEmail: ${email}\nVehicle: ${quantity}\nDestination: ${destination}`);
+    alert(`Order confirmed!\n\nName: ${name}\nEmail: ${email}\nVehicle: \nDestination: ${destination}`);
 
     // Optionally reset the form and restart the process
     // form.reset();
