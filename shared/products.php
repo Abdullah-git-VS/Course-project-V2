@@ -124,7 +124,7 @@ if ($isAdmin==0) {
              <div class='card-body' style='border: 1px black solid;'>
                     <h5 class='card-title'>$row[name]</h5>
                     <p class='card-text'>$row[price]</p>
-                    <a href='../admin/functions/initialOrder.php?id=$row[id] &name=$row[name] &price=$row[price]' class='btn btn-danger'>Add</a>
+                    <a href='../admin/functions/initialOrder.php?id=$row[id] &name=$row[name] &price=$row[price]' class='btn btn-primary'>Add</a>
                     
                 </div>
             </div>
