@@ -1,115 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
+    <?php
+    include("../admin/functions/config.php");
+session_start();
+if($_SESSION['isAdmin'] == 0) {
+   header("Location: ../customer/userPage.php");
+}
 
+
+?>
 
 <head>
-
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo "../shared/css/newStyle.css"; ?>">
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shared/css/newStyle.css"; ?>">
+    <link rel="stylesheet" href="index.css">
     <title>shop online | اضافة منتجات</title>
-    <script>
-        function previewImage(event) {
-            const input = event.target;
-            const image = document.getElementById('imagePreview');
-
-            if (input.files && input.files[0]) {
-                const reader = new FileReader();
-
-                reader.onload = function(e) {
-                    image.src = e.target.result;
-                }
-
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-    </script>
-    <style>
-        .addForm {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            max-width: 500px;
-            max-height: 300px;
-            margin: 0 auto;
-            margin-top: 50px;
-            background-color: #272757;
-        }
-
-        .addForm h2 {
-            margin-bottom: 20px;
-            font-size: 24px;
-            color: white;
-            text-align: center;
-        }
-
-        .addForm img {
-            margin-bottom: 20px;
-            border-radius: 50%;
-            width: 200px;
-            height: 200px;
-        }
-
-        .addInput {
-            width: 80%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border-radius: 5px;
-            border: none;
-            background-color: #fff;
-            color: #000;
-            font-size: 16px;
-        }
-
-        .addProduct {
-            background-color: rgb(61, 61, 181);
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        .addForm a {
-            color: #fff;
-            text-decoration: none;
-            margin-top: 20px;
-            font-size: 16px;
-        }
-
-        .addForm a:hover {
-            text-decoration: underline;
-        }
-    </style>
 </head>
 
 <body>
-    <!-- include of header and block -->
-    <?php
-    $title = "add product";
-    include($_SERVER["DOCUMENT_ROOT"] . "\admin\admine_list.php"); ?>
-
-    <div class="back">
-        <a href="adminPage.php" class="back-btn"><i class="fas fa-home"></i> العودة</a>
-    </div>
-    <form class="addForm" action="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/admin/Functions/insert.php"; ?>" method="post" enctype="multipart/form-data">
-        <h2>إضافة المنتجات</h2>
-        <img src="../shared/images/map-operation.svg" alt="logo" width="450px" id="imagePreview">
-        <input class="addInput" type="text" name='name' placeholder="name">
-        <br>
-        <input class="addInput" type="text" name='price' placeholder="price">
-        <br>
-        <input class="addInput" type="file" id="file" name='image' style='display: none;' onchange="previewImage(event)">
-        <label for="file" >اختيار صورة للمنتج</label>
-        <button class="addProduct" name='upload'>✅رفع المنتج</button>
-        <br><br>
-        <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/admin/prouducts.php"; ?>">عرض المنتجات</a>
-    </form>
+    <center>
+        <div class="main">
+            <form action="../admin/functions/insert.php" method="post" enctype="multipart/form-data">
+                <h2>إضافة المنتجات</h2>
+                
+                <div class="second">
+                    <input type="text" name='name' placeholder="Name" style='width:300px; height:20px'>
+                    <br><br>
+                    <input type="text" name='price' placeholder="Price" style='width:300px; height:20px'>
+                    <br><br>
+                    <input type="file" id="file" name='image' style='display: none;'>
+                    <label for="file" style='font-size:30px'>اختيار صورة للمنتج</label><br><br>
+                    <button type='submit' name='upload' style='font-size:30px'>✅رفع المنتج</button>
+                    <br><br>
+                </div>
+                <a href="../shared/products.php" style='font-size:30px'>عرض المنتجات</a>
+            </form>
+        </div>
+        
+    </center>
 </body>
 
 </html>

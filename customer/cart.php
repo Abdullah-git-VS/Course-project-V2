@@ -1,7 +1,7 @@
 <!-- include header  -->
    <?php
     $title = "cart";
-    include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php");
+    // include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php");
     ?>
 <!-- untill here -->
 
@@ -10,11 +10,11 @@
  <?php
     ob_start();
     session_start();
-    include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
+    include("../admin\Functions\config.php");
     include("../admin/functions/restrictions.php");
     $userId=$_SESSION['user_id'];
 
-    include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
+    // include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
 
     if (!isset($_SESSION['user_id'])) {
     header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
@@ -57,7 +57,7 @@ if (isset($_GET['logout'])) {
 if (isset($_POST['delete_id'])) {
     $id = $_POST['delete_id'];
     mysqli_query($con, "DELETE FROM `order` WHERE id = $id AND userID = $userId");
-    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/customer/cart.php");
+    header("cart.php");
     exit;
 }
 

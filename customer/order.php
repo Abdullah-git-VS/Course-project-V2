@@ -2,27 +2,25 @@
     <?php
     ob_start();
     session_start();
-    include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\config.php");
+    include("../admin/functions/config.php");
+    include("../admin/functions/restrictions.php");
     $userId=$_SESSION['user_id'];
     $isAdmin=$_SESSION['isAdmin'];
-    include("../admin/functions/restrictions.php");
-        
-        
+    
+
     ?>
 <head>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<link rel="stylesheet" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shared/css/newStyle.css"; ?>">
+<link rel="stylesheet" href="../shared/css/headerList.css">
 <style>
 
-    
-
-    .frameContent {
+    body {
         display:flex;
         flex-direction:column;
         align-items:center;
         padding: 50px;
-        }
+    }
 
     .steps-container {
         display: flex;
@@ -168,15 +166,7 @@
 
 <body>
 
-    <!-- include header and list -->
-   <?php
-    $title = "Order";
-    include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php");
-    include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
-    ?>
-    <!-- untill here -->
 
-    
 
 
 <div class="steps-container">
@@ -186,48 +176,39 @@
     <div class="steps" onclick="showStep(3)"> <h5> Step 3 </h5> </div>
 </div>
 
-<div class="frameContent"> 
 <div class="content-container" id="content">
-<!-- content steps 1,2,3 will implemented here in js -->
+<!-- content steps 1,2,3,4 will implemented here in js -->
    
 </div>
-</div>
 
 
 
-<!-- <script src="../customer/js/scriptOrder.js"> </script> -->
- <script src="../shared/js/all_script.js"> </script>
 
-<?php if($isAdmin == 1) {?>
-    
-        <a href='../admin/addProduct.php'><button>Add products</button></a>
-    
+<script src="../shared/js/all_script.js"> </script>
 
-    <?php } ?>
 
 
 </body>
 <?php
 
 
+
 if (isset($_GET['submit2'])) {
     $vehicle = $_GET['vehicle'];
-    $product = $_GET['product'];
-    $quantity = $_GET['quantity'];
     $destination = $_GET['destination'];
-
-    $sql = "INSERT INTO `order` (vehicle, product, quantity, destination, userID) 
-            VALUES ('$vehicle', '$product', '$quantity', '$destination', '$userId')" or die("Query failed");
-    
+    $sql = "SELECT id FROM `order` WHERE userID = $userId ORDER BY id DESC LIMIT 1";
     $result = mysqli_query($con, $sql);
-
-    header("Location: http://" . $_SERVER['HTTP_HOST'] . "/customer/order.php");
-    exit;
-
-
-        
-
+    $row = mysqli_fetch_assoc($result);
+    $lastOrderId = $row['id'];
     
+    $sql = "UPDATE `order` SET vehicle='$vehicle', destination='$destination' WHERE id='$lastOrderId' AND userId='$userId' 
+            " or die("Query failed");
+    
+    $q = mysqli_query($con, $sql);
+    
+
+    header("Location: ../shared/products.php");
+    exit;
 }
 
   mysqli_close($con);

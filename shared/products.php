@@ -1,12 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
 <?php
     session_start();
-    include("../shared/functions/restrictions.php");
+    include('../admin/functions/config.php');
+    include("../admin/functions/restrictions.php");
     $userId=$_SESSION['user_id'];
-    $isAdmin=$_SESSION['isAdmin'];
-
-   
+    $isAdmin=$_SESSION['isAdmin'];   
 
 ?>
 <head>
@@ -57,14 +66,14 @@
 <body>
     <?php if ($isAdmin==1) {?>
     <nav calss="navbar">
-        <a id="aa" class="navbar-brand" href="add.php">Add product | إضافة منتج</a>
+        <a id="aa" class="navbar-brand" href="../admin/add.php">Add product | إضافة منتج</a>
     </nav>
     <?php }?>
     <center>
         <h3>جميع المنتجات</h3>
     </center>
     <?php
-    include('../shared/functions/config.php');
+    
     $result = mysqli_query($con, "SELECT * FROM products");
     if ($isAdmin==1) {
     while ($row = mysqli_fetch_array($result)) {
@@ -96,7 +105,7 @@ if ($isAdmin==0) {
              <div class='card-body' style='border: 1px black solid;'>
                     <h5 class='card-title'>$row[name]</h5>
                     <p class='card-text'>$row[price]</p>
-                    <a href='./functions/initialOrder.php?id=$row[id] &name=$row[name] &price=$row[price]' class='btn btn-danger'>Add</a>
+                    <a href='../admin/functions/initialOrder.php?id=$row[id] &name=$row[name] &price=$row[price]' class='btn btn-danger'>Add</a>
                 </div>
             </div>
         
