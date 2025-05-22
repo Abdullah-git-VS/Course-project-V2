@@ -171,7 +171,6 @@
 
 <div class="steps-container">
     <div class="steps" onclick="showStep(1)"> <h5> Step 1 </h5> </div>
-    <!-- <div class="steps" onclick="showStep(2)"> <h5> Step 2 </h5> </div> -->
     <div class="steps" onclick="showStep(2)"> <h5> Step 2 </h5> </div> 
     <div class="steps" onclick="showStep(3)"> <h5> Step 3 </h5> </div>
 </div>
@@ -182,7 +181,7 @@
 </div>
 
 
-
+  <link rel="stylesheet" href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shared/css/newStyle.css"; ?>">
 
 <script src="../shared/js/all_script.js"> </script>
 
@@ -191,7 +190,11 @@
 </body>
 <?php
 
-
+    
+    $title = "Cart";
+    include($_SERVER["DOCUMENT_ROOT"] . "\shared\header.php");
+    include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
+   
 
 if (isset($_GET['submit2'])) {
     $vehicle = $_GET['vehicle'];
