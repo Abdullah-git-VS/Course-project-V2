@@ -14,7 +14,7 @@
     include("../admin/functions/restrictions.php");
     $userId=$_SESSION['user_id'];
 
-    // include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
+     include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
 
     if (!isset($_SESSION['user_id'])) {
     header("Location: http://" . $_SERVER['HTTP_HOST'] . "/shared/homePage.php");
