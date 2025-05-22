@@ -26,7 +26,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Products | المنتجات</title>
+          <link rel="stylesheet" href="css/newStyle.css">
+          <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
+    
     <style>
+
+
+    .contPr {
+        margin-right: 120px;
+    }
         h3,
         h5 {
             font-family: "Cairo", sans-serif;
@@ -64,6 +72,16 @@
 </head>
 
 <body>
+        <!-- include of header and list -->
+    <?php
+    $title = "products";
+    if ($_SESSION['isAdmin'])
+        include($_SERVER["DOCUMENT_ROOT"] . "\admin\admine_list.php");
+    else
+        include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
+    ?>
+
+
     <?php if ($isAdmin==1) {?>
     <nav calss="navbar">
         <a id="aa" class="navbar-brand" href="../admin/add.php">Add product | إضافة منتج</a>
@@ -79,7 +97,7 @@
     while ($row = mysqli_fetch_array($result)) {
         
         echo "
-        <center>
+        <div class='contPr'>
         
             <div class='card' style='width: 15rem; border: 1px black solid;'>
              <img src='$row[image]' class='card-img-top'>
@@ -90,7 +108,7 @@
                 </div>
             </div>
         
-            </center>
+            </div>
             ";
     }
 }
@@ -98,7 +116,7 @@ if ($isAdmin==0) {
         while ($row = mysqli_fetch_array($result)) {
         
         echo "
-        <center>
+        <div class='contPr'>
         
             <div class='card' style='width: 15rem; border: 1px black solid;'>
              <img src='$row[image]' class='card-img-top'>
@@ -109,7 +127,7 @@ if ($isAdmin==0) {
                 </div>
             </div>
         
-            </center>
+            </div>
             ";
     }
 }
