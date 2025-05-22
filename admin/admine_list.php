@@ -49,6 +49,13 @@ $profile_pic = $user['profile_pic'];
             </li>
 
             <li>
+                <a href="<?php echo "http://" . $_SERVER['HTTP_HOST']  . "/index.php"; ?>" style="text-decoration: none; color: inherit;">
+                    <i class="fas fa-temperature-high"></i>
+                    <p> weather </p>
+                </a>
+            </li>
+
+            <li>
                 <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/customer/userProfile.php"; ?>">
                     <i class="fas fa-users"></i>
                     <p>profile</p>

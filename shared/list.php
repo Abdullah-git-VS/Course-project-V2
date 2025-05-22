@@ -1,5 +1,3 @@
-
-
 <!-- validate user session -->
 <?php
 include($_SERVER["DOCUMENT_ROOT"] . "\admin\Functions\getUser.php");
@@ -83,6 +81,13 @@ $profile_pic = $user['profile_pic'];
       <li>
         <a href="#">
           <i class="fas fa-cloud"></i>
+          <p> weather </p>
+        </a>
+      </li>
+
+      <li>
+        <a href="<?php echo "http://" . $_SERVER['HTTP_HOST']  . 'index.php'; ?>" style="text-decoration: none; color: inherit;">
+          <i class="fas fa-temperature-high"></i>
           <p> weather </p>
         </a>
       </li>
