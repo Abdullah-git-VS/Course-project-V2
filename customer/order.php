@@ -176,7 +176,7 @@
 </div>
 
 <div class="content-container" id="content">
-<!-- content steps 1,2,3,4 will implemented here in js -->
+<!-- content steps 1,2,3 will implemented here in js -->
    
 </div>
 
