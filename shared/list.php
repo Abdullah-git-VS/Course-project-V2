@@ -90,8 +90,8 @@ $profile_pic = $user['profile_pic'];
 
       <li>
         <a href="#">
-          <i class="fas fa-cog"></i>
-          <p> settings </p>
+          <i class="fas fa-cart-plus"></i>
+          <p> pre order </p>
         </a>
       </li>
 
