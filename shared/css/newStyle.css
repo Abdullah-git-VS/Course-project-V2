@@ -326,4 +326,78 @@ a {
 /* shop page end here (customer) */
 
 
+/* whether styling start here */
 
+.headings {
+  text-align: center;
+  color:rgb(255, 255, 255);
+}
+
+.tit {
+  color:black;
+}
+
+.container5{
+  background-color: #1c1c3a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom:20px;
+}
+
+ .weather-card {
+   background: #1c1c3a;
+   padding: 15px;
+    margin: 10px;
+     border-radius: 10px;
+     width: 280px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+     text-align: center;
+     color: black;
+        }
+
+        .search-bar {
+            text-align: center;
+            margin-bottom: 20px;
+            width:50%;
+            margin: 0 auto;
+        }
+
+            input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border-radius: 5px;
+            border: 1px solid #aaa;
+        }
+
+        input[type="submit"] {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: rgba(58, 29, 160, 0.75);
+            color: white;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+            .error {
+            color: red;
+            text-align: center;
+        }
+
+        .frm {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+
+        .container10 {
+          display: flex;
+           flex-direction: column;
+           justify-content: center;
+           align-items: center;
+          margin-top: 20px;
+        }
