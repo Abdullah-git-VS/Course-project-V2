@@ -44,7 +44,7 @@ if (isset($_GET['logout'])) {
       
     echo "<div style='background-color:#272757;width:50%; margin:0 auto;margin-top:20px;'>";  
     echo "<span style='font-size:25px;'> Product: </span> " . $row['name'] . "<br>";
-    "<span style='font-size:25px;'> Price: </span> " . $row['price'] . "<br>";
+    echo"<span style='font-size:25px;'> Price: </span> " . $row['price'] . "<br>";
     echo "<span style='font-size:25px;'>Vehicle: </span>" . $row['vehicle'] . "<br>";
     echo "<span style='font-size:25px;'>Destination: </span> " . $row['destination'] . "<br>";
     echo "<form method='post'>";
