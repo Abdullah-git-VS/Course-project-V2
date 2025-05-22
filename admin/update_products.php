@@ -36,7 +36,7 @@
     $data = mysqli_fetch_array($UP);
     mysqli_close($con);
     ?>
-    <center><?php echo "../shared/" . $data['profile_pic']; ?>
+    <center>
         <div class="main">
             <form action="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/admin/Functions/up_products.php"; ?>" method="post" enctype="multipart/form-data">
                 <h2>تعديل المنتج</h2>
@@ -54,7 +54,7 @@
                 <label for="file">تحديث الصورة </label>
                 <button type="submit" name='update'>✅تعديل المنتج</button>
                 <br><br>
-                <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/admin/prouducts.php"; ?>">عرض المنتجات</a>
+                <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/shared/products.php"; ?>">عرض المنتجات</a>
             </form>
         </div>
     </center>

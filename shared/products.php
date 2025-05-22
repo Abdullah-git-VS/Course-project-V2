@@ -110,7 +110,7 @@ include("../admin/functions/restrictions.php");
                     <h5 class='card-title'>$row[name]</h5>
                     <p class='card-text'>$row[price]</p>
                     <a href='../admin/functions/delete_product.php?id=$row[id]' class='btn btn-danger'>حذف</a>
-                    <a href='../admin/functions/up_products?id=$row[id]' class='btn btn-primary'>تعديل</a>
+                    <a href='http://" . $_SERVER['HTTP_HOST'] . "/admin/update_products.php?id=$row[id]' class='btn btn-primary'>تعديل</a>
                 </div>
             </div>
         
