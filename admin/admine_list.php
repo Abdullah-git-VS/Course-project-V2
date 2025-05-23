@@ -86,17 +86,12 @@ $profile_pic = $user['profile_pic'];
             </li>
             <li>
                 <a href="<?php echo "http://" . $_SERVER['HTTP_HOST']  . "/shared/products.php"; ?>">
-                    <i class="fas fa-temperature-high"></i>
-                    <p> weather </p>
+                    <i class="fas fa-star"></i>
+                    <p> current product </p>
                 </a>
             </li>
 
-            <li>
-                <a href="#">
-                    <i class="fas fa-cog"></i>
-                    <p>configuration</p>
-                </a>
-            </li>
+
 
             <li class="logout">
                 <a href="?logout=<?php echo $user_id; ?>" onclick="return confirm('هل أنت متأكد أنك تريد تسجيل الخروج؟');">
