@@ -41,14 +41,22 @@
             <form action="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/admin/Functions/up_products.php"; ?>" method="post" enctype="multipart/form-data">
                 <h2>تعديل المنتج</h2>
                 <img src="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/../shared/" . $data['image']; ?>" alt="logo" width="450px" id="imagePreview">
-
                 <input style="display: none;" type="text" name='o' value='<?php echo $data['id']; ?>'>
                 <br>
-                <input type="text" name='id' value='<?php echo $data['id']; ?>'>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <label>ID:</label>
+                    <input type="text" name='id' value='<?php echo $data['id']; ?>'>
+                </div>
                 <br>
-                <input type="text" name='name' value='<?php echo $data['name']; ?>'>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <label>Name:</label>
+                    <input type="text" name='name' value='<?php echo $data['name']; ?>'>
+                </div>
                 <br>
-                <input type="text" name='price' value="<?php echo $data['price']; ?>">
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <label>Price:</label>
+                    <input type="text" name='price' value="<?php echo $data['price']; ?>">
+                </div>
                 <br>
                 <input type="file" name='image' id="file" value="<?php echo $data['image']; ?>" style='display: none;' onchange="previewImage(event)">
                 <label for="file">تحديث الصورة </label>
