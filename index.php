@@ -55,9 +55,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['search'])) {
 <body>
 
 
+    <!-- include of header and list -->
     <?php
-    $title = "user page";
-    include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php") ?>
+    $title = "Profile";
+    if ($_SESSION['isAdmin'])
+        include($_SERVER["DOCUMENT_ROOT"] . "\admin\admine_list.php");
+    else
+        include($_SERVER["DOCUMENT_ROOT"] . "\shared\list.php");
+    ?>
+
+
     <h1 class="tit">KSA Weather Info</h1>
 
     <h2 class="tit">Your Current Location Weather</h2>

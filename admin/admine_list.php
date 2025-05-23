@@ -48,12 +48,7 @@ $profile_pic = $user['profile_pic'];
                 <h2> <?php echo $user['name']; ?> </h2>
             </li>
 
-            <li>
-                <a href="<?php echo "http://" . $_SERVER['HTTP_HOST']  . "/index.php"; ?>" style="text-decoration: none; color: inherit;">
-                    <i class="fas fa-temperature-high"></i>
-                    <p> weather </p>
-                </a>
-            </li>
+
 
             <li>
                 <a href="<?php echo "http://" . $_SERVER['HTTP_HOST'] . "/customer/userProfile.php"; ?>">
@@ -83,9 +78,10 @@ $profile_pic = $user['profile_pic'];
                 </a>
             </li>
             <li>
-                <a href="#">
-                    <i class="fas fa-cloud"></i>
-                    <p>weather</p>
+            <li>
+                <a href="<?php echo "http://" . $_SERVER['HTTP_HOST']  . "/index.php"; ?>">
+                    <i class="fas fa-temperature-high"></i>
+                    <p> weather </p>
                 </a>
             </li>
 
