@@ -84,6 +84,12 @@ $profile_pic = $user['profile_pic'];
                     <p> weather </p>
                 </a>
             </li>
+            <li>
+                <a href="<?php echo "http://" . $_SERVER['HTTP_HOST']  . "/shared/products.php"; ?>">
+                    <i class="fas fa-temperature-high"></i>
+                    <p> weather </p>
+                </a>
+            </li>
 
             <li>
                 <a href="#">
