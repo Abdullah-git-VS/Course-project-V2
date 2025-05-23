@@ -45,12 +45,21 @@
 
                 <input style="display: none;" type="text" name='o' value='<?php echo $data['id']; ?>'>
                 <br>
-                <input type="text" name='id' value='<?php echo $data['id']; ?>'>
-                <br>
-                <input type="text" name='name' value='<?php echo $data['name']; ?>'>
-                <br>
-                <input type="text" name='email' value="<?php echo $data['email']; ?>">
-                <br>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <label>ID:</label>
+                    <input type="text" name='id' value='<?php echo $data['id']; ?>'>
+                    <br>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <label>Name:</label>
+                    <input type="text" name='name' value='<?php echo $data['name']; ?>'>
+                    <br>
+                </div>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                    <label>Email:</label>
+                    <input type="text" name='email' value="<?php echo $data['email']; ?>">
+                    <br>
+                </div>
                 <input type="file" name='profile_pic' id="file" value="<?php echo $data['image']; ?>" style='display: none;' onchange="previewImage(event)">
                 <label for="file">تحديث الصورة </label>
                 <button type="submit" name='update'>✅تعديل المستخدم</button>
