@@ -80,7 +80,7 @@ $profile_pic = $user['profile_pic'];
 
 
       <li>
-        <a href="<?php echo "http://" . $_SERVER['HTTP_HOST']  . 'index.php'; ?>">
+        <a href="<?php echo "http://" . $_SERVER['HTTP_HOST']  . "/index.php"; ?>">
           <i class="fas fa-temperature-high"></i>
           <p> weather </p>
         </a>
